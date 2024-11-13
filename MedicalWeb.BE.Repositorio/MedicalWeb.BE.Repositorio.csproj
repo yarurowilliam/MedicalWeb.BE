@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MedicalWeb.BE.Infraestructure\MedicalWeb.BE.Infraestructure.csproj" />
+    <ProjectReference Include="..\MedicalWeb.BE.Repositorio.Interfaces\MedicalWeb.BE.Repositorio.Interfaces.csproj" />
+    <ProjectReference Include="..\MedicalWeb.BE.Transversales\MedicalWeb.BE.Transversales.csproj" />
+  </ItemGroup>
+
+</Project>

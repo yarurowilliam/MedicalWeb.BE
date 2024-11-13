@@ -1,0 +1,12 @@
+F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Transversales\bin\Debug\net8.0\MedicalWeb.BE.Transversales.deps.json
+F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Transversales\bin\Debug\net8.0\MedicalWeb.BE.Transversales.dll
+F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Transversales\bin\Debug\net8.0\MedicalWeb.BE.Transversales.pdb
+F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\MedicalWeb.BE.Transversales.csproj.AssemblyReference.cache
+F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\MedicalWeb.BE.Transversales.GeneratedMSBuildEditorConfig.editorconfig
+F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\MedicalWeb.BE.Transversales.AssemblyInfoInputs.cache
+F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\MedicalWeb.BE.Transversales.AssemblyInfo.cs
+F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\MedicalWeb.BE.Transversales.csproj.CoreCompileInputs.cache
+F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\MedicalWeb.BE.Transversales.dll
+F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\refint\MedicalWeb.BE.Transversales.dll
+F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\MedicalWeb.BE.Transversales.pdb
+F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\ref\MedicalWeb.BE.Transversales.dll

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "GqtlkQr0dnakShiI22ftCpQ/uqk8+/JcObhU3RS7moI=",
+  "Source": "MedicalWeb.BE.API",
+  "BasePath": "_content/MedicalWeb.BE.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
