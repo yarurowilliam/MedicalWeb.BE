@@ -17,3 +17,4 @@ F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Servicio\obj\Debug\net8
 F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Servicio\obj\Debug\net8.0\refint\MedicalWeb.BE.Servicio.dll
 F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Servicio\obj\Debug\net8.0\MedicalWeb.BE.Servicio.pdb
 F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Servicio\obj\Debug\net8.0\ref\MedicalWeb.BE.Servicio.dll
+F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Servicio\obj\Debug\net8.0\MedicalWeb.BE.Servicio.sourcelink.json

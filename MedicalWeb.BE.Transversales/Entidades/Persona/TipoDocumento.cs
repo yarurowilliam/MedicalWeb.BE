@@ -6,5 +6,6 @@ public class TipoDocumento
     public string Nombre { get; set; }
     public string Abreviatura { get; set; }
     public string Descripcion { get; set; }
-    public bool Activo { get; set; }
+    public int IdPais { get; set; }
+    public string Estado { get; set; }
 }

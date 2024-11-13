@@ -21,6 +21,7 @@ public static class DbConstants
         public const string Usuarios = nameof(Usuarios);
         public const string DocumentationStatuses = nameof(DocumentationStatuses);
         public const string NotificationMethods = nameof(NotificationMethods);
+        public const string Especialidades = nameof(Especialidades);
         public const string EFMigrationsHistory = $"_{nameof(EFMigrationsHistory)}_";
     }
 
@@ -50,6 +51,7 @@ public static class DbConstants
         public const int Staircase = 5;
         public const int Floor = 3;
         public const int Token = 32;
+        public const int Description = 300;
     }
 
     public class ShadowProperties

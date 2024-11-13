@@ -2035,6 +2035,36 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                         });
                 });
 
+            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.Especialidad", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Nombre")
+                        .IsUnique();
+
+                    b.ToTable("Especialidades", "dbo");
+                });
+
             modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.MaritalStatus", b =>
                 {
                     b.Property<int>("Id")

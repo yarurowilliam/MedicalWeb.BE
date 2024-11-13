@@ -10,3 +10,4 @@ F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug
 F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\refint\MedicalWeb.BE.Transversales.dll
 F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\MedicalWeb.BE.Transversales.pdb
 F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\ref\MedicalWeb.BE.Transversales.dll
+F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\MedicalWeb.BE.Transversales.sourcelink.json

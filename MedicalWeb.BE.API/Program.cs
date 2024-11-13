@@ -45,6 +45,8 @@ builder.Services.AddSwaggerGen(c =>
 //IMPLEMENTA LA INYECCION DE DEPENDENCIAS Y CONTROLADORES
 builder.Services.AddScoped<IMedicoDAL, MedicoDAL>();
 builder.Services.AddScoped<IMedicoBLL, MedicoBLL>();
+builder.Services.AddScoped<IEspecialidadDAL, EspecialidadDAL>();
+builder.Services.AddScoped<IEspecialidadBLL, EspecialidadBLL>();
 
 // Agregar servicios de controladores
 builder.Services.AddControllers();

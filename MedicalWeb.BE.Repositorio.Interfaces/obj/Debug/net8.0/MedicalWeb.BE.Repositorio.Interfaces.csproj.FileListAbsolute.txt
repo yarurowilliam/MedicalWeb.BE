@@ -13,3 +13,4 @@ F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Repositorio.Interfaces\
 F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Repositorio.Interfaces\obj\Debug\net8.0\refint\MedicalWeb.BE.Repositorio.Interfaces.dll
 F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Repositorio.Interfaces\obj\Debug\net8.0\MedicalWeb.BE.Repositorio.Interfaces.pdb
 F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Repositorio.Interfaces\obj\Debug\net8.0\ref\MedicalWeb.BE.Repositorio.Interfaces.dll
+F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Repositorio.Interfaces\obj\Debug\net8.0\MedicalWeb.BE.Repositorio.Interfaces.sourcelink.json

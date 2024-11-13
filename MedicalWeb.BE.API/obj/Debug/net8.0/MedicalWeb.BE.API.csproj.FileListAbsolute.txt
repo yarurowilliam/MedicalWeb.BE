@@ -184,3 +184,4 @@ F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.API\bin\Debug\net8.0\Me
 F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.API\bin\Debug\net8.0\MedicalWeb.BE.Repositorio.pdb
 F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.API\bin\Debug\net8.0\MedicalWeb.BE.Servicio.Interfaces.pdb
 F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.API\bin\Debug\net8.0\MedicalWeb.BE.Servicio.pdb
+F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.API\obj\Debug\net8.0\MedicalWeb.BE.API.sourcelink.json

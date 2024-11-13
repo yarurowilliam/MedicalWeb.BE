@@ -29,7 +29,6 @@ x86/
 bld/
 [Bb]in/
 [Oo]bj/
-[Oo]ut/
 [Ll]og/
 [Ll]ogs/
 
@@ -360,4 +359,5 @@ MigrationBackup/
 .ionide/
 
 # Fody - auto-generated XML schema
-FodyWeavers.xsd
+
+/APIs/PedidosPreventa/Quala.TITAN.Web.BE.PedidosPreventa.api/appsettings.json
