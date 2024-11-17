@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "GqtlkQr0dnakShiI22ftCpQ/uqk8+/JcObhU3RS7moI=",
+  "Hash": "6uK9Z4pJmTUgBrlM6dbMgJObs4JqiK9zYArrmM9mBHk=",
   "Source": "MedicalWeb.BE.API",
   "BasePath": "_content/MedicalWeb.BE.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

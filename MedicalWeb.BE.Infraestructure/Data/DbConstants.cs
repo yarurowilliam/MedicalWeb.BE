@@ -1,4 +1,6 @@
-﻿namespace MedicalWeb.BE.Infraestructure.Data;
+﻿using System.Security;
+
+namespace MedicalWeb.BE.Infraestructure.Data;
 
 public static class DbConstants
 {
@@ -22,6 +24,10 @@ public static class DbConstants
         public const string DocumentationStatuses = nameof(DocumentationStatuses);
         public const string NotificationMethods = nameof(NotificationMethods);
         public const string Especialidades = nameof(Especialidades);
+        public const string HorarioMedico = nameof(HorarioMedico);  
+        public const string Dias = nameof(Dias);
+        public const string HorasMedicas = nameof(HorasMedicas);
+        public const string EstadoHorario = nameof(EstadoHorario);
         public const string EFMigrationsHistory = $"_{nameof(EFMigrationsHistory)}_";
     }
 
