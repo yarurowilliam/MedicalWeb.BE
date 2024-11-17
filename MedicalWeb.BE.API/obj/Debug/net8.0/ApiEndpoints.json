@@ -247,5 +247,174 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "MedicalWeb.BE.API.Controllers.MedicoEspecialidadController",
+    "Method": "GetMedicosEspecialidadesAsync",
+    "RelativePath": "api/MedicoEspecialidad",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MedicalWeb.BE.Transversales.Entidades.MedicoEspecialidad, MedicalWeb.BE.Transversales, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MedicalWeb.BE.API.Controllers.MedicoEspecialidadController",
+    "Method": "CreateMedicoEspecialidadAsync",
+    "RelativePath": "api/MedicoEspecialidad",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "medicoEspecialidad",
+        "Type": "MedicalWeb.BE.Transversales.Entidades.MedicoEspecialidad",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MedicalWeb.BE.Transversales.Entidades.MedicoEspecialidad",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MedicalWeb.BE.API.Controllers.MedicoEspecialidadController",
+    "Method": "GetMedicosEspecialidadesActivasAsync",
+    "RelativePath": "api/MedicoEspecialidad/activas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MedicalWeb.BE.Transversales.Entidades.MedicoEspecialidad, MedicalWeb.BE.Transversales, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MedicalWeb.BE.API.Controllers.MedicoEspecialidadController",
+    "Method": "GetEspecialidadByNameAsync",
+    "RelativePath": "api/MedicoEspecialidad/especialidad/{nombreEspecialidad}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nombreEspecialidad",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MedicalWeb.BE.Transversales.Entidades.Especialidad",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MedicalWeb.BE.API.Controllers.MedicoEspecialidadController",
+    "Method": "GetMedicosEspecialidadesInactivasAsync",
+    "RelativePath": "api/MedicoEspecialidad/inactivas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MedicalWeb.BE.Transversales.Entidades.MedicoEspecialidad, MedicalWeb.BE.Transversales, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MedicalWeb.BE.API.Controllers.MedicoEspecialidadController",
+    "Method": "UpdateMedicoEspecialidadAsync",
+    "RelativePath": "api/MedicoEspecialidad/medico/{medicoNumeroDocumento}/especialidad/{especialidadId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "medicoNumeroDocumento",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "especialidadId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "medicoEspecialidadUpdateDto",
+        "Type": "MedicalWeb.BE.Transversales.Entidades.MedicoEspecialidadUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MedicalWeb.BE.Transversales.Entidades.MedicoEspecialidad",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MedicalWeb.BE.API.Controllers.MedicoEspecialidadController",
+    "Method": "DeleteMedicoEspecialidadAsync",
+    "RelativePath": "api/MedicoEspecialidad/medico/{medicoNumeroDocumento}/especialidad/{especialidadId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "medicoNumeroDocumento",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "especialidadId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

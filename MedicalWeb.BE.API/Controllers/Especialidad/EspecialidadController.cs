@@ -44,12 +44,21 @@ public class EspecialidadController : ControllerBase
     {
         if (id != especialidad.Id)
         {
-            return BadRequest();
+            return BadRequest("El ID en la URL no coincide con el ID de la especialidad.");
         }
 
+        // Verificar si la especialidad existe
+        var especialidadExistente = await _especialidadBLL.GetEspecialidadByIdAsync(id);
+        if (especialidadExistente == null)
+        {
+            return NotFound("La especialidad no existe.");
+        }
+
+        // Realizar la actualización
         var especialidadActualizada = await _especialidadBLL.UpdateEspecialidadAsync(especialidad);
         return Ok(especialidadActualizada);
     }
+
 
     [HttpDelete("{id}")]
     public async Task<ActionResult<Especialidad>> DeleteEspecialidadAsync(int id)

@@ -16,3 +16,21 @@ F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\obj\Deb
 F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\obj\Debug\net8.0\MedicalWeb.BE.Infraestructure.genruntimeconfig.cache
 F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\obj\Debug\net8.0\ref\MedicalWeb.BE.Infraestructure.dll
 F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\obj\Debug\net8.0\MedicalWeb.BE.Infraestructure.sourcelink.json
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\bin\Debug\net8.0\MedicalWeb.BE.Infraestructure.deps.json
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\bin\Debug\net8.0\MedicalWeb.BE.Infraestructure.runtimeconfig.json
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\bin\Debug\net8.0\MedicalWeb.BE.Infraestructure.dll
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\bin\Debug\net8.0\MedicalWeb.BE.Infraestructure.pdb
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\bin\Debug\net8.0\MedicalWeb.BE.Transversales.dll
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\bin\Debug\net8.0\MedicalWeb.BE.Transversales.pdb
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\obj\Debug\net8.0\MedicalWeb.BE.Infraestructure.csproj.AssemblyReference.cache
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\obj\Debug\net8.0\MedicalWeb.BE.Infraestructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\obj\Debug\net8.0\MedicalWeb.BE.Infraestructure.AssemblyInfoInputs.cache
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\obj\Debug\net8.0\MedicalWeb.BE.Infraestructure.AssemblyInfo.cs
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\obj\Debug\net8.0\MedicalWeb.BE.Infraestructure.csproj.CoreCompileInputs.cache
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\obj\Debug\net8.0\MedicalWeb.BE.Infraestructure.sourcelink.json
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\obj\Debug\net8.0\MedicalW.F29005B9.Up2Date
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\obj\Debug\net8.0\MedicalWeb.BE.Infraestructure.dll
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\obj\Debug\net8.0\refint\MedicalWeb.BE.Infraestructure.dll
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\obj\Debug\net8.0\MedicalWeb.BE.Infraestructure.pdb
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\obj\Debug\net8.0\MedicalWeb.BE.Infraestructure.genruntimeconfig.cache
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Infraestructure\obj\Debug\net8.0\ref\MedicalWeb.BE.Infraestructure.dll

@@ -2260,6 +2260,31 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                     b.ToTable("Medicos", "dbo");
                 });
 
+            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.MedicoEspecialidad", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("EspecialidadId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MedicoNumeroDocumento")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EspecialidadId");
+
+                    b.HasIndex("MedicoNumeroDocumento");
+
+                    b.ToTable("MedicoEspecialidad", "dbo");
+                });
+
             modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.NotificationMethod", b =>
                 {
                     b.Property<int>("Id")
@@ -2408,6 +2433,25 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                             Id = 15,
                             Name = "Otro"
                         });
+                });
+
+            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.MedicoEspecialidad", b =>
+                {
+                    b.HasOne("MedicalWeb.BE.Transversales.Entidades.Especialidad", "Especialidad")
+                        .WithMany()
+                        .HasForeignKey("EspecialidadId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("MedicalWeb.BE.Transversales.Entidades.Medico", "Medico")
+                        .WithMany()
+                        .HasForeignKey("MedicoNumeroDocumento")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Especialidad");
+
+                    b.Navigation("Medico");
                 });
 #pragma warning restore 612, 618
         }

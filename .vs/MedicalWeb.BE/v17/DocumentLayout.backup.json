@@ -1,38 +1,77 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\",
+  "WorkspaceRootPath": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8F14F8AB-B968-452F-945E-505D9475A8FF}|MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj|f:\\hmdevsprojects\\medicalweb\\medicalweb.be\\medicalweb.be.api\\controllers\\especialidad\\especialidadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F14F8AB-B968-452F-945E-505D9475A8FF}|MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj|solutionrelative:medicalweb.be.api\\controllers\\especialidad\\especialidadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{041F538C-0FC0-491A-99B8-BCED94552AB0}|MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj|c:\\users\\dario\\documents\\proyecto cemedicar\\medicalweb.be\\medicalweb.be.servicio.interfaces\\medicoespecialidad\\imedicoespecialidadbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{041F538C-0FC0-491A-99B8-BCED94552AB0}|MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj|solutionrelative:medicalweb.be.servicio.interfaces\\medicoespecialidad\\imedicoespecialidadbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F14F8AB-B968-452F-945E-505D9475A8FF}|MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj|f:\\hmdevsprojects\\medicalweb\\medicalweb.be\\medicalweb.be.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0D97E4B6-5DF6-48B4-B8EE-688F4289A023}|MedicalWeb.BE.Servicio\\MedicalWeb.BE.Servicio.csproj|c:\\users\\dario\\documents\\proyecto cemedicar\\medicalweb.be\\medicalweb.be.servicio\\medicoespecialidad\\medicoespecialidadbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D97E4B6-5DF6-48B4-B8EE-688F4289A023}|MedicalWeb.BE.Servicio\\MedicalWeb.BE.Servicio.csproj|solutionrelative:medicalweb.be.servicio\\medicoespecialidad\\medicoespecialidadbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F14F8AB-B968-452F-945E-505D9475A8FF}|MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj|c:\\users\\dario\\documents\\proyecto cemedicar\\medicalweb.be\\medicalweb.be.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F14F8AB-B968-452F-945E-505D9475A8FF}|MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj|solutionrelative:medicalweb.be.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{041F538C-0FC0-491A-99B8-BCED94552AB0}|MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj|f:\\hmdevsprojects\\medicalweb\\medicalweb.be\\medicalweb.be.servicio.interfaces\\especialidad\\iespecialidadbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{041F538C-0FC0-491A-99B8-BCED94552AB0}|MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj|solutionrelative:medicalweb.be.servicio.interfaces\\especialidad\\iespecialidadbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F14F8AB-B968-452F-945E-505D9475A8FF}|MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj|c:\\users\\dario\\documents\\proyecto cemedicar\\medicalweb.be\\medicalweb.be.api\\controllers\\medicoespecialidad\\medicoespecialidadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F14F8AB-B968-452F-945E-505D9475A8FF}|MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj|solutionrelative:medicalweb.be.api\\controllers\\medicoespecialidad\\medicoespecialidadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{041F538C-0FC0-491A-99B8-BCED94552AB0}|MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj|f:\\hmdevsprojects\\medicalweb\\medicalweb.be\\medicalweb.be.servicio.interfaces\\medicalweb.be.servicio.interfaces.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{FDE0585B-3375-4692-9392-082A2AE6F75D}|MedicalWeb.BE.Repositorio\\MedicalWeb.BE.Repositorio.csproj|c:\\users\\dario\\documents\\proyecto cemedicar\\medicalweb.be\\medicalweb.be.repositorio\\medicoespecialidad\\medicoespecialidaddal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDE0585B-3375-4692-9392-082A2AE6F75D}|MedicalWeb.BE.Repositorio\\MedicalWeb.BE.Repositorio.csproj|solutionrelative:medicalweb.be.repositorio\\medicoespecialidad\\medicoespecialidaddal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FBBCA09-33BD-4852-9187-3F4070D7C85C}|MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj|c:\\users\\dario\\documents\\proyecto cemedicar\\medicalweb.be\\medicalweb.be.repositorio.interfaces\\medicoespecialidad\\imedicoespecialidaddal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FBBCA09-33BD-4852-9187-3F4070D7C85C}|MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj|solutionrelative:medicalweb.be.repositorio.interfaces\\medicoespecialidad\\imedicoespecialidaddal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB7C6DAE-C382-49B4-BC12-68CCCAB5AD4B}|MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj|c:\\users\\dario\\documents\\proyecto cemedicar\\medicalweb.be\\medicalweb.be.transversales\\entidades\\medicoespecialidad\\medicoespecialidadupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB7C6DAE-C382-49B4-BC12-68CCCAB5AD4B}|MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj|solutionrelative:medicalweb.be.transversales\\entidades\\medicoespecialidad\\medicoespecialidadupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB7C6DAE-C382-49B4-BC12-68CCCAB5AD4B}|MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj|c:\\users\\dario\\documents\\proyecto cemedicar\\medicalweb.be\\medicalweb.be.transversales\\entidades\\medicoespecialidad\\medicoespecialidad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB7C6DAE-C382-49B4-BC12-68CCCAB5AD4B}|MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj|solutionrelative:medicalweb.be.transversales\\entidades\\medicoespecialidad\\medicoespecialidad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FB9116B-31EB-4652-978B-9A769EDB64D3}|MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj|c:\\users\\dario\\documents\\proyecto cemedicar\\medicalweb.be\\medicalweb.be.infraestructure\\persistence\\medicalwebdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FB9116B-31EB-4652-978B-9A769EDB64D3}|MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj|solutionrelative:medicalweb.be.infraestructure\\persistence\\medicalwebdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FB9116B-31EB-4652-978B-9A769EDB64D3}|MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj|c:\\users\\dario\\documents\\proyecto cemedicar\\medicalweb.be\\medicalweb.be.infraestructure\\persistence\\seeddata\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FB9116B-31EB-4652-978B-9A769EDB64D3}|MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj|solutionrelative:medicalweb.be.infraestructure\\persistence\\seeddata\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F14F8AB-B968-452F-945E-505D9475A8FF}|MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj|c:\\users\\dario\\documents\\proyecto cemedicar\\medicalweb.be\\medicalweb.be.api\\controllers\\medico\\medicocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F14F8AB-B968-452F-945E-505D9475A8FF}|MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj|solutionrelative:medicalweb.be.api\\controllers\\medico\\medicocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDE0585B-3375-4692-9392-082A2AE6F75D}|MedicalWeb.BE.Repositorio\\MedicalWeb.BE.Repositorio.csproj|c:\\users\\dario\\documents\\proyecto cemedicar\\medicalweb.be\\medicalweb.be.repositorio\\medico\\medicodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDE0585B-3375-4692-9392-082A2AE6F75D}|MedicalWeb.BE.Repositorio\\MedicalWeb.BE.Repositorio.csproj|solutionrelative:medicalweb.be.repositorio\\medico\\medicodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D97E4B6-5DF6-48B4-B8EE-688F4289A023}|MedicalWeb.BE.Servicio\\MedicalWeb.BE.Servicio.csproj|c:\\users\\dario\\documents\\proyecto cemedicar\\medicalweb.be\\medicalweb.be.servicio\\medico\\medicobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D97E4B6-5DF6-48B4-B8EE-688F4289A023}|MedicalWeb.BE.Servicio\\MedicalWeb.BE.Servicio.csproj|solutionrelative:medicalweb.be.servicio\\medico\\medicobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F14F8AB-B968-452F-945E-505D9475A8FF}|MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj|c:\\users\\dario\\documents\\proyecto cemedicar\\medicalweb.be\\medicalweb.be.api\\controllers\\especialidad\\especialidadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F14F8AB-B968-452F-945E-505D9475A8FF}|MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj|solutionrelative:medicalweb.be.api\\controllers\\especialidad\\especialidadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FBBCA09-33BD-4852-9187-3F4070D7C85C}|MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj|c:\\users\\dario\\documents\\proyecto cemedicar\\medicalweb.be\\medicalweb.be.repositorio.interfaces\\medico\\imedicodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FBBCA09-33BD-4852-9187-3F4070D7C85C}|MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj|solutionrelative:medicalweb.be.repositorio.interfaces\\medico\\imedicodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{041F538C-0FC0-491A-99B8-BCED94552AB0}|MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj|c:\\users\\dario\\documents\\proyecto cemedicar\\medicalweb.be\\medicalweb.be.servicio.interfaces\\medicalweb.be.servicio.interfaces.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{041F538C-0FC0-491A-99B8-BCED94552AB0}|MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj|solutionrelative:medicalweb.be.servicio.interfaces\\medicalweb.be.servicio.interfaces.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FDE0585B-3375-4692-9392-082A2AE6F75D}|MedicalWeb.BE.Repositorio\\MedicalWeb.BE.Repositorio.csproj|f:\\hmdevsprojects\\medicalweb\\medicalweb.be\\medicalweb.be.repositorio\\especialidad\\especialidaddal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FDE0585B-3375-4692-9392-082A2AE6F75D}|MedicalWeb.BE.Repositorio\\MedicalWeb.BE.Repositorio.csproj|solutionrelative:medicalweb.be.repositorio\\especialidad\\especialidaddal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3FB9116B-31EB-4652-978B-9A769EDB64D3}|MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj|c:\\users\\dario\\documents\\proyecto cemedicar\\medicalweb.be\\medicalweb.be.infraestructure\\persistence\\entityconfigurations\\medicoespecialidad\\medicoespecialidadentityconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FB9116B-31EB-4652-978B-9A769EDB64D3}|MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj|solutionrelative:medicalweb.be.infraestructure\\persistence\\entityconfigurations\\medicoespecialidad\\medicoespecialidadentityconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4FBBCA09-33BD-4852-9187-3F4070D7C85C}|MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj|f:\\hmdevsprojects\\medicalweb\\medicalweb.be\\medicalweb.be.repositorio.interfaces\\especialidad\\iespecialidaddal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4FBBCA09-33BD-4852-9187-3F4070D7C85C}|MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj|solutionrelative:medicalweb.be.repositorio.interfaces\\especialidad\\iespecialidaddal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\Migrations\\20241113003931_AddEspecialidad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MedicalWeb.BE.Infraestructure\\Migrations\\20241113003931_AddEspecialidad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3FB9116B-31EB-4652-978B-9A769EDB64D3}|MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj|f:\\hmdevsprojects\\medicalweb\\medicalweb.be\\medicalweb.be.infraestructure\\persistence\\medicalwebdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3FB9116B-31EB-4652-978B-9A769EDB64D3}|MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj|solutionrelative:medicalweb.be.infraestructure\\persistence\\medicalwebdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\dario\\AppData\\Roaming\\Microsoft\\UserSecrets\\0ee3b649-1092-4a79-bd1b-1f8bd6de57a8\\secrets.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,130 +81,240 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "EspecialidadController.cs",
-              "DocumentMoniker": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.API\\Controllers\\Especialidad\\EspecialidadController.cs",
-              "RelativeDocumentMoniker": "MedicalWeb.BE.API\\Controllers\\Especialidad\\EspecialidadController.cs",
-              "ToolTip": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.API\\Controllers\\Especialidad\\EspecialidadController.cs",
-              "RelativeToolTip": "MedicalWeb.BE.API\\Controllers\\Especialidad\\EspecialidadController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAlAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "MedicoEspecialidadDAL.cs",
+              "DocumentMoniker": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\MedicoEspecialidad\\MedicoEspecialidadDAL.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.Repositorio\\MedicoEspecialidad\\MedicoEspecialidadDAL.cs",
+              "ToolTip": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\MedicoEspecialidad\\MedicoEspecialidadDAL.cs",
+              "RelativeToolTip": "MedicalWeb.BE.Repositorio\\MedicoEspecialidad\\MedicoEspecialidadDAL.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAGEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T00:49:08.896Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IEspecialidadBLL.cs",
-              "DocumentMoniker": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\Especialidad\\IEspecialidadBLL.cs",
-              "RelativeDocumentMoniker": "MedicalWeb.BE.Servicio.Interfaces\\Especialidad\\IEspecialidadBLL.cs",
-              "ToolTip": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\Especialidad\\IEspecialidadBLL.cs",
-              "RelativeToolTip": "MedicalWeb.BE.Servicio.Interfaces\\Especialidad\\IEspecialidadBLL.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T00:47:29.241Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.API\\Program.cs",
-              "RelativeDocumentMoniker": "MedicalWeb.BE.API\\Program.cs",
-              "ToolTip": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.API\\Program.cs",
-              "RelativeToolTip": "MedicalWeb.BE.API\\Program.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAC4AAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T00:46:08.843Z",
+              "WhenOpened": "2024-11-17T04:22:39.432Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "MedicalWeb.BE.Servicio.Interfaces",
-              "DocumentMoniker": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj",
-              "RelativeDocumentMoniker": "MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj",
-              "ToolTip": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj*",
-              "RelativeToolTip": "MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-11-13T00:44:04.01Z",
+              "Title": "MedicoEspecialidadController.cs",
+              "DocumentMoniker": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.API\\Controllers\\MedicoEspecialidad\\MedicoEspecialidadController.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.API\\Controllers\\MedicoEspecialidad\\MedicoEspecialidadController.cs",
+              "ToolTip": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.API\\Controllers\\MedicoEspecialidad\\MedicoEspecialidadController.cs",
+              "RelativeToolTip": "MedicalWeb.BE.API\\Controllers\\MedicoEspecialidad\\MedicoEspecialidadController.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAAAFMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T14:18:24.158Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IMedicoEspecialidadBLL.cs",
+              "DocumentMoniker": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicoEspecialidad\\IMedicoEspecialidadBLL.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.Servicio.Interfaces\\MedicoEspecialidad\\IMedicoEspecialidadBLL.cs",
+              "ToolTip": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicoEspecialidad\\IMedicoEspecialidadBLL.cs",
+              "RelativeToolTip": "MedicalWeb.BE.Servicio.Interfaces\\MedicoEspecialidad\\IMedicoEspecialidadBLL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T09:39:00.617Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EspecialidadDAL.cs",
-              "DocumentMoniker": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\Especialidad\\EspecialidadDAL.cs",
-              "RelativeDocumentMoniker": "MedicalWeb.BE.Repositorio\\Especialidad\\EspecialidadDAL.cs",
-              "ToolTip": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\Especialidad\\EspecialidadDAL.cs",
-              "RelativeToolTip": "MedicalWeb.BE.Repositorio\\Especialidad\\EspecialidadDAL.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABHAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.API\\Program.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.API\\Program.cs",
+              "ToolTip": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.API\\Program.cs",
+              "RelativeToolTip": "MedicalWeb.BE.API\\Program.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAADwvzoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T00:41:22.769Z",
+              "WhenOpened": "2024-11-17T09:17:57.401Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MedicoEspecialidadBLL.cs",
+              "DocumentMoniker": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Servicio\\MedicoEspecialidad\\MedicoEspecialidadBLL.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.Servicio\\MedicoEspecialidad\\MedicoEspecialidadBLL.cs",
+              "ToolTip": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Servicio\\MedicoEspecialidad\\MedicoEspecialidadBLL.cs",
+              "RelativeToolTip": "MedicalWeb.BE.Servicio\\MedicoEspecialidad\\MedicoEspecialidadBLL.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAYwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T04:42:15.169Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "IEspecialidadDAL.cs",
-              "DocumentMoniker": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\Especialidad\\IEspecialidadDAL.cs",
-              "RelativeDocumentMoniker": "MedicalWeb.BE.Repositorio.Interfaces\\Especialidad\\IEspecialidadDAL.cs",
-              "ToolTip": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\Especialidad\\IEspecialidadDAL.cs",
-              "RelativeToolTip": "MedicalWeb.BE.Repositorio.Interfaces\\Especialidad\\IEspecialidadDAL.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Title": "IMedicoEspecialidadDAL.cs",
+              "DocumentMoniker": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicoEspecialidad\\IMedicoEspecialidadDAL.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.Repositorio.Interfaces\\MedicoEspecialidad\\IMedicoEspecialidadDAL.cs",
+              "ToolTip": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicoEspecialidad\\IMedicoEspecialidadDAL.cs",
+              "RelativeToolTip": "MedicalWeb.BE.Repositorio.Interfaces\\MedicoEspecialidad\\IMedicoEspecialidadDAL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T00:40:22.334Z",
+              "WhenOpened": "2024-11-17T04:20:35.614Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "20241113003931_AddEspecialidad.cs",
-              "DocumentMoniker": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\Migrations\\20241113003931_AddEspecialidad.cs",
-              "RelativeDocumentMoniker": "MedicalWeb.BE.Infraestructure\\Migrations\\20241113003931_AddEspecialidad.cs",
-              "ToolTip": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\Migrations\\20241113003931_AddEspecialidad.cs",
-              "RelativeToolTip": "MedicalWeb.BE.Infraestructure\\Migrations\\20241113003931_AddEspecialidad.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "MedicoEspecialidadUpdateDto.cs",
+              "DocumentMoniker": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\Entidades\\MedicoEspecialidad\\MedicoEspecialidadUpdateDto.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.Transversales\\Entidades\\MedicoEspecialidad\\MedicoEspecialidadUpdateDto.cs",
+              "ToolTip": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\Entidades\\MedicoEspecialidad\\MedicoEspecialidadUpdateDto.cs",
+              "RelativeToolTip": "MedicalWeb.BE.Transversales\\Entidades\\MedicoEspecialidad\\MedicoEspecialidadUpdateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T00:39:32.171Z",
+              "WhenOpened": "2024-11-17T15:34:12.883Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "MedicalWebDbContext.cs",
-              "DocumentMoniker": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\Persistence\\MedicalWebDbContext.cs",
-              "RelativeDocumentMoniker": "MedicalWeb.BE.Infraestructure\\Persistence\\MedicalWebDbContext.cs",
-              "ToolTip": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\Persistence\\MedicalWebDbContext.cs",
-              "RelativeToolTip": "MedicalWeb.BE.Infraestructure\\Persistence\\MedicalWebDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Title": "MedicoEspecialidad.cs",
+              "DocumentMoniker": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\Entidades\\MedicoEspecialidad\\MedicoEspecialidad.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.Transversales\\Entidades\\MedicoEspecialidad\\MedicoEspecialidad.cs",
+              "ToolTip": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\Entidades\\MedicoEspecialidad\\MedicoEspecialidad.cs",
+              "RelativeToolTip": "MedicalWeb.BE.Transversales\\Entidades\\MedicoEspecialidad\\MedicoEspecialidad.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T00:38:14.962Z",
+              "WhenOpened": "2024-11-17T10:24:33.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MedicalWebDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\Persistence\\MedicalWebDbContext.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.Infraestructure\\Persistence\\MedicalWebDbContext.cs",
+              "ToolTip": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\Persistence\\MedicalWebDbContext.cs",
+              "RelativeToolTip": "MedicalWeb.BE.Infraestructure\\Persistence\\MedicalWebDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T10:31:49.839Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SeedData.cs",
+              "DocumentMoniker": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\Persistence\\SeedData\\SeedData.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.Infraestructure\\Persistence\\SeedData\\SeedData.cs",
+              "ToolTip": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\Persistence\\SeedData\\SeedData.cs",
+              "RelativeToolTip": "MedicalWeb.BE.Infraestructure\\Persistence\\SeedData\\SeedData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T15:44:57.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MedicoController.cs",
+              "DocumentMoniker": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.API\\Controllers\\Medico\\MedicoController.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.API\\Controllers\\Medico\\MedicoController.cs",
+              "ToolTip": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.API\\Controllers\\Medico\\MedicoController.cs",
+              "RelativeToolTip": "MedicalWeb.BE.API\\Controllers\\Medico\\MedicoController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T10:44:00.185Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MedicoDAL.cs",
+              "DocumentMoniker": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\Medico\\MedicoDAL.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.Repositorio\\Medico\\MedicoDAL.cs",
+              "ToolTip": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\Medico\\MedicoDAL.cs",
+              "RelativeToolTip": "MedicalWeb.BE.Repositorio\\Medico\\MedicoDAL.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAcwF8AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T01:27:41.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MedicoBLL.cs",
+              "DocumentMoniker": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Servicio\\Medico\\MedicoBLL.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.Servicio\\Medico\\MedicoBLL.cs",
+              "ToolTip": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Servicio\\Medico\\MedicoBLL.cs",
+              "RelativeToolTip": "MedicalWeb.BE.Servicio\\Medico\\MedicoBLL.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAUwCcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T12:09:20.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "EspecialidadController.cs",
+              "DocumentMoniker": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.API\\Controllers\\Especialidad\\EspecialidadController.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.API\\Controllers\\Especialidad\\EspecialidadController.cs",
+              "ToolTip": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.API\\Controllers\\Especialidad\\EspecialidadController.cs",
+              "RelativeToolTip": "MedicalWeb.BE.API\\Controllers\\Especialidad\\EspecialidadController.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAkwCkAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T15:12:35.938Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IMedicoDAL.cs",
+              "DocumentMoniker": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\Medico\\IMedicoDAL.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.Repositorio.Interfaces\\Medico\\IMedicoDAL.cs",
+              "ToolTip": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\Medico\\IMedicoDAL.cs",
+              "RelativeToolTip": "MedicalWeb.BE.Repositorio.Interfaces\\Medico\\IMedicoDAL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T00:39:13.872Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "MedicalWeb.BE.Servicio.Interfaces",
+              "DocumentMoniker": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj",
+              "ToolTip": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj",
+              "RelativeToolTip": "MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-11-17T04:30:19.734Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "MedicoEspecialidadEntityConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\Persistence\\EntityConfigurations\\MedicoEspecialidad\\MedicoEspecialidadEntityConfiguration.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.Infraestructure\\Persistence\\EntityConfigurations\\MedicoEspecialidad\\MedicoEspecialidadEntityConfiguration.cs",
+              "ToolTip": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\Persistence\\EntityConfigurations\\MedicoEspecialidad\\MedicoEspecialidadEntityConfiguration.cs",
+              "RelativeToolTip": "MedicalWeb.BE.Infraestructure\\Persistence\\EntityConfigurations\\MedicoEspecialidad\\MedicoEspecialidadEntityConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T00:41:10.399Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "secrets.json",
+              "DocumentMoniker": "C:\\Users\\dario\\AppData\\Roaming\\Microsoft\\UserSecrets\\0ee3b649-1092-4a79-bd1b-1f8bd6de57a8\\secrets.json",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\0ee3b649-1092-4a79-bd1b-1f8bd6de57a8\\secrets.json",
+              "ToolTip": "C:\\Users\\dario\\AppData\\Roaming\\Microsoft\\UserSecrets\\0ee3b649-1092-4a79-bd1b-1f8bd6de57a8\\secrets.json",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\0ee3b649-1092-4a79-bd1b-1f8bd6de57a8\\secrets.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-17T00:32:10.447Z",
               "EditorCaption": ""
             }
           ]

@@ -11,3 +11,16 @@ F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug
 F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\MedicalWeb.BE.Transversales.pdb
 F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\ref\MedicalWeb.BE.Transversales.dll
 F:\HMDevsProjects\MedicalWeb\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\MedicalWeb.BE.Transversales.sourcelink.json
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Transversales\bin\Debug\net8.0\MedicalWeb.BE.Transversales.deps.json
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Transversales\bin\Debug\net8.0\MedicalWeb.BE.Transversales.dll
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Transversales\bin\Debug\net8.0\MedicalWeb.BE.Transversales.pdb
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\MedicalWeb.BE.Transversales.csproj.AssemblyReference.cache
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\MedicalWeb.BE.Transversales.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\MedicalWeb.BE.Transversales.AssemblyInfoInputs.cache
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\MedicalWeb.BE.Transversales.AssemblyInfo.cs
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\MedicalWeb.BE.Transversales.csproj.CoreCompileInputs.cache
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\MedicalWeb.BE.Transversales.sourcelink.json
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\MedicalWeb.BE.Transversales.dll
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\refint\MedicalWeb.BE.Transversales.dll
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\MedicalWeb.BE.Transversales.pdb
+C:\Users\dario\Documents\Proyecto Cemedicar\MedicalWeb.BE\MedicalWeb.BE.Transversales\obj\Debug\net8.0\ref\MedicalWeb.BE.Transversales.dll

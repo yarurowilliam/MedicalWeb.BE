@@ -121,23 +121,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Willy\\.nuget\\packages\\": {},
+    "C:\\Users\\dario\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj",
+      "projectUniqueName": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj",
       "projectName": "MedicalWeb.BE.Transversales",
-      "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj",
-      "packagesPath": "C:\\Users\\Willy\\.nuget\\packages\\",
-      "outputPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\obj\\",
+      "projectPath": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj",
+      "packagesPath": "C:\\Users\\dario\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dario\\Documents\\Proyecto Cemedicar\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Willy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dario\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -146,7 +146,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -163,8 +162,9 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "direct"
-      }
+        "auditMode": "all"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -191,7 +191,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-rc.2.24474.11/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
