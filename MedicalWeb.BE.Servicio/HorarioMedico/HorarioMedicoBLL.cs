@@ -60,7 +60,7 @@ public class HorarioMedicoBLL : IHorarioMedicoBLL
 
     public async Task<IEnumerable<HorarioMedicoDTO>> ConsultarHorariosPorDiaYHoraAsync(string medicoId, int dia, int hora)
     {
-        var horarios = await _horarioMedicoDAL.GetHorariosPorDiaYHoraAsync(medicoId, dia, hora);
+        var horarios = await  _horarioMedicoDAL.GetHorariosPorDiaYHoraAsync(medicoId, dia, hora);
         return MapToDTO(horarios);
     }
 }

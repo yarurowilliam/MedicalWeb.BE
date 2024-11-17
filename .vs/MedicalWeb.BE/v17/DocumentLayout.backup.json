@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FDE0585B-3375-4692-9392-082A2AE6F75D}|MedicalWeb.BE.Repositorio\\MedicalWeb.BE.Repositorio.csproj|c:\\users\\jos\u00E9 a. rodr\u00EDguez\\desktop\\educore\\medicalweb.be\\medicalweb.be.repositorio\\horariomedico\\horariomedicodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FDE0585B-3375-4692-9392-082A2AE6F75D}|MedicalWeb.BE.Repositorio\\MedicalWeb.BE.Repositorio.csproj|solutionrelative:medicalweb.be.repositorio\\horariomedico\\horariomedicodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB7C6DAE-C382-49B4-BC12-68CCCAB5AD4B}|MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj|c:\\users\\jos\u00E9 a. rodr\u00EDguez\\desktop\\educore\\medicalweb.be\\medicalweb.be.transversales\\entidades\\horariomedico\\horariomedicodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB7C6DAE-C382-49B4-BC12-68CCCAB5AD4B}|MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj|solutionrelative:medicalweb.be.transversales\\entidades\\horariomedico\\horariomedicodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB7C6DAE-C382-49B4-BC12-68CCCAB5AD4B}|MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj|c:\\users\\jos\u00E9 a. rodr\u00EDguez\\desktop\\educore\\medicalweb.be\\medicalweb.be.transversales\\entidades\\horariomedico\\horariomedico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB7C6DAE-C382-49B4-BC12-68CCCAB5AD4B}|MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj|solutionrelative:medicalweb.be.transversales\\entidades\\horariomedico\\horariomedico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,14 +39,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "HorarioMedicoDAL.cs",
-              "DocumentMoniker": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\HorarioMedico\\HorarioMedicoDAL.cs",
-              "RelativeDocumentMoniker": "MedicalWeb.BE.Repositorio\\HorarioMedico\\HorarioMedicoDAL.cs",
-              "ToolTip": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\HorarioMedico\\HorarioMedicoDAL.cs",
-              "RelativeToolTip": "MedicalWeb.BE.Repositorio\\HorarioMedico\\HorarioMedicoDAL.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAAAMwFgAAAAEAAAAAAAAAA==",
+              "Title": "HorarioMedicoDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\Entidades\\HorarioMedico\\HorarioMedicoDTO.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.Transversales\\Entidades\\HorarioMedico\\HorarioMedicoDTO.cs",
+              "ToolTip": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\Entidades\\HorarioMedico\\HorarioMedicoDTO.cs",
+              "RelativeToolTip": "MedicalWeb.BE.Transversales\\Entidades\\HorarioMedico\\HorarioMedicoDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T16:01:47.961Z",
+              "WhenOpened": "2024-11-17T16:16:26.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HorarioMedico.cs",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\Entidades\\HorarioMedico\\HorarioMedico.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.Transversales\\Entidades\\HorarioMedico\\HorarioMedico.cs",
+              "ToolTip": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\Entidades\\HorarioMedico\\HorarioMedico.cs",
+              "RelativeToolTip": "MedicalWeb.BE.Transversales\\Entidades\\HorarioMedico\\HorarioMedico.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T16:16:25.03Z",
               "EditorCaption": ""
             }
           ]

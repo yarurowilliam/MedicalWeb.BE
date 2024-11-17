@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MedicalWeb.BE.Repositorio")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+944886fbca1eba0b55e8a5450423a36b60f3e5f4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b764676a109ce586b3153b5249c8c621d315ff94")]
 [assembly: System.Reflection.AssemblyProductAttribute("MedicalWeb.BE.Repositorio")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MedicalWeb.BE.Repositorio")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
