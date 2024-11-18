@@ -22,6 +22,7 @@ public static class DbConstants
         public const string DocumentationStatuses = nameof(DocumentationStatuses);
         public const string NotificationMethods = nameof(NotificationMethods);
         public const string Especialidades = nameof(Especialidades);
+        public const string TipoDocumento = nameof(TipoDocumento);
         public const string EFMigrationsHistory = $"_{nameof(EFMigrationsHistory)}_";
     }
 

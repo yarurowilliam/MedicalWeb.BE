@@ -49,10 +49,7 @@
           "MedicalWeb.BE.Transversales": "1.0.0"
         },
         "runtime": {
-          "MedicalWeb.BE.Repositorio.Interfaces.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "MedicalWeb.BE.Repositorio.Interfaces.dll": {}
         }
       },
       "MedicalWeb.BE.Servicio.Interfaces/1.0.0": {
@@ -60,10 +57,7 @@
           "MedicalWeb.BE.Transversales": "1.0.0"
         },
         "runtime": {
-          "MedicalWeb.BE.Servicio.Interfaces.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "MedicalWeb.BE.Servicio.Interfaces.dll": {}
         }
       },
       "MedicalWeb.BE.Transversales/1.0.0": {
@@ -71,10 +65,7 @@
           "MediatR": "12.4.1"
         },
         "runtime": {
-          "MedicalWeb.BE.Transversales.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "MedicalWeb.BE.Transversales.dll": {}
         }
       }
     }

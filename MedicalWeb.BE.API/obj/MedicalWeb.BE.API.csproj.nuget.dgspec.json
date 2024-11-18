@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj": {}
+    "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj": {}
   },
   "projects": {
-    "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj": {
+    "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj",
+        "projectUniqueName": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj",
         "projectName": "MedicalWeb.BE.API",
-        "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj",
-        "packagesPath": "C:\\Users\\Willy\\.nuget\\packages\\",
-        "outputPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.API\\obj\\",
+        "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj",
+        "packagesPath": "C:\\Users\\aldai\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Willy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aldai\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,30 +26,29 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj": {
-                "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj"
+              "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj": {
+                "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj"
               },
-              "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj": {
-                "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj"
+              "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj"
               },
-              "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\MedicalWeb.BE.Repositorio.csproj": {
-                "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\MedicalWeb.BE.Repositorio.csproj"
+              "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\MedicalWeb.BE.Repositorio.csproj": {
+                "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\MedicalWeb.BE.Repositorio.csproj"
               },
-              "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj": {
-                "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj"
+              "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj"
               },
-              "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Servicio\\MedicalWeb.BE.Servicio.csproj": {
-                "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Servicio\\MedicalWeb.BE.Servicio.csproj"
+              "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Servicio\\MedicalWeb.BE.Servicio.csproj": {
+                "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Servicio\\MedicalWeb.BE.Servicio.csproj"
               },
-              "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj": {
-                "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj"
+              "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj": {
+                "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj"
               }
             }
           }
@@ -103,24 +102,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj": {
+    "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj",
+        "projectUniqueName": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj",
         "projectName": "MedicalWeb.BE.Infraestructure",
-        "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj",
-        "packagesPath": "C:\\Users\\Willy\\.nuget\\packages\\",
-        "outputPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\obj\\",
+        "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj",
+        "packagesPath": "C:\\Users\\aldai\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Willy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aldai\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -129,15 +128,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj": {
-                "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj"
+              "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj": {
+                "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj"
               }
             }
           }
@@ -232,24 +230,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj": {
+    "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj",
+        "projectUniqueName": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj",
         "projectName": "MedicalWeb.BE.Repositorio.Interfaces",
-        "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj",
-        "packagesPath": "C:\\Users\\Willy\\.nuget\\packages\\",
-        "outputPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\obj\\",
+        "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj",
+        "packagesPath": "C:\\Users\\aldai\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Willy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aldai\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -258,15 +256,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj": {
-                "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj"
+              "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj": {
+                "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj"
               }
             }
           }
@@ -301,24 +298,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\MedicalWeb.BE.Repositorio.csproj": {
+    "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\MedicalWeb.BE.Repositorio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\MedicalWeb.BE.Repositorio.csproj",
+        "projectUniqueName": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\MedicalWeb.BE.Repositorio.csproj",
         "projectName": "MedicalWeb.BE.Repositorio",
-        "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\MedicalWeb.BE.Repositorio.csproj",
-        "packagesPath": "C:\\Users\\Willy\\.nuget\\packages\\",
-        "outputPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\obj\\",
+        "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\MedicalWeb.BE.Repositorio.csproj",
+        "packagesPath": "C:\\Users\\aldai\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Willy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aldai\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -327,21 +324,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj": {
-                "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj"
+              "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj": {
+                "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Infraestructure\\MedicalWeb.BE.Infraestructure.csproj"
               },
-              "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj": {
-                "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj"
+              "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj"
               },
-              "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj": {
-                "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj"
+              "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj": {
+                "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj"
               }
             }
           }
@@ -376,24 +372,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj": {
+    "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj",
+        "projectUniqueName": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj",
         "projectName": "MedicalWeb.BE.Servicio.Interfaces",
-        "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj",
-        "packagesPath": "C:\\Users\\Willy\\.nuget\\packages\\",
-        "outputPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\obj\\",
+        "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj",
+        "packagesPath": "C:\\Users\\aldai\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Willy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aldai\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -402,15 +398,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj": {
-                "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj"
+              "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj": {
+                "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj"
               }
             }
           }
@@ -445,24 +440,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Servicio\\MedicalWeb.BE.Servicio.csproj": {
+    "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Servicio\\MedicalWeb.BE.Servicio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Servicio\\MedicalWeb.BE.Servicio.csproj",
+        "projectUniqueName": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Servicio\\MedicalWeb.BE.Servicio.csproj",
         "projectName": "MedicalWeb.BE.Servicio",
-        "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Servicio\\MedicalWeb.BE.Servicio.csproj",
-        "packagesPath": "C:\\Users\\Willy\\.nuget\\packages\\",
-        "outputPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Servicio\\obj\\",
+        "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Servicio\\MedicalWeb.BE.Servicio.csproj",
+        "packagesPath": "C:\\Users\\aldai\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Servicio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Willy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aldai\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -471,21 +466,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj": {
-                "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj"
+              "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj"
               },
-              "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj": {
-                "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj"
+              "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj"
               },
-              "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj": {
-                "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj"
+              "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj": {
+                "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj"
               }
             }
           }
@@ -520,24 +514,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj": {
+    "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj",
+        "projectUniqueName": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj",
         "projectName": "MedicalWeb.BE.Transversales",
-        "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj",
-        "packagesPath": "C:\\Users\\Willy\\.nuget\\packages\\",
-        "outputPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\obj\\",
+        "projectPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj",
+        "packagesPath": "C:\\Users\\aldai\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Willy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aldai\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -546,7 +540,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -591,7 +584,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

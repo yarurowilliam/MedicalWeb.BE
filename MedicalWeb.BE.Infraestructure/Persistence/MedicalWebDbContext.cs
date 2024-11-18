@@ -5,6 +5,7 @@ using MedicalWeb.BE.Infraestructure.Data;
 using MedicalWeb.BE.Transversales.Common;
 using MedicalWeb.BE.Infraestructure.Persitence.SeedData;
 using MedicalWeb.BE.Transversales.Entidades;
+using MedicalWeb.BE.Transversales;
 
 namespace MedicalWeb.BE.Infraestructure.Persitence;
 
@@ -17,6 +18,7 @@ public class MedicalWebDbContext(DbContextOptions options) : DbContext(options)
     public DbSet<Medico> Medicos { get; set; }
     public DbSet<Usuario> Usuarios { get; set; }
     public DbSet<Especialidad> Especialidades { get; set; }
+    public DbSet<Transversales.TipoDocumento> TipoDocumento { get; set; }
 
     #endregion
 

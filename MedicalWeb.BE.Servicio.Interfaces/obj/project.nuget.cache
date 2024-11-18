@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ULMgkXpIEPM=",
+  "dgSpecHash": "HpQpN3mWTClVCsTEuU1vhuTpk+27zC99iwWy9hHFBIm3AZw4ntawrfrK7tMdYjsCLlvhc55yztiNmojlsC7e2g==",
   "success": true,
-  "projectFilePath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj",
+  "projectFilePath": "C:\\Users\\aldai\\OneDrive\\Documentos\\HOLA MUNDO\\IPS\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Willy\\.nuget\\packages\\mediatr\\12.4.1\\mediatr.12.4.1.nupkg.sha512",
-    "C:\\Users\\Willy\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
-    "C:\\Users\\Willy\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+    "C:\\Users\\aldai\\.nuget\\packages\\mediatr\\12.4.1\\mediatr.12.4.1.nupkg.sha512",
+    "C:\\Users\\aldai\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\aldai\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }

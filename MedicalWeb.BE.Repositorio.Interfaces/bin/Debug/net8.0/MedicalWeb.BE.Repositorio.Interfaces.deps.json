@@ -47,10 +47,7 @@
           "MediatR": "12.4.1"
         },
         "runtime": {
-          "MedicalWeb.BE.Transversales.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "MedicalWeb.BE.Transversales.dll": {}
         }
       }
     }

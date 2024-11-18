@@ -1378,10 +1378,7 @@
           "SkiaSharp.NativeAssets.Linux.NoDependencies": "2.88.9"
         },
         "runtime": {
-          "MedicalWeb.BE.Infraestructure.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "MedicalWeb.BE.Infraestructure.dll": {}
         }
       },
       "MedicalWeb.BE.Repositorio/1.0.0": {
@@ -1391,10 +1388,7 @@
           "MedicalWeb.BE.Transversales": "1.0.0"
         },
         "runtime": {
-          "MedicalWeb.BE.Repositorio.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "MedicalWeb.BE.Repositorio.dll": {}
         }
       },
       "MedicalWeb.BE.Repositorio.Interfaces/1.0.0": {
@@ -1402,10 +1396,7 @@
           "MedicalWeb.BE.Transversales": "1.0.0"
         },
         "runtime": {
-          "MedicalWeb.BE.Repositorio.Interfaces.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "MedicalWeb.BE.Repositorio.Interfaces.dll": {}
         }
       },
       "MedicalWeb.BE.Servicio/1.0.0": {
@@ -1415,10 +1406,7 @@
           "MedicalWeb.BE.Transversales": "1.0.0"
         },
         "runtime": {
-          "MedicalWeb.BE.Servicio.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "MedicalWeb.BE.Servicio.dll": {}
         }
       },
       "MedicalWeb.BE.Servicio.Interfaces/1.0.0": {
@@ -1426,10 +1414,7 @@
           "MedicalWeb.BE.Transversales": "1.0.0"
         },
         "runtime": {
-          "MedicalWeb.BE.Servicio.Interfaces.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "MedicalWeb.BE.Servicio.Interfaces.dll": {}
         }
       },
       "MedicalWeb.BE.Transversales/1.0.0": {
@@ -1437,10 +1422,7 @@
           "MediatR": "12.4.1"
         },
         "runtime": {
-          "MedicalWeb.BE.Transversales.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "MedicalWeb.BE.Transversales.dll": {}
         }
       }
     }

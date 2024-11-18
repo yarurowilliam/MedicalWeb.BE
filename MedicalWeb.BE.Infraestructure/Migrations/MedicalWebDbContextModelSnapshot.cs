@@ -2409,6 +2409,27 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                             Name = "Otro"
                         });
                 });
+
+            modelBuilder.Entity("MedicalWeb.BE.Transversales.TipoDocumento", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("TipoDocumento", "dbo");
+                });
 #pragma warning restore 612, 618
         }
     }
