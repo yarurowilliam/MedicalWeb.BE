@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj": {}
+    "C:\\Users\\José A. Rodríguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj": {}
   },
   "projects": {
-    "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj": {
+    "C:\\Users\\José A. Rodríguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj",
+        "projectUniqueName": "C:\\Users\\José A. Rodríguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj",
         "projectName": "MedicalWeb.BE.Repositorio.Interfaces",
-        "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj",
-        "packagesPath": "C:\\Users\\Willy\\.nuget\\packages\\",
-        "outputPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\obj\\",
+        "projectPath": "C:\\Users\\José A. Rodríguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\MedicalWeb.BE.Repositorio.Interfaces.csproj",
+        "packagesPath": "C:\\Users\\José A. Rodríguez\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\José A. Rodríguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio.Interfaces\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Willy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\José A. Rodríguez\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,15 +26,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj": {
-                "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj"
+              "C:\\Users\\José A. Rodríguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj": {
+                "projectPath": "C:\\Users\\José A. Rodríguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj"
               }
             }
           }
@@ -47,8 +46,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
-        }
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -69,24 +69,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-rc.2.24474.11/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj": {
+    "C:\\Users\\José A. Rodríguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj",
+        "projectUniqueName": "C:\\Users\\José A. Rodríguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj",
         "projectName": "MedicalWeb.BE.Transversales",
-        "projectPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj",
-        "packagesPath": "C:\\Users\\Willy\\.nuget\\packages\\",
-        "outputPath": "F:\\HMDevsProjects\\MedicalWeb\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\obj\\",
+        "projectPath": "C:\\Users\\José A. Rodríguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj",
+        "packagesPath": "C:\\Users\\José A. Rodríguez\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\José A. Rodríguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Willy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\José A. Rodríguez\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -95,7 +95,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -112,8 +111,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
-        }
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -140,7 +140,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-rc.2.24474.11/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
