@@ -3,6 +3,7 @@ using MedicalWeb.BE.Infraestructure.Persitence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedicalWeb.BE.Infraestructure.Migrations
 {
     [DbContext(typeof(MedicalWebDbContext))]
-    partial class MedicalWebDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241117003035_AddHorarioMedico")]
+    partial class AddHorarioMedico
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2320,31 +2323,6 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                     b.ToTable("Medicos", "dbo");
                 });
 
-            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.MedicoEspecialidad", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("EspecialidadId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("MedicoNumeroDocumento")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EspecialidadId");
-
-                    b.HasIndex("MedicoNumeroDocumento");
-
-                    b.ToTable("MedicoEspecialidad", "dbo");
-                });
-
             modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.NotificationMethod", b =>
                 {
                     b.Property<int>("Id")
@@ -2495,26 +2473,6 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                         });
                 });
 
-
-            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.MedicoEspecialidad", b =>
-            {
-                b.HasOne("MedicalWeb.BE.Transversales.Entidades.Especialidad", "Especialidad")
-                    .WithMany()
-                    .HasForeignKey("EspecialidadId")
-                    .OnDelete(DeleteBehavior.NoAction)
-                    .IsRequired();
-
-                b.HasOne("MedicalWeb.BE.Transversales.Entidades.Medico", "Medico")
-                    .WithMany()
-                    .HasForeignKey("MedicoNumeroDocumento")
-                    .OnDelete(DeleteBehavior.NoAction)
-                    .IsRequired();
-
-                b.Navigation("Especialidad");
-
-                b.Navigation("Medico");
-            });
-
             modelBuilder.Entity("MedicalWeb.BE.Transversales.EstadoHorarioMedico", b =>
                 {
                     b.Property<int>("EstadoHorarioID")
@@ -2599,27 +2557,6 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                         .HasForeignKey("NumeroDocumento")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("MedicalWeb.BE.Transversales.TipoDocumento", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Name")
-                        .IsUnique();
-
-                    b.ToTable("TipoDocumento", "dbo");
                 });
 #pragma warning restore 612, 618
         }

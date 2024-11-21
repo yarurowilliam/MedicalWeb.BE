@@ -1,4 +1,4 @@
-﻿namespace MedicalWeb.BE.Transversales
+﻿namespace MedicalWeb.BE.Transversales           
 {
     public sealed class DocumentationStatus
     {
@@ -21,7 +21,7 @@
         {
             Id = id;
             Code = code;
-        }
+        }       
 
         private DocumentationStatus() { }
 

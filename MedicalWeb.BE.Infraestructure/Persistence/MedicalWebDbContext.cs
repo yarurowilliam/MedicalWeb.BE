@@ -19,6 +19,11 @@ public class MedicalWebDbContext(DbContextOptions options) : DbContext(options)
     public DbSet<Usuario> Usuarios { get; set; }
     public DbSet<Especialidad> Especialidades { get; set; }
     public DbSet<Transversales.TipoDocumento> TipoDocumento { get; set; }
+    public DbSet<HorarioMedico> HorarioMedico { get; set; }
+    public DbSet<Dias> Dias { get; set; }
+    public DbSet<HorasMedicas> HorasMedicas { get; set; }
+    public DbSet<EstadoHorarioMedico> EstadoHorarioMedicos { get; set; }
+    public DbSet<MedicoEspecialidad> MedicoEspecialidades { get; set; }
 
     #endregion
 
