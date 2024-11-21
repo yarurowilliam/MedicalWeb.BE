@@ -359,7 +359,9 @@ MigrationBackup/
 .ionide/
 
 # Fody - auto-generated XML schema
-
+.vs
+bin/
+obj/
 /APIs/PedidosPreventa/Quala.TITAN.Web.BE.PedidosPreventa.api/appsettings.json
 MedicalWeb.BE.Infraestructure/obj/Debug/net8.0/MedicalWeb.BE.Infraestructure.AssemblyInfo.cs
 MedicalWeb.BE.Infraestructure/obj/Debug/net8.0/MedicalWeb.BE.Infraestructure.AssemblyInfoInputs.cache
@@ -375,3 +377,4 @@ MedicalWeb.BE.Infraestructure/obj/Debug/net8.0/MedicalWeb.BE.Infraestructure.Ass
 /MedicalWeb.BE.Servicio.Interfaces/bin
 /MedicalWeb.BE.Repositorio/obj
 /MedicalWeb.BE.Repositorio.Interfaces/obj
+.vs/MedicalWeb.BE/v17/.suo
