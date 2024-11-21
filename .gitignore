@@ -361,3 +361,17 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 
 /APIs/PedidosPreventa/Quala.TITAN.Web.BE.PedidosPreventa.api/appsettings.json
+MedicalWeb.BE.Infraestructure/obj/Debug/net8.0/MedicalWeb.BE.Infraestructure.AssemblyInfo.cs
+MedicalWeb.BE.Infraestructure/obj/Debug/net8.0/MedicalWeb.BE.Infraestructure.AssemblyInfoInputs.cache
+/MedicalWeb.BE.Infraestructure/obj
+/MedicalWeb.BE.API/bin
+/.vs
+/MedicalWeb.BE.API/bin
+/MedicalWeb.BE.API/obj
+/MedicalWeb.BE.Transversales/obj
+/MedicalWeb.BE.Transversales/obj
+/MedicalWeb.BE.Servicio/obj
+/MedicalWeb.BE.Servicio.Interfaces/obj
+/MedicalWeb.BE.Servicio.Interfaces/bin
+/MedicalWeb.BE.Repositorio/obj
+/MedicalWeb.BE.Repositorio.Interfaces/obj
