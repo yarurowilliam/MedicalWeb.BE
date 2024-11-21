@@ -28,6 +28,7 @@ public static class DbConstants
         public const string Dias = nameof(Dias);
         public const string HorasMedicas = nameof(HorasMedicas);
         public const string EstadoHorario = nameof(EstadoHorario);
+        public const string MedicoEspecialidad = nameof(MedicoEspecialidad);
         public const string EFMigrationsHistory = $"_{nameof(EFMigrationsHistory)}_";
     }
 

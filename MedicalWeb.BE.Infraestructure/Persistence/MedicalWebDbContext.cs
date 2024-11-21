@@ -23,6 +23,7 @@ public class MedicalWebDbContext(DbContextOptions options) : DbContext(options)
     public DbSet<HorasMedicas> HorasMedicas { get; set; }
     public DbSet<EstadoHorarioMedico> EstadoHorarioMedicos { get; set; }
 
+    public DbSet<MedicoEspecialidad> MedicoEspecialidades { get; set; }
 
     #endregion
 

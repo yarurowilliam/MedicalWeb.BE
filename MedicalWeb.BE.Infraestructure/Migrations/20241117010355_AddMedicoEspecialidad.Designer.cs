@@ -3,6 +3,7 @@ using MedicalWeb.BE.Infraestructure.Persitence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedicalWeb.BE.Infraestructure.Migrations
 {
     [DbContext(typeof(MedicalWebDbContext))]
-    partial class MedicalWebDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241117010355_AddMedicoEspecialidad")]
+    partial class AddMedicoEspecialidad
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1997,27 +2000,6 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                         });
                 });
 
-            modelBuilder.Entity("MedicalWeb.BE.Transversales.Dias", b =>
-                {
-                    b.Property<int>("DiaID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DiaID"));
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("DiaID");
-
-                    b.HasIndex("Code")
-                        .IsUnique();
-
-                    b.ToTable("Dias", "dbo");
-                });
-
             modelBuilder.Entity("MedicalWeb.BE.Transversales.DocumentationStatus", b =>
                 {
                     b.Property<int>("Id")
@@ -2084,45 +2066,6 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Especialidades", "dbo");
-                });
-
-            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.HorarioMedico", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("DiaID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("EstadoHorarioID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("HoraID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("IdentificacionCliente")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<string>("NumeroDocumento")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DiaID");
-
-                    b.HasIndex("EstadoHorarioID");
-
-                    b.HasIndex("HoraID");
-
-                    b.HasIndex("NumeroDocumento");
-
-                    b.ToTable("HorarioMedico", "dbo");
                 });
 
             modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.MaritalStatus", b =>
@@ -2495,110 +2438,23 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                         });
                 });
 
-
             modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.MedicoEspecialidad", b =>
-            {
-                b.HasOne("MedicalWeb.BE.Transversales.Entidades.Especialidad", "Especialidad")
-                    .WithMany()
-                    .HasForeignKey("EspecialidadId")
-                    .OnDelete(DeleteBehavior.NoAction)
-                    .IsRequired();
-
-                b.HasOne("MedicalWeb.BE.Transversales.Entidades.Medico", "Medico")
-                    .WithMany()
-                    .HasForeignKey("MedicoNumeroDocumento")
-                    .OnDelete(DeleteBehavior.NoAction)
-                    .IsRequired();
-
-                b.Navigation("Especialidad");
-
-                b.Navigation("Medico");
-            });
-
-            modelBuilder.Entity("MedicalWeb.BE.Transversales.EstadoHorarioMedico", b =>
                 {
-                    b.Property<int>("EstadoHorarioID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EstadoHorarioID"));
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("EstadoHorarioID");
-
-                    b.HasIndex("Code")
-                        .IsUnique();
-
-                    b.ToTable("EstadoHorario", "dbo");
-
-                    b.HasData(
-                        new
-                        {
-                            EstadoHorarioID = 1,
-                            Code = "DISPONIBLE"
-                        },
-                        new
-                        {
-                            EstadoHorarioID = 3,
-                            Code = "NO DISPONIBLE"
-                        },
-                        new
-                        {
-                            EstadoHorarioID = 2,
-                            Code = "OCUPADO"
-                        });
-                });
-
-            modelBuilder.Entity("MedicalWeb.BE.Transversales.HorasMedicas", b =>
-                {
-                    b.Property<int>("HoraMedicaID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HoraMedicaID"));
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("HoraMedicaID");
-
-                    b.HasIndex("Code")
-                        .IsUnique();
-
-                    b.ToTable("HorasMedicas", "dbo");
-                });
-
-            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.HorarioMedico", b =>
-                {
-                    b.HasOne("MedicalWeb.BE.Transversales.Dias", null)
+                    b.HasOne("MedicalWeb.BE.Transversales.Entidades.Especialidad", "Especialidad")
                         .WithMany()
-                        .HasForeignKey("DiaID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasForeignKey("EspecialidadId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("MedicalWeb.BE.Transversales.EstadoHorarioMedico", null)
+                    b.HasOne("MedicalWeb.BE.Transversales.Entidades.Medico", "Medico")
                         .WithMany()
-                        .HasForeignKey("EstadoHorarioID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasForeignKey("MedicoNumeroDocumento")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("MedicalWeb.BE.Transversales.HorasMedicas", null)
-                        .WithMany()
-                        .HasForeignKey("HoraID")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                    b.Navigation("Especialidad");
 
-                    b.HasOne("MedicalWeb.BE.Transversales.Entidades.Medico", null)
-                        .WithMany()
-                        .HasForeignKey("NumeroDocumento")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                    b.Navigation("Medico");
                 });
 #pragma warning restore 612, 618
         }
