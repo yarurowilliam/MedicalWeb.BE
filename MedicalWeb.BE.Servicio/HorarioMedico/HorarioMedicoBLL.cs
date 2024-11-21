@@ -2,6 +2,7 @@
 using MedicalWeb.BE.Transversales.Entidades;
 using MedicalWeb.BE.Repositorio.Interfaces;
 using MedicalWeb.BE.Transversales;
+using MedicalWeb.BE.Transversales.Core;
 namespace MedicalWeb.BE.Servicio;
 
 public class HorarioMedicoBLL : IHorarioMedicoBLL
@@ -38,7 +39,8 @@ public class HorarioMedicoBLL : IHorarioMedicoBLL
             NumeroDocumento = horario.NumeroDocumento,
             Dia = Dias.GetById(horario.DiaID).Code,
             Hora = HorasMedicas.GetById(horario.HoraID).Code,
-            Estado = EstadoHorarioMedico.GetById(horario.EstadoHorarioID).Code
+            Estado = EstadoHorarioMedico.GetById(horario.EstadoHorarioID).Code,
+            Fecha = horario.Fecha
         };
     }
 
@@ -60,7 +62,7 @@ public class HorarioMedicoBLL : IHorarioMedicoBLL
 
     public async Task<IEnumerable<HorarioMedicoDTO>> ConsultarHorariosPorDiaYHoraAsync(string medicoId, int dia, int hora)
     {
-        var horarios = await  _horarioMedicoDAL.GetHorariosPorDiaYHoraAsync(medicoId, dia, hora);
+        var horarios = await _horarioMedicoDAL.GetHorariosPorDiaYHoraAsync(medicoId, dia, hora);
         return MapToDTO(horarios);
     }
 }

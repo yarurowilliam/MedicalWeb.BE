@@ -21,6 +21,21 @@
             public const string Domingo = "DOMINGO";
         }
 
+        public static Dias GetByDayOfWeek(DayOfWeek dayOfWeek)
+        {
+            return dayOfWeek switch
+            {
+                DayOfWeek.Monday => Lunes,
+                DayOfWeek.Tuesday => Martes,
+                DayOfWeek.Wednesday => Miercoles,
+                DayOfWeek.Thursday => Jueves,
+                DayOfWeek.Friday => Viernes,
+                DayOfWeek.Saturday => Sabado,
+                DayOfWeek.Sunday => Domingo,
+                _ => throw new ArgumentOutOfRangeException(nameof(dayOfWeek), "Día no válido.")
+            };
+        }
+
         public int DiaID { get; }
         public string Code { get;}
 
@@ -51,6 +66,5 @@
 
         public static bool IsValidNombre(string nombre)
             => GetAll().Any(x => x.Code == nombre);
-
     }
 }

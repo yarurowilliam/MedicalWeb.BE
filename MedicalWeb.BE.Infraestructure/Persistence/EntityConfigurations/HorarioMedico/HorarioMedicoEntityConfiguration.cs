@@ -1,9 +1,9 @@
 ﻿using MedicalWeb.BE.Infraestructure.Data;
 using MedicalWeb.BE.Transversales;
+using MedicalWeb.BE.Transversales.Core;
 using MedicalWeb.BE.Transversales.Entidades;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
 namespace MedicalWeb.BE.Infraestructure.Persistence.EntityConfigurations;
 
 public class HorarioMedicoEntityConfiguration : IEntityTypeConfiguration<HorarioMedico>
@@ -22,17 +22,17 @@ public class HorarioMedicoEntityConfiguration : IEntityTypeConfiguration<Horario
             .IsRequired();
 
         builder
-           .HasOne<Dias> ()
-           .WithMany() 
-           .HasForeignKey(x => x.DiaID) 
-           .OnDelete(DeleteBehavior.Restrict);
+            .HasOne<Dias>()
+            .WithMany()
+            .HasForeignKey(x => x.DiaID)
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.Property(x => x.HoraID)
             .IsRequired();
 
         builder
             .HasOne<HorasMedicas>()
-            .WithMany() 
+            .WithMany()
             .HasForeignKey(x => x.HoraID)
             .OnDelete(DeleteBehavior.Restrict);
 
@@ -55,9 +55,11 @@ public class HorarioMedicoEntityConfiguration : IEntityTypeConfiguration<Horario
            .HasForeignKey(x => x.NumeroDocumento)
            .OnDelete(DeleteBehavior.Restrict);
 
-
         builder.Property(x => x.IdentificacionCliente)
             .HasMaxLength(DbConstants.StringLength.IdentificationNumber);
+
+        builder.Property(x => x.Fecha)
+            .IsRequired();
 
         //builder
         //    .HasOne<Usuario>() 

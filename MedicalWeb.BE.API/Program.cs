@@ -7,6 +7,7 @@ using MedicalWeb.BE.Servicio;
 using Microsoft.AspNetCore.Http.Features;
 using System.Text.Json.Serialization;
 using Microsoft.OpenApi.Models;
+using MedicalWeb.BE.Transversales.Entidades;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,13 @@ builder.Services.Configure<FormOptions>(options =>
 {
     options.MultipartBodyLengthLimit = 104857600;
 });
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new JsonDateOnlyConverter());
+    });
+
 
 builder.Services.AddDatabase(builder.Configuration);
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));

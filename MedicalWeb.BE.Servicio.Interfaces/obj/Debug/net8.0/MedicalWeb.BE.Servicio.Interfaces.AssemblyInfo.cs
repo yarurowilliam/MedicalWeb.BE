@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MedicalWeb.BE.Servicio.Interfaces")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+944886fbca1eba0b55e8a5450423a36b60f3e5f4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7fbd0fe0999b2782b659d6bef0fc17b2d52c0e56")]
 [assembly: System.Reflection.AssemblyProductAttribute("MedicalWeb.BE.Servicio.Interfaces")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MedicalWeb.BE.Servicio.Interfaces")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

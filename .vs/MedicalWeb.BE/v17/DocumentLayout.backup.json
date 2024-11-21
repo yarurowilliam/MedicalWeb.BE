@@ -3,12 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BB7C6DAE-C382-49B4-BC12-68CCCAB5AD4B}|MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj|c:\\users\\jos\u00E9 a. rodr\u00EDguez\\desktop\\educore\\medicalweb.be\\medicalweb.be.transversales\\entidades\\horariomedico\\horariomedicodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB7C6DAE-C382-49B4-BC12-68CCCAB5AD4B}|MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj|solutionrelative:medicalweb.be.transversales\\entidades\\horariomedico\\horariomedicodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F14F8AB-B968-452F-945E-505D9475A8FF}|MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj|c:\\users\\jos\u00E9 a. rodr\u00EDguez\\desktop\\educore\\medicalweb.be\\medicalweb.be.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F14F8AB-B968-452F-945E-505D9475A8FF}|MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj|solutionrelative:medicalweb.be.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F14F8AB-B968-452F-945E-505D9475A8FF}|MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj|c:\\users\\jos\u00E9 a. rodr\u00EDguez\\desktop\\educore\\medicalweb.be\\medicalweb.be.api\\controllers\\horariomedico\\horariomedicocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F14F8AB-B968-452F-945E-505D9475A8FF}|MedicalWeb.BE.API\\MedicalWeb.BE.API.csproj|solutionrelative:medicalweb.be.api\\controllers\\horariomedico\\horariomedicocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D97E4B6-5DF6-48B4-B8EE-688F4289A023}|MedicalWeb.BE.Servicio\\MedicalWeb.BE.Servicio.csproj|c:\\users\\jos\u00E9 a. rodr\u00EDguez\\desktop\\educore\\medicalweb.be\\medicalweb.be.servicio\\horariomedico\\horariomedicobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D97E4B6-5DF6-48B4-B8EE-688F4289A023}|MedicalWeb.BE.Servicio\\MedicalWeb.BE.Servicio.csproj|solutionrelative:medicalweb.be.servicio\\horariomedico\\horariomedicobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{041F538C-0FC0-491A-99B8-BCED94552AB0}|MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj|c:\\users\\jos\u00E9 a. rodr\u00EDguez\\desktop\\educore\\medicalweb.be\\medicalweb.be.servicio.interfaces\\horariomedico\\ihorariomedicobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{041F538C-0FC0-491A-99B8-BCED94552AB0}|MedicalWeb.BE.Servicio.Interfaces\\MedicalWeb.BE.Servicio.Interfaces.csproj|solutionrelative:medicalweb.be.servicio.interfaces\\horariomedico\\ihorariomedicobll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BB7C6DAE-C382-49B4-BC12-68CCCAB5AD4B}|MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj|c:\\users\\jos\u00E9 a. rodr\u00EDguez\\desktop\\educore\\medicalweb.be\\medicalweb.be.transversales\\entidades\\horariomedico\\horariomedico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB7C6DAE-C382-49B4-BC12-68CCCAB5AD4B}|MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj|solutionrelative:medicalweb.be.transversales\\entidades\\horariomedico\\horariomedico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB7C6DAE-C382-49B4-BC12-68CCCAB5AD4B}|MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj|c:\\users\\jos\u00E9 a. rodr\u00EDguez\\desktop\\educore\\medicalweb.be\\medicalweb.be.transversales\\entidades\\horariomedico\\horariomedicodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB7C6DAE-C382-49B4-BC12-68CCCAB5AD4B}|MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj|solutionrelative:medicalweb.be.transversales\\entidades\\horariomedico\\horariomedicodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDE0585B-3375-4692-9392-082A2AE6F75D}|MedicalWeb.BE.Repositorio\\MedicalWeb.BE.Repositorio.csproj|c:\\users\\jos\u00E9 a. rodr\u00EDguez\\desktop\\educore\\medicalweb.be\\medicalweb.be.repositorio\\horariomedico\\horariomedicodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDE0585B-3375-4692-9392-082A2AE6F75D}|MedicalWeb.BE.Repositorio\\MedicalWeb.BE.Repositorio.csproj|solutionrelative:medicalweb.be.repositorio\\horariomedico\\horariomedicodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB7C6DAE-C382-49B4-BC12-68CCCAB5AD4B}|MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj|c:\\users\\jos\u00E9 a. rodr\u00EDguez\\desktop\\educore\\medicalweb.be\\medicalweb.be.transversales\\core\\dias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB7C6DAE-C382-49B4-BC12-68CCCAB5AD4B}|MedicalWeb.BE.Transversales\\MedicalWeb.BE.Transversales.csproj|solutionrelative:medicalweb.be.transversales\\core\\dias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -37,29 +61,123 @@
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "HorarioMedicoDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\Entidades\\HorarioMedico\\HorarioMedicoDTO.cs",
-              "RelativeDocumentMoniker": "MedicalWeb.BE.Transversales\\Entidades\\HorarioMedico\\HorarioMedicoDTO.cs",
-              "ToolTip": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\Entidades\\HorarioMedico\\HorarioMedicoDTO.cs",
-              "RelativeToolTip": "MedicalWeb.BE.Transversales\\Entidades\\HorarioMedico\\HorarioMedicoDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "IHorarioMedicoBLL.cs",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\HorarioMedico\\IHorarioMedicoBLL.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.Servicio.Interfaces\\HorarioMedico\\IHorarioMedicoBLL.cs",
+              "ToolTip": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Servicio.Interfaces\\HorarioMedico\\IHorarioMedicoBLL.cs",
+              "RelativeToolTip": "MedicalWeb.BE.Servicio.Interfaces\\HorarioMedico\\IHorarioMedicoBLL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T16:16:26.272Z",
+              "WhenOpened": "2024-11-21T17:16:17.141Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "HorarioMedicoController.cs",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.API\\Controllers\\HorarioMedico\\HorarioMedicoController.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.API\\Controllers\\HorarioMedico\\HorarioMedicoController.cs",
+              "ToolTip": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.API\\Controllers\\HorarioMedico\\HorarioMedicoController.cs",
+              "RelativeToolTip": "MedicalWeb.BE.API\\Controllers\\HorarioMedico\\HorarioMedicoController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAlwCoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T17:08:49.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.API\\Program.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.API\\Program.cs",
+              "ToolTip": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.API\\Program.cs",
+              "RelativeToolTip": "MedicalWeb.BE.API\\Program.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAADwvyQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T16:56:02.557Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HorarioMedicoDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\Entidades\\HorarioMedico\\HorarioMedicoDTO.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.Transversales\\Entidades\\HorarioMedico\\HorarioMedicoDTO.cs",
+              "ToolTip": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\Entidades\\HorarioMedico\\HorarioMedicoDTO.cs",
+              "RelativeToolTip": "MedicalWeb.BE.Transversales\\Entidades\\HorarioMedico\\HorarioMedicoDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T16:38:14.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "HorarioMedico.cs",
               "DocumentMoniker": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\Entidades\\HorarioMedico\\HorarioMedico.cs",
               "RelativeDocumentMoniker": "MedicalWeb.BE.Transversales\\Entidades\\HorarioMedico\\HorarioMedico.cs",
               "ToolTip": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\Entidades\\HorarioMedico\\HorarioMedico.cs",
               "RelativeToolTip": "MedicalWeb.BE.Transversales\\Entidades\\HorarioMedico\\HorarioMedico.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T16:16:25.03Z",
+              "WhenOpened": "2024-11-21T16:37:57.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Dias.cs",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\Core\\Dias.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.Transversales\\Core\\Dias.cs",
+              "ToolTip": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Transversales\\Core\\Dias.cs",
+              "RelativeToolTip": "MedicalWeb.BE.Transversales\\Core\\Dias.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAwwDEAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T16:27:16.134Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "HorarioMedicoDAL.cs",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\HorarioMedico\\HorarioMedicoDAL.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.Repositorio\\HorarioMedico\\HorarioMedicoDAL.cs",
+              "ToolTip": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Repositorio\\HorarioMedico\\HorarioMedicoDAL.cs",
+              "RelativeToolTip": "MedicalWeb.BE.Repositorio\\HorarioMedico\\HorarioMedicoDAL.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T16:23:47.808Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HorarioMedicoBLL.cs",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Servicio\\HorarioMedico\\HorarioMedicoBLL.cs",
+              "RelativeDocumentMoniker": "MedicalWeb.BE.Servicio\\HorarioMedico\\HorarioMedicoBLL.cs",
+              "ToolTip": "C:\\Users\\Jos\u00E9 A. Rodr\u00EDguez\\Desktop\\EduCore\\MedicalWeb.BE\\MedicalWeb.BE.Servicio\\HorarioMedico\\HorarioMedicoBLL.cs",
+              "RelativeToolTip": "MedicalWeb.BE.Servicio\\HorarioMedico\\HorarioMedicoBLL.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAcAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T16:23:39.115Z",
               "EditorCaption": ""
             }
           ]

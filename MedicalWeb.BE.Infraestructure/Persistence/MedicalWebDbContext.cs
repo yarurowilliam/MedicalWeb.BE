@@ -6,6 +6,7 @@ using MedicalWeb.BE.Transversales.Common;
 using MedicalWeb.BE.Infraestructure.Persitence.SeedData;
 using MedicalWeb.BE.Transversales.Entidades;
 using MedicalWeb.BE.Transversales;
+using MedicalWeb.BE.Transversales.Core;
 
 namespace MedicalWeb.BE.Infraestructure.Persitence;
 
@@ -22,7 +23,8 @@ public class MedicalWebDbContext(DbContextOptions options) : DbContext(options)
     public DbSet<Dias> Dias { get; set; }
     public DbSet<HorasMedicas> HorasMedicas { get; set; }
     public DbSet<EstadoHorarioMedico> EstadoHorarioMedicos { get; set; }
-
+    public DbSet<Years> Years { get; set; }
+    public DbSet<Mes> Mes { get; set; }
 
     #endregion
 
