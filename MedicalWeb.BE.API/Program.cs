@@ -47,6 +47,8 @@ builder.Services.AddScoped<IMedicoDAL, MedicoDAL>();
 builder.Services.AddScoped<IMedicoBLL, MedicoBLL>();
 builder.Services.AddScoped<IEspecialidadDAL, EspecialidadDAL>();
 builder.Services.AddScoped<IEspecialidadBLL, EspecialidadBLL>();
+builder.Services.AddScoped<ITipoDocumentoDAL, TipoDocumentoDAL>();
+builder.Services.AddScoped<ITipoDocumentoBLL, TipoDocumentoBLL>();
 builder.Services.AddScoped<IMedicoEspecialidadDAL, MedicoEspecialidadDAL>();
 builder.Services.AddScoped<IMedicoEspecialidadBLL, MedicoEspecialidadBLL>();
 builder.Services.AddScoped<IHorarioMedicoBLL, HorarioMedicoBLL>();

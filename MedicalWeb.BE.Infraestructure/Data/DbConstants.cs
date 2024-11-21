@@ -24,6 +24,7 @@ public static class DbConstants
         public const string DocumentationStatuses = nameof(DocumentationStatuses);
         public const string NotificationMethods = nameof(NotificationMethods);
         public const string Especialidades = nameof(Especialidades);
+        public const string TipoDocumento = nameof(TipoDocumento);
         public const string HorarioMedico = nameof(HorarioMedico);  
         public const string Dias = nameof(Dias);
         public const string HorasMedicas = nameof(HorasMedicas);
