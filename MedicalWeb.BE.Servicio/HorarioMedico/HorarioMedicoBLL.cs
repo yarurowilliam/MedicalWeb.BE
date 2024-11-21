@@ -38,7 +38,8 @@ public class HorarioMedicoBLL : IHorarioMedicoBLL
             NumeroDocumento = horario.NumeroDocumento,
             Dia = Dias.GetById(horario.DiaID).Code,
             Hora = HorasMedicas.GetById(horario.HoraID).Code,
-            Estado = EstadoHorarioMedico.GetById(horario.EstadoHorarioID).Code
+            Estado = EstadoHorarioMedico.GetById(horario.EstadoHorarioID).Code,
+            Fecha = horario.Fecha
         };
     }
 

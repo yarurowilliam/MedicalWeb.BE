@@ -7,6 +7,7 @@ using MedicalWeb.BE.Servicio;
 using Microsoft.AspNetCore.Http.Features;
 using System.Text.Json.Serialization;
 using Microsoft.OpenApi.Models;
+using MedicalWeb.BE.Transversales.Entidades;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +36,13 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 });
+
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new JsonDateOnlyConverter());
+    });
 
 // Agregar servicios de Swagger
 builder.Services.AddSwaggerGen(c =>

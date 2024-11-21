@@ -27,6 +27,10 @@ public class HorarioMedicoEntityConfiguration : IEntityTypeConfiguration<Horario
            .HasForeignKey(x => x.DiaID) 
            .OnDelete(DeleteBehavior.Restrict);
 
+
+        builder.Property(x => x.Fecha)
+            .IsRequired();  
+
         builder.Property(x => x.HoraID)
             .IsRequired();
 
@@ -54,7 +58,6 @@ public class HorarioMedicoEntityConfiguration : IEntityTypeConfiguration<Horario
            .WithMany()
            .HasForeignKey(x => x.NumeroDocumento)
            .OnDelete(DeleteBehavior.Restrict);
-
 
         builder.Property(x => x.IdentificacionCliente)
             .HasMaxLength(DbConstants.StringLength.IdentificationNumber);
