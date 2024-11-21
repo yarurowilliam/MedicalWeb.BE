@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\MedicalWeb.BE.API.props" />
-</Project>
