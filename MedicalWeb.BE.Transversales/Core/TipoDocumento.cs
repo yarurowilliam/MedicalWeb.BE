@@ -1,46 +1,49 @@
-﻿namespace MedicalWeb.BE.Transversales;
-
-public sealed class TipoDocumento
+﻿namespace MedicalWeb.BE.Transversales
 {
-    public static readonly TipoDocumento CedulaCiudadania = new(1, TipoDocumentos.CedulaCiudadania);
-    public static readonly TipoDocumento TarjetaIdentidad = new(2, TipoDocumentos.TarjetaIdentidad);
-    public static readonly TipoDocumento Pasaporte        = new(3, TipoDocumentos.Pasaporte);
-    public static readonly TipoDocumento CedulaExtranjeria = new(4, TipoDocumentos.CedulaExtranjeria);
-
-    public static class TipoDocumentos
+    public sealed class TipoDocumento
     {
-        public const string CedulaCiudadania = "Cedula Ciudadania";
-        public const string TarjetaIdentidad = "Tarjeta de Identidad";
-        public const string Pasaporte = "Pasaporte";
-        public const string CedulaExtranjeria = "Cedula Extranjeria";
-    }
+        public static readonly TipoDocumento CedulaCiudadania = new(1, TipoDocumentos.CedulaCiudadania);
+        public static readonly TipoDocumento TarjetaIdentidad = new(2, TipoDocumentos.TarjetaIdentidad);
+        public static readonly TipoDocumento Pasaporte = new(3, TipoDocumentos.Pasaporte);
+        public static readonly TipoDocumento CedulaExtranjeria = new(4, TipoDocumentos.CedulaExtranjeria);
 
-    public int Id { get; }
-    public string Name { get; }
+        public static class TipoDocumentos
+        {
+            public const string CedulaCiudadania = "Cedula Ciudadania";
+            public const string TarjetaIdentidad = "Tarjeta de Identidad";
+            public const string Pasaporte = "Pasaporte";
+            public const string CedulaExtranjeria = "Cedula Extranjeria";
+        }
 
-    public TipoDocumento(int id, string name)
-    {
-        Id = id;
-        Name = name;
-    }
+        public int Id { get; }
+        public string Name { get; }
 
-    public TipoDocumento() { }
+        private TipoDocumento(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
 
-    public static TipoDocumento[] GetAll()
-          => new[] {
+        private TipoDocumento() { }
+
+        public static TipoDocumento[] GetAll()
+              => new[] {
                 CedulaCiudadania,
                 TarjetaIdentidad,
                 Pasaporte,
                 CedulaExtranjeria
-          };
+              };
 
-    public static TipoDocumento GetById(int id)
-        => GetAll().First(x => x.Id == id);
+        public static TipoDocumento GetById(int id)
+             => GetAll().First(x => x.Id == id);
 
-    public static TipoDocumento GetByName(string name)
-        => GetAll().First(x => x.Name == name);
+        // Método estático para obtener un TipoDocumento por Name
+        public static TipoDocumento GetByName(string name)
+            => GetAll().First(x => x.Name == name);
 
-    public static bool IsValidName(string name)
-        => GetAll().Any(x => x.Name == name);
+        // Método estático para validar si un Name es válido
+        public static bool IsValidName(string name)
+            => GetAll().Any(x => x.Name == name);
 
+    }
 }
