@@ -16,13 +16,13 @@ public class MedicoController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IEnumerable<Medico>> GetAllAsync()
+    public async Task<IEnumerable<MedicoDTO>> GetAllAsync()
     {
         return await _medicoBLL.GetAllAsync();
     }
 
     [HttpGet("{id}")]
-    public async Task<Medico> GetByIdAsync(string id)
+    public async Task<MedicoDTO> GetByIdAsync(string id)
     {
         return await _medicoBLL.GetByIdAsync(id);
     }

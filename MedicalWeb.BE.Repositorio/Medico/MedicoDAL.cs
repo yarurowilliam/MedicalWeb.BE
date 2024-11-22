@@ -1,4 +1,6 @@
-﻿using MedicalWeb.BE.Infraestructure.Persitence;
+﻿
+
+using MedicalWeb.BE.Infraestructure.Persitence;
 using MedicalWeb.BE.Repositorio.Interfaces;
 using MedicalWeb.BE.Transversales.Entidades;
 using Microsoft.EntityFrameworkCore;

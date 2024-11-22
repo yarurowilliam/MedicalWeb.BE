@@ -1,8 +1,8 @@
 ﻿namespace MedicalWeb.BE.Transversales.Entidades;
 
-public class Medico
+public class MedicoDTO
 {
-    public int TipoDocumento { get; set; }
+    public string TipoDocumento { get; set; }
     public string NumeroDocumento { get; set; }
     public string PrimerNombre { get; set; }
     public string SegundoNombre { get; set; }
@@ -26,5 +26,5 @@ public class Medico
     public string AnioGraduacion { get; set; }
     public string FechaIngreso { get; set; }
     public string FechaSalida { get; set; }
-    public string Estado { get; set; } 
+    public string Estado { get; set; }
 }

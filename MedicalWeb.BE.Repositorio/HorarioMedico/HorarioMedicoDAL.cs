@@ -91,7 +91,7 @@ public class HorarioMedicoDAL : IHorarioMedicoDAL
 
     public async Task<IEnumerable<HorarioMedico>> GetHorarioMedicoIdentificacionAsync(int Identificacion)
     {
-        return await _context.HorarioMedico
+        return await _context.HorarioMedico 
             .Where(h => Convert.ToInt32(h.NumeroDocumento) == Identificacion)
             .ToListAsync();
     }
