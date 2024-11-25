@@ -24,6 +24,8 @@ public class MedicalWebDbContext(DbContextOptions options) : DbContext(options)
     public DbSet<HorasMedicas> HorasMedicas { get; set; }
     public DbSet<EstadoHorarioMedico> EstadoHorarioMedicos { get; set; }
     public DbSet<MedicoEspecialidad> MedicoEspecialidades { get; set; }
+    public DbSet<Alerta> Alertas { get; set; }
+    public DbSet<EstadoAlerta> EstadoAlertas { get; set; }
 
     #endregion
 
@@ -41,8 +43,17 @@ public class MedicalWebDbContext(DbContextOptions options) : DbContext(options)
             .ApplyShadowProperties()
             .Seed();
 
-        HasSequences(modelBuilder);
+        modelBuilder.Entity<Alerta>()
+           .HasOne(a => a.Estado)  
+           .WithMany()  
+           .HasForeignKey(a => a.EstadoAlertaId)  
+           .OnDelete(DeleteBehavior.Restrict);
 
+        modelBuilder.Entity<EstadoAlerta>()
+        .HasKey(e => e.Id);
+
+
+        HasSequences(modelBuilder);
         base.OnModelCreating(modelBuilder);
     }
 

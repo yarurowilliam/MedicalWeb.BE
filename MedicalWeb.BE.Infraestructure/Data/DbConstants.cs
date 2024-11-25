@@ -31,6 +31,8 @@ public static class DbConstants
         public const string EstadoHorario = nameof(EstadoHorario);
         public const string MedicoEspecialidad = nameof(MedicoEspecialidad);
         public const string EFMigrationsHistory = $"_{nameof(EFMigrationsHistory)}_";
+        public const string Alerta = nameof(Alerta);
+        public const string EstadoAlerta = nameof(EstadoAlerta);
     }
 
     public static class Sequences
@@ -60,6 +62,7 @@ public static class DbConstants
         public const int Floor = 3;
         public const int Token = 32;
         public const int Description = 300;
+        public const int comment = 1000;
     }
 
     public class ShadowProperties
