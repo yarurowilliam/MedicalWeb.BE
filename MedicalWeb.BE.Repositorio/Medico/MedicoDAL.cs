@@ -1,6 +1,4 @@
-﻿
-
-using MedicalWeb.BE.Infraestructure.Persitence;
+﻿using MedicalWeb.BE.Infraestructure.Persitence;
 using MedicalWeb.BE.Repositorio.Interfaces;
 using MedicalWeb.BE.Transversales.Entidades;
 using Microsoft.EntityFrameworkCore;
@@ -42,7 +40,7 @@ public class MedicoDAL : IMedicoDAL
         await _context.Set<Medico>().AddAsync(medico);
 
         string nombreUsuario;
-        if (string.IsNullOrEmpty(medico.SegundoNombre))
+        if (string.IsNullOrEmpty(medico.SegundoNombre))         
         {
             nombreUsuario = $"{medico.PrimerNombre.Substring(0, 2).ToLower()}{medico.PrimerApellido.ToLower()}";
         }

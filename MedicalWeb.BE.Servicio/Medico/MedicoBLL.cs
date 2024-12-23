@@ -10,7 +10,7 @@ public class MedicoBLL : IMedicoBLL
 
     public MedicoBLL(IMedicoDAL medicoDAL)
     {
-        _medicoDAL = medicoDAL;
+        _medicoDAL = medicoDAL; 
     }
 
     public async Task DeleteAsync(string id)
@@ -60,7 +60,6 @@ public class MedicoBLL : IMedicoBLL
     {
         return medicos.Select(MapToDTO);
     }
-
 
     public async Task<MedicoDTO> GetByIdAsync(string id)
     {

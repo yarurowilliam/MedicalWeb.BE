@@ -1,7 +1,6 @@
 ﻿using MedicalWeb.BE.Servicio.Interfaces;
 using MedicalWeb.BE.Transversales.Entidades;
 using Microsoft.AspNetCore.Mvc;
-
 namespace MedicalWeb.BE.API.Controllers;
 
 [Route("api/[controller]")]
