@@ -7,7 +7,4 @@ public class Medicion
     public decimal Peso { get; set; }
     public decimal Altura { get; set; }
     public DateTime FechaRegistro { get; set; }
-
-    // Relación con paciente
-    public Pacientes Paciente { get; set; }
 }

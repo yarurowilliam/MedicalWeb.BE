@@ -13,9 +13,9 @@ public class PacientesBLL : IPacientesBLL
         _pacientesDAL = pacientesDAL;
     }
 
-    public async Task DeleteAsync(string numeroDocumento)
+    public async Task DeleteAsync(string id)
     {
-        await _pacientesDAL.DeleteAsync(numeroDocumento);
+        await _pacientesDAL.DeleteAsync(id);
     }
 
     public async Task<IEnumerable<PacientesDTO>> GetAllAsync()
@@ -71,12 +71,12 @@ public class PacientesBLL : IPacientesBLL
         return MapToDTO(pacientes);
     }
 
-    public async Task<PacientesDTO1> InsertAsync(PacientesDTO1 pacientes)
+    public async Task<Pacientes> InsertAsync(Pacientes pacientes)
     {
         return await _pacientesDAL.InsertAsync(pacientes);
     }
 
-    public async Task<PacientesDTO1> UpdateAsync(PacientesDTO1 pacientes)
+    public async Task<Pacientes> UpdateAsync(Pacientes pacientes)
     {
         return await _pacientesDAL.UpdateAsync(pacientes);
     }

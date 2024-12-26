@@ -27,19 +27,19 @@ public class PacientesController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<PacientesDTO1> InsertAsync(PacientesDTO1 pacientes)
+    public async Task<Pacientes> InsertAsync(Pacientes pacientes)
     {
         return await _pacientesBLL.InsertAsync(pacientes);
     }
 
-    [HttpDelete("{numeroDocumento}")]
-    public async Task DeleteAsync(string numeroDocumento)
+    [HttpDelete("{id}")]
+    public async Task DeleteAsync(string id)
     {
-        await _pacientesBLL.DeleteAsync(numeroDocumento);
+        await _pacientesBLL.DeleteAsync(id);
     }
 
     [HttpPut]
-    public async Task<PacientesDTO1> UpdateAsync(PacientesDTO1 pacientes)
+    public async Task<Pacientes> UpdateAsync(Pacientes pacientes)
     {
         return await _pacientesBLL.UpdateAsync(pacientes);
     }   

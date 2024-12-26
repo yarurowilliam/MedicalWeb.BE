@@ -31,7 +31,4 @@ public class PacientesDTO
     public string AntecedentesFamiliares { get; set; }
     public DateTime FechaRegistro { get; set; }
     public string Estado { get; set; }
-
-    // Relación con mediciones
-    public ICollection<Medicion> Mediciones { get; set; }
 }

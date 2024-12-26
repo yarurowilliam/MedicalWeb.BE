@@ -7,16 +7,16 @@ namespace MedicalWeb.BE.Repositorio;
 public class PacientesDAL : IPacientesDAL
 {
     private readonly MedicalWebDbContext _context;
-    
+
     public PacientesDAL(MedicalWebDbContext context)
     {
         _context = context;
     }
 
-    public async Task DeleteAsync(string numeroDocumento)
+    public async Task DeleteAsync(string id)
     {
-        var pacientes = await _context.Set<Pacientes>().FindAsync(numeroDocumento);
-        if(pacientes != null)
+        var pacientes = await _context.Set<Pacientes>().FindAsync(id);
+        if (pacientes != null)
         {
             pacientes.Estado = "I";
             await _context.SaveChangesAsync();
@@ -32,7 +32,8 @@ public class PacientesDAL : IPacientesDAL
     {
         return await _context.Set<Pacientes>().FindAsync(numeroDocumento);
     }
-    public async Task<PacientesDTO1> InsertAsync(PacientesDTO1 pacientesDto)
+
+    public async Task<Pacientes> InsertAsync(Pacientes pacientesDto)
     {
         var paciente = new Pacientes
         {
@@ -99,7 +100,8 @@ public class PacientesDAL : IPacientesDAL
         return pacientesDto;
     }
 
-    public async Task<PacientesDTO1> UpdateAsync(PacientesDTO1 pacientesDto)
+
+    public async Task<Pacientes> UpdateAsync(Pacientes pacientesDto)
     {
         var existingPaciente = await _context.Set<Pacientes>().FindAsync(pacientesDto.NumeroDocumento);
 

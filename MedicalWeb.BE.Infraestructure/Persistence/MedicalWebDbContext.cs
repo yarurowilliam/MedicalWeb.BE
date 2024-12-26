@@ -26,7 +26,6 @@ public class MedicalWebDbContext(DbContextOptions options) : DbContext(options)
     public DbSet<MedicoEspecialidad> MedicoEspecialidades { get; set; }
     public DbSet<Pacientes> Pacientes { get; set; }
     public DbSet<Medicion> Medicion { get; set; }
-//    public DbSet<PacientesDTO1> Pacientes1 { get; set; }
 
     #endregion
 
@@ -45,6 +44,10 @@ public class MedicalWebDbContext(DbContextOptions options) : DbContext(options)
             .Seed();
 
         HasSequences(modelBuilder);
+
+        // Configurar tablas con triggers
+        modelBuilder.Entity<Pacientes>()
+            .ToTable("Pacientes", t => t.HasTrigger("trg_AfterUpdatePacientes"));
 
         base.OnModelCreating(modelBuilder);
     }
