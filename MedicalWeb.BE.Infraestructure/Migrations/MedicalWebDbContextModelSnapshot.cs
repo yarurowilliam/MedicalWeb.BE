@@ -2584,7 +2584,7 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
 
                     b.Property<bool>("Estado")
                         .HasMaxLength(1)
-                        .HasColumnType("bit")
+                        .HasColumnType("bit");
                     b.Property<string>("Estado")
                         .IsRequired()
                         .HasMaxLength(1)
