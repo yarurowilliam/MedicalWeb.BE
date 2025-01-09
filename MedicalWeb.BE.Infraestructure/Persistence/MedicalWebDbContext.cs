@@ -7,6 +7,7 @@ using MedicalWeb.BE.Infraestructure.Persitence.SeedData;
 using MedicalWeb.BE.Transversales.Entidades;
 using MedicalWeb.BE.Transversales;
 
+
 namespace MedicalWeb.BE.Infraestructure.Persitence;
 
 public class MedicalWebDbContext(DbContextOptions options) : DbContext(options)
@@ -26,6 +27,8 @@ public class MedicalWebDbContext(DbContextOptions options) : DbContext(options)
     public DbSet<MedicoEspecialidad> MedicoEspecialidades { get; set; }
     public DbSet<Pacientes> Pacientes { get; set; }
     public DbSet<Medicion> Medicion { get; set; }
+    public DbSet<HistoriaClinica> HistoriaClinica { get; set; }
+    //    public DbSet<PacientesDTO1> Pacientes1 { get; set; }
 
     #endregion
 

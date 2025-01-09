@@ -63,6 +63,8 @@ builder.Services.AddScoped<IHorarioMedicoBLL, HorarioMedicoBLL>();
 builder.Services.AddScoped<IHorarioMedicoDAL, HorarioMedicoDAL>();
 builder.Services.AddScoped<IPacientesBLL, PacientesBLL>();
 builder.Services.AddScoped<IPacientesDAL, PacientesDAL>();
+builder.Services.AddScoped<IHistoriaClinicaBLL, HistoriaClinicaBLL>();
+builder.Services.AddScoped<IHistoriaClinicaDAL, HistoriaClincaDAL>();
 
 // Agregar servicios de controladores
 builder.Services.AddControllers();
