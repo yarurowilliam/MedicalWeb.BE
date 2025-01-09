@@ -4,6 +4,7 @@ using MedicalWeb.BE.Infraestructure.Persitence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedicalWeb.BE.Infraestructure.Migrations
 {
     [DbContext(typeof(MedicalWebDbContext))]
-    partial class MedicalWebDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250108004553_TablaHistoriaClinica")]
+    partial class TablaHistoriaClinica
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2278,6 +2281,45 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                         });
                 });
 
+            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.Medicion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("Altura")
+                        .HasColumnType("decimal(10,2)")
+                        .HasColumnName("Altura");
+
+                    b.Property<DateTime>("FechaRegistro")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("FechaRegistro");
+
+                    b.Property<string>("NumeroDocumento")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("NumeroDocumento");
+
+                    b.Property<string>("PacienteNumeroDocumento")
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<decimal>("Peso")
+                        .HasColumnType("decimal(10,2)")
+                        .HasColumnName("Peso");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NumeroDocumento");
+
+                    b.HasIndex("PacienteNumeroDocumento");
+
+                    b.ToTable("Medicion", "dbo");
+                });
+
             modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.Medico", b =>
                 {
                     b.Property<string>("NumeroDocumento")
@@ -2408,10 +2450,9 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                         .HasColumnType("nvarchar(20)")
                         .HasColumnName("Telefono");
 
-                    b.Property<string>("TipoDocumento")
-                        .IsRequired()
+                    b.Property<int>("TipoDocumento")
                         .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)")
+                        .HasColumnType("int")
                         .HasColumnName("TipoDocumento");
 
                     b.Property<string>("Universidad")
@@ -2913,6 +2954,21 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.Medicion", b =>
+                {
+                    b.HasOne("MedicalWeb.BE.Transversales.Entidades.Pacientes", null)
+                        .WithMany()
+                        .HasForeignKey("NumeroDocumento")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MedicalWeb.BE.Transversales.Entidades.Pacientes", "Paciente")
+                        .WithMany("Mediciones")
+                        .HasForeignKey("PacienteNumeroDocumento");
+
+                    b.Navigation("Paciente");
+                });
+
             modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.MedicoEspecialidad", b =>
                 {
                     b.HasOne("MedicalWeb.BE.Transversales.Entidades.Especialidad", "Especialidad")
@@ -2930,6 +2986,20 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                     b.Navigation("Especialidad");
 
                     b.Navigation("Medico");
+                });
+
+            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.Pacientes", b =>
+                {
+                    b.HasOne("MedicalWeb.BE.Transversales.Entidades.TipoDocumento", null)
+                        .WithMany()
+                        .HasForeignKey("TipoDocumento")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.Pacientes", b =>
+                {
+                    b.Navigation("Mediciones");
                 });
 #pragma warning restore 612, 618
         }
