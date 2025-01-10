@@ -65,6 +65,8 @@ builder.Services.AddScoped<IPacientesBLL, PacientesBLL>();
 builder.Services.AddScoped<IPacientesDAL, PacientesDAL>();
 builder.Services.AddScoped<IHistoriaClinicaBLL, HistoriaClinicaBLL>();
 builder.Services.AddScoped<IHistoriaClinicaDAL, HistoriaClincaDAL>();
+builder.Services.AddScoped<IUsuarioDAL, UsuarioDAL>();
+builder.Services.AddScoped<IUsuarioBLL, UsuarioBLL>();
 
 // Agregar servicios de controladores
 builder.Services.AddControllers();

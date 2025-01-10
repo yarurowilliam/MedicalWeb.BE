@@ -1,5 +1,6 @@
 ﻿using MedicalWeb.BE.Infraestructure.Persitence;
 using MedicalWeb.BE.Repositorio.Interfaces;
+using MedicalWeb.BE.Transversales;
 using MedicalWeb.BE.Transversales.Entidades;
 using Microsoft.EntityFrameworkCore;
 namespace MedicalWeb.BE.Repositorio;
@@ -94,7 +95,8 @@ public class PacientesDAL : IPacientesDAL
             NombreUsuario = nombreUsuario,
             Password = "Medical2024"
         };
-        await _context.Usuarios.AddAsync(usuario);
+
+        await _context.Set<Usuario>().AddAsync(usuario);
 
         await _context.SaveChangesAsync();
         return pacientesDto;

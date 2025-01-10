@@ -2,6 +2,7 @@
 using MedicalWeb.BE.Transversales.Entidades;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
+using MedicalWeb.BE.Transversales;
 
 namespace MedicalWeb.BE.Infraestructure.Persitence.EntityConfigurations;
 
@@ -28,6 +29,11 @@ public class UsuarioEntityConfiguration : IEntityTypeConfiguration<Usuario>
         builder.Property(e => e.Password)
             .HasColumnName("Password")
             .HasMaxLength(50)
+            .IsRequired();
+
+        builder.Property(e => e.Estado)
+            .HasColumnName("Estado")
+            .HasMaxLength(1)
             .IsRequired();
     }
 }
