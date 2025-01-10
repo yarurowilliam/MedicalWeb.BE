@@ -1,6 +1,7 @@
 ﻿using MedicalWeb.BE.Infraestructure.Persitence;
 using MedicalWeb.BE.Repositorio.Interfaces;
 using MedicalWeb.BE.Transversales;
+using MedicalWeb.BE.Transversales.Encriptacion;
 namespace MedicalWeb.BE.Repositorio;
 
 public class UsuarioDAL : IUsuarioDAL
@@ -16,6 +17,7 @@ public class UsuarioDAL : IUsuarioDAL
     public async Task<Usuario> CreateUsuarioAsync(Usuario usuario)
     {
         _context.Usuarios.Add(usuario);
+        usuario.Password = Encrypt.EncriptarContrasena(usuario.Password);
         await _context.SaveChangesAsync();
         return usuario;
     }
@@ -43,6 +45,7 @@ public class UsuarioDAL : IUsuarioDAL
     public async Task<Usuario> UpdateUsuarioAsync(Usuario usuario)
     {
         _context.Usuarios.Update(usuario);
+        usuario.Password = Encrypt.EncriptarContrasena(usuario.Password);
         await _context.SaveChangesAsync();
         return usuario;
     }

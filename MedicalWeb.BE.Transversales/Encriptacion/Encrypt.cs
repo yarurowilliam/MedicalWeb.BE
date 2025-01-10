@@ -7,11 +7,10 @@ using System.Security.Cryptography;
 
 namespace MedicalWeb.BE.Transversales.Encriptacion;
 
-    public class Encrypt
+public class Encrypt
+{
+    public static string EncriptarContrasena(string input)
     {
-
-     public static string EncriptarContrasena(string input)
-     {
         MD5 mdHash = MD5.Create();
 
         byte[] data = mdHash.ComputeHash(Encoding.UTF8.GetBytes(input));
