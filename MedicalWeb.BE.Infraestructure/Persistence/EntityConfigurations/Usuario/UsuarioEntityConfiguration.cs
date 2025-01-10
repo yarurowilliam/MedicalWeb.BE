@@ -35,5 +35,14 @@ public class UsuarioEntityConfiguration : IEntityTypeConfiguration<Usuario>
             .HasColumnName("Estado")
             .HasMaxLength(1)
             .IsRequired();
+        
+        builder.Property(e => e.RolId)
+            .HasColumnName("RolId")
+            .IsRequired();
+
+        builder.HasOne<Rol>()
+            .WithMany()
+            .HasForeignKey(e => e.RolId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }
