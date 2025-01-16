@@ -22,7 +22,7 @@ public class PacientesBLL : IPacientesBLL
     {
         var pacientes = await _pacientesDAL.GetAllAsync();
         return MapToDTO(pacientes);
-    }
+    }       
 
     public static PacientesDTO MapToDTO(Pacientes pacientes)
     {

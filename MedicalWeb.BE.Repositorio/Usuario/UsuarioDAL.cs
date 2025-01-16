@@ -1,6 +1,8 @@
 ﻿using MedicalWeb.BE.Infraestructure.Persitence;
 using MedicalWeb.BE.Repositorio.Interfaces;
 using MedicalWeb.BE.Transversales;
+using MedicalWeb.BE.Transversales.Entidades;
+using Microsoft.EntityFrameworkCore;
 namespace MedicalWeb.BE.Repositorio;
 
 public class UsuarioDAL : IUsuarioDAL
@@ -32,7 +34,7 @@ public class UsuarioDAL : IUsuarioDAL
 
     public async Task<IEnumerable<Usuario>> GetUsuarioAsync()
     {
-        return _context.Usuarios.ToList();
+        return await _context.Set<Usuario>().ToListAsync();
     }
 
     public async Task<Usuario> GetUsuarioByIdAsync(string id)

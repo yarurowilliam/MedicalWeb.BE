@@ -1,5 +1,6 @@
 ﻿using MedicalWeb.BE.Servicio.Interfaces;
 using MedicalWeb.BE.Transversales;
+using MedicalWeb.BE.Transversales.Entidades;
 using Microsoft.AspNetCore.Mvc;
 namespace MedicalWeb.BE.API.Controllers;
 
@@ -14,12 +15,12 @@ public class UsuarioController : ControllerBase
         _usuarioBLL = usuarioBLL;
     }
     [HttpGet]
-    public async Task<IEnumerable<Usuario>> GetUsuarioAsync()
+    public async Task<IEnumerable<UsuarioDTO>> GetUsuarioAsync()
     {
         return await _usuarioBLL.GetUsuarioAsync();
     }
     [HttpGet("{id}")]
-    public async Task<Usuario> GetUsuarioByIdAsync(string id)
+    public async Task<UsuarioDTO> GetUsuarioByIdAsync(string id)
     {
         return await _usuarioBLL.GetUsuarioByIdAsync(id);
     }

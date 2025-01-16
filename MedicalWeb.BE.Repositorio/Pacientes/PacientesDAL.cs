@@ -97,7 +97,7 @@ public class PacientesDAL : IPacientesDAL
         };
 
         await _context.Set<Usuario>().AddAsync(usuario);
-
+            
         await _context.SaveChangesAsync();
         return pacientesDto;
     }
