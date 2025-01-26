@@ -36,6 +36,7 @@ public static class DbConstants
         public const string HistoriaClinica = nameof(HistoriaClinica);
         public const string Usuario = nameof(Usuario);
         public const string Rol = nameof(Rol);
+        public const string UsuarioRoles = nameof(UsuarioRoles);
         public const string EFMigrationsHistory = $"_{nameof(EFMigrationsHistory)}_";
     }
 

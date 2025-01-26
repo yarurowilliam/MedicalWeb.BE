@@ -1,33 +1,55 @@
 ﻿using MedicalWeb.BE.Repositorio.Interfaces;
 using MedicalWeb.BE.Servicio.Interfaces;
 using MedicalWeb.BE.Transversales;
+using MedicalWeb.BE.Transversales.Encriptacion;
 using MedicalWeb.BE.Transversales.Entidades;
+using Microsoft.Extensions.Configuration;
+using Auth0.ManagementApi.Models;
 namespace MedicalWeb.BE.Servicio;
 
 public class UsuarioBLL : IUsuarioBLL
 {
     private readonly IUsuarioDAL _usuarioDAL;
-    
-    public UsuarioBLL(IUsuarioDAL usuarioDAL)
+    private readonly IConfiguration _configuration;
+
+    public UsuarioBLL(IUsuarioDAL usuarioDAL, IConfiguration configuration)
     {
         _usuarioDAL = usuarioDAL;
+        _configuration = configuration;
     }
 
-    public static UsuarioDTO MapToDTO(Usuario usuario)
+    public async Task<IEnumerable<UsuarioDTO>> GetUsuarioByIdAsync(string id)
     {
-        return new UsuarioDTO
+        var usuarios = await _usuarioDAL.GetUsuarioByIdAsync(id);
+
+        var usuariosDTO = usuarios.Select(u => new UsuarioDTO
         {
-            Identificacion = usuario.Identificacion,
-            NombreUsuario = usuario.NombreUsuario,
-            Password = usuario.Password,
-            Estado = Convert.ToString(usuario.Estado),
-            RolId = Rol.GetRolById(usuario.RolId).Nombre,
-        };
+            UsuarioID = u.UsuarioID,
+            Identificacion = u.Identificacion,
+            NombreUsuario = u.NombreUsuario,
+            Password = u.Password,
+            Estado = u.Estado,
+            RolId = Rol.GetRolById(u.RolId)?.Nombre
+        }).ToList();
+
+        return usuariosDTO;
     }
 
-    public static IEnumerable<UsuarioDTO> MapToDTO(IEnumerable<Usuario> usuario)
+    public async Task<IEnumerable<UsuarioDTO>> GetUsuarioAsync()
     {
-        return usuario.Select(MapToDTO);
+        var usuarios = await _usuarioDAL.GetUsuarioAsync();
+
+        var usuariosDTO = usuarios.Select(u => new UsuarioDTO
+        {
+            UsuarioID = u.UsuarioID,
+            Identificacion = u.Identificacion,
+            NombreUsuario = u.NombreUsuario,
+            Password = u.Password,
+            Estado = u.Estado,
+            RolId = Rol.GetRolById(u.RolId)?.Nombre
+        }).ToList();
+
+        return usuariosDTO;
     }
 
     public async Task<Usuario> CreateUsuarioAsync(Usuario usuario)
@@ -40,20 +62,42 @@ public class UsuarioBLL : IUsuarioBLL
         await _usuarioDAL.DeleteUsuarioAsync(id);
     }
 
-    public async Task<IEnumerable<UsuarioDTO>> GetUsuarioAsync()
-    {
-        var usuario = await _usuarioDAL.GetUsuarioAsync();
-        return MapToDTO(usuario);
-    }
-
-    public async Task<UsuarioDTO> GetUsuarioByIdAsync(string id)
-    {
-        var usuario = await _usuarioDAL.GetUsuarioByIdAsync(id);
-        return MapToDTO(usuario);
-    }
-
     public async Task<Usuario> UpdateUsuarioAsync(Usuario usuario)
     {
         return await _usuarioDAL.UpdateUsuarioAsync(usuario);
+    }
+
+    public async Task<string> LoginAsync(string nombreUsuario, string password, IConfiguration config)
+    {
+        if (string.IsNullOrEmpty(nombreUsuario) || string.IsNullOrEmpty(password))
+        {
+            throw new ArgumentException("El nombre de usuario y la contraseña son obligatorios.");
+        }
+
+        string passwordEncriptada = Encrypt.EncriptarContrasena(password);
+
+        var usuarios = await _usuarioDAL.GetUsuarioByCredentialsAsync(nombreUsuario, passwordEncriptada);
+
+        if (usuarios == null || !usuarios.Any())
+        {
+            throw new UnauthorizedAccessException("Credenciales incorrectas.");
+        }
+
+        if (usuarios.Any(u => u.Estado != 'A'))
+        {
+            throw new UnauthorizedAccessException("El usuario no está activo.");
+        }
+
+        var usuarioBase = usuarios.First();
+        var rolesCombinados = string.Join(",", usuarios.Select(u => Rol.GetRolById(u.RolId)?.Nombre ?? "Desconocido"));
+
+        var usuarioDTO = new UsuarioDTO
+        {
+            Identificacion = usuarioBase.Identificacion,
+            NombreUsuario = usuarioBase.NombreUsuario,
+            RolId = rolesCombinados
+        };
+
+        return Transversales.Encriptacion.JwtConfiguration.GetToken(usuarioDTO, config);
     }
 }

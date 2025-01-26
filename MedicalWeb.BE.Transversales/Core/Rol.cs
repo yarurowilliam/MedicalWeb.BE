@@ -4,9 +4,7 @@
     {
         public static readonly Rol Administrador = new (1, Roles.Administrador);
         public static readonly Rol Medico = new (2, Roles.Medico);
-        public static readonly Rol Paciente = new (3, Roles.Paciente);
-
-
+        public static readonly Rol Paciente = new(3, Roles.Paciente);
 
         public static class Roles
         {
@@ -34,7 +32,18 @@
             };
 
         public static Rol GetRolById(int id)
-            => GetAll().FirstOrDefault(r => r.Id == id);
+        {
+            var roles = GetAll().Where(r => r.Id == id).ToList();
+
+            if (roles.Count > 1)
+            {
+                // Log o advertencia: datos duplicados detectados
+                throw new InvalidOperationException($"Se encontraron múltiples roles con el ID {id}. Verifica los datos.");
+            }
+
+            return roles.FirstOrDefault() ?? new Rol(0, "Rol desconocido");
+        }
+
 
         public static Rol GetRolByNombre(string nombre)
             => GetAll().FirstOrDefault(r => r.Nombre == nombre);

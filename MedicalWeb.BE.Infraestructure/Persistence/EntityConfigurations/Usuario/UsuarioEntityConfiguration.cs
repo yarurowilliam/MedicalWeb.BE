@@ -11,10 +11,15 @@ public class UsuarioEntityConfiguration : IEntityTypeConfiguration<Usuario>
     public void Configure(EntityTypeBuilder<Usuario> builder)
     {
         builder.ToTable(
-        DbConstants.Tables.Usuarios,
-        DbConstants.Schemas.Dbo);
+            DbConstants.Tables.Usuarios,
+            DbConstants.Schemas.Dbo);
 
-        builder.HasKey(e => e.Identificacion);
+        builder.HasKey(e => e.UsuarioID);
+
+        builder.Property(e => e.UsuarioID)
+            .HasColumnName("UsuarioID")
+            .ValueGeneratedOnAdd()  
+            .IsRequired();
 
         builder.Property(e => e.Identificacion)
             .HasColumnName("Identificacion")
@@ -35,7 +40,7 @@ public class UsuarioEntityConfiguration : IEntityTypeConfiguration<Usuario>
             .HasColumnName("Estado")
             .HasMaxLength(1)
             .IsRequired();
-        
+
         builder.Property(e => e.RolId)
             .HasColumnName("RolId")
             .IsRequired();

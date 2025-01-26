@@ -2,41 +2,78 @@
 using MedicalWeb.BE.Transversales;
 using MedicalWeb.BE.Transversales.Entidades;
 using Microsoft.AspNetCore.Mvc;
-namespace MedicalWeb.BE.API.Controllers;
+using LoginRequest = MedicalWeb.BE.Transversales.Entidades.LoginRequest;
 
-[Route("api/[controller]")]
-[ApiController]
-
-public class UsuarioController : ControllerBase
+namespace MedicalWeb.BE.API.Controllers
 {
-    private readonly IUsuarioBLL _usuarioBLL;
-    public UsuarioController(IUsuarioBLL usuarioBLL)
+    [Route("api/[controller]")]
+    [ApiController]
+    public class UsuarioController : ControllerBase
     {
-        _usuarioBLL = usuarioBLL;
-    }
-    [HttpGet]
-    public async Task<IEnumerable<UsuarioDTO>> GetUsuarioAsync()
-    {
-        return await _usuarioBLL.GetUsuarioAsync();
-    }
-    [HttpGet("{id}")]
-    public async Task<UsuarioDTO> GetUsuarioByIdAsync(string id)
-    {
-        return await _usuarioBLL.GetUsuarioByIdAsync(id);
-    }
-    [HttpPost]
-    public async Task<Usuario> CreateUsuarioAsync(Usuario usuario)
-    {
-        return await _usuarioBLL.CreateUsuarioAsync(usuario);
-    }
-    [HttpPut]
-    public async Task<Usuario> UpdateUsuarioAsync(Usuario usuario)
-    {
-        return await _usuarioBLL.UpdateUsuarioAsync(usuario);
-    }
-    [HttpDelete("{id}")]
-    public async Task DeleteUsuarioAsync(string id)
-    {
-        await _usuarioBLL.DeleteUsuarioAsync(id);
+        private readonly IUsuarioBLL _usuarioBLL;
+        private readonly IConfiguration _configuration;
+
+        public UsuarioController(IUsuarioBLL usuarioBLL, IConfiguration configuration)
+        {
+            _usuarioBLL = usuarioBLL;
+            _configuration = configuration;
+        }
+
+        [HttpGet]
+        public async Task<IEnumerable<UsuarioDTO>> GetUsuarioAsync()
+        {
+            return await _usuarioBLL.GetUsuarioAsync();
+        }
+
+        [HttpGet("detail/{id}")]
+        public async Task<IEnumerable<UsuarioDTO>> GetUsuarioByIdAsync(string id)
+        {
+            return await _usuarioBLL.GetUsuarioByIdAsync(id);
+        }
+
+        [HttpPost]
+        public async Task<Usuario> CreateUsuarioAsync(Usuario usuario)
+        {
+            return await _usuarioBLL.CreateUsuarioAsync(usuario);
+        }
+
+        [HttpPut]
+        public async Task<Usuario> UpdateUsuarioAsync(Usuario usuario)
+        {
+            return await _usuarioBLL.UpdateUsuarioAsync(usuario);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task DeleteUsuarioAsync(string id)
+        {
+            await _usuarioBLL.DeleteUsuarioAsync(id);
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
+        {
+            try
+            {
+                var token = await _usuarioBLL.LoginAsync(loginRequest.NombreUsuario, loginRequest.Password, _configuration);
+
+                if (string.IsNullOrEmpty(token))
+                {
+                    return Unauthorized("Credenciales incorrectas.");
+                }
+
+                return Ok(new
+                {
+                    token = token
+                });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
     }
 }

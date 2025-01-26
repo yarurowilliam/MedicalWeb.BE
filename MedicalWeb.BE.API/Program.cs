@@ -8,9 +8,13 @@ using Microsoft.AspNetCore.Http.Features;
 using System.Text.Json.Serialization;
 using Microsoft.OpenApi.Models;
 using MedicalWeb.BE.Transversales.Entidades;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configuración de JSON (serialización y enums como cadenas)
 builder.Services.Configure<Microsoft.AspNetCore.Mvc.JsonOptions>(options =>
 {
     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
@@ -21,36 +25,44 @@ builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =
     options.SerializerOptions.Converters.Add(new JsonStringEnumConverter());
 });
 
+// Configuración de formularios (aumento del límite de carga)
 builder.Services.Configure<FormOptions>(options =>
 {
-    options.MultipartBodyLengthLimit = 104857600;
+    options.MultipartBodyLengthLimit = 104857600; // 100 MB
 });
 
+// Configuración de la base de datos y servicios relacionados
 builder.Services.AddDatabase(builder.Configuration);
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
-builder.Services.AddStorage<StorageSettings>(builder.Configuration,
-    connectionString: builder.Configuration.GetSection<ConnectionStrings>().StorageAccount);
+builder.Services.AddStorage<StorageSettings>(
+    builder.Configuration,
+    connectionString: builder.Configuration.GetSection<ConnectionStrings>().StorageAccount
+);
 builder.Services.AddEmailClient(builder.Configuration.GetSection<AzureCommunicationService>().ConnectionString);
 
+// Configuración de CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+    options.AddPolicy("CorsPolicy", builder =>
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader());
 });
 
-
+// Configuración de controladores y serialización adicional
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.Converters.Add(new JsonDateOnlyConverter());
     });
 
-// Agregar servicios de Swagger
+// Configuración de Swagger
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "MedicalWeb API", Version = "v1" });
 });
 
-//IMPLEMENTA LA INYECCION DE DEPENDENCIAS Y CONTROLADORES
+// Inyección de dependencias (servicios y repositorios)
 builder.Services.AddScoped<IMedicoDAL, MedicoDAL>();
 builder.Services.AddScoped<IMedicoBLL, MedicoBLL>();
 builder.Services.AddScoped<IEspecialidadDAL, EspecialidadDAL>();
@@ -68,13 +80,34 @@ builder.Services.AddScoped<IHistoriaClinicaDAL, HistoriaClincaDAL>();
 builder.Services.AddScoped<IUsuarioDAL, UsuarioDAL>();
 builder.Services.AddScoped<IUsuarioBLL, UsuarioBLL>();
 
-// Agregar servicios de controladores
-builder.Services.AddControllers();
+// Configuración de JWT
+var jwtSettings = builder.Configuration.GetSection("Jwt");
+var secretKey = Encoding.UTF8.GetBytes(jwtSettings["SecretKey"]);
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtSettings["Issuer"], // tudominio.com
+        ValidAudience = jwtSettings["Audience"], // tudominio.com
+        IssuerSigningKey = new SymmetricSecurityKey(secretKey) // Clave secreta
+    };
+});
 
 var app = builder.Build();
 
+// Migración automática de la base de datos
 await app.MigrateDbContext<MedicalWebDbContext>();
 
+// Configuración del entorno de desarrollo
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -84,15 +117,19 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+// Middleware de routing, CORS, y autenticación
 app.UseRouting();
 app.UseCors("CorsPolicy");
 
-//app.UseAuthentication();
-//app.UseAuthorization();
+// Middleware de autenticación y autorización
+app.UseAuthentication();
+app.UseAuthorization();
 
+// Configuración de endpoints
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
 });
 
+// Ejecutar la aplicación
 await app.RunAsync();

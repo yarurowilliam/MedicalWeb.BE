@@ -30,6 +30,7 @@ public class MedicalWebDbContext(DbContextOptions options) : DbContext(options)
     public DbSet<HistoriaClinica> HistoriaClinica { get; set; }
     public DbSet <Usuario> Usuario { get; set; }
     public DbSet <Rol> Rol { get; set; }
+    public DbSet <UsuarioRoles> UsuarioRoles { get; set; }
 
     #endregion
 
