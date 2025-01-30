@@ -65,7 +65,7 @@ public class UsuarioDAL : IUsuarioDAL
     public async Task<IEnumerable<Usuario>> GetUsuarioByCredentialsAsync(string nombreUsuario, string passwordEncriptada)
     {
         return await _context.Usuarios
-            .Where(u => u.NombreUsuario == nombreUsuario &&
+            .Where(u => u.Identificacion == nombreUsuario &&
                         u.Password == passwordEncriptada &&
                         u.Estado == 'A')
             .ToListAsync();

@@ -26,32 +26,36 @@ public class HorarioMedicoBLL : IHorarioMedicoBLL
     public async Task<IEnumerable<HorarioMedicoDTO>> GetHorarioMedicoAsync()
     {
         var horarios = await _horarioMedicoDAL.GetHorarioMedicoAsync();
-        return MapToDTO(horarios);
-    }
 
-    public static HorarioMedicoDTO MapToDTO(HorarioMedico horario)
-    {
-        return new HorarioMedicoDTO
+        return horarios.Select(h => new HorarioMedicoDTO
         {
-            Id = horario.Id,
-            IdentificacionCliente = horario.IdentificacionCliente,
-            NumeroDocumento = horario.NumeroDocumento,
-            Dia = Dias.GetById(horario.DiaID).Code,
-            Hora = HorasMedicas.GetById(horario.HoraID).Code,
-            Estado = EstadoHorarioMedico.GetById(horario.EstadoHorarioID).Code,
-            Fecha = horario.Fecha
-        };
-    }
-
-    public static IEnumerable<HorarioMedicoDTO> MapToDTO(IEnumerable<HorarioMedico> horarios)
-    {
-        return horarios.Select(MapToDTO);
+            Id = (int)h.GetType().GetProperty("Id").GetValue(h),
+            IdentificacionCliente = (string)h.GetType().GetProperty("IdentificacionPaciente").GetValue(h),
+            NombrePaciente = (string)h.GetType().GetProperty("NombrePaciente").GetValue(h),
+            NumeroDocumento = (string)h.GetType().GetProperty("NumeroDocumentoMedico").GetValue(h),
+            NombreMedico = (string)h.GetType().GetProperty("NombreMedico").GetValue(h),
+            Dia = Dias.GetById((int)h.GetType().GetProperty("Dia").GetValue(h)).Code,
+            Hora = HorasMedicas.GetById((int)h.GetType().GetProperty("Hora").GetValue(h)).Code,
+            Estado = EstadoHorarioMedico.GetById(int.Parse((string)h.GetType().GetProperty("Estado").GetValue(h))).Code,
+            Fecha = (DateOnly)h.GetType().GetProperty("Fecha").GetValue(h)
+        });
     }
 
     public async Task<IEnumerable<HorarioMedicoDTO>> GetHorarioMedicoIdentificacionAsync(int id)
     {
         var horarios = await _horarioMedicoDAL.GetHorarioMedicoIdentificacionAsync(id);
-        return MapToDTO(horarios);
+        return horarios.Select(h => new HorarioMedicoDTO
+        {
+            Id = (int)h.GetType().GetProperty("Id").GetValue(h),
+            IdentificacionCliente = (string)h.GetType().GetProperty("IdentificacionPaciente").GetValue(h),
+            NombrePaciente = (string)h.GetType().GetProperty("NombrePaciente").GetValue(h),
+            NumeroDocumento = (string)h.GetType().GetProperty("NumeroDocumentoMedico").GetValue(h),
+            NombreMedico = (string)h.GetType().GetProperty("NombreMedico").GetValue(h),
+            Dia = Dias.GetById((int)h.GetType().GetProperty("Dia").GetValue(h)).Code,
+            Hora = HorasMedicas.GetById((int)h.GetType().GetProperty("Hora").GetValue(h)).Code,
+            Estado = EstadoHorarioMedico.GetById(int.Parse((string)h.GetType().GetProperty("Estado").GetValue(h))).Code,
+            Fecha = (DateOnly)h.GetType().GetProperty("Fecha").GetValue(h)
+        });
     }
 
     public async Task<HorarioMedico> UpdateHorarioMedicoAsync(HorarioMedico horarioMedico)
@@ -62,6 +66,17 @@ public class HorarioMedicoBLL : IHorarioMedicoBLL
     public async Task<IEnumerable<HorarioMedicoDTO>> ConsultarHorariosPorDiaYHoraAsync(string medicoId, int dia, int hora)
     {
         var horarios = await  _horarioMedicoDAL.GetHorariosPorDiaYHoraAsync(medicoId, dia, hora);
-        return MapToDTO(horarios);
+        return horarios.Select(h => new HorarioMedicoDTO
+        {
+            Id = (int)h.GetType().GetProperty("Id").GetValue(h),
+            IdentificacionCliente = (string)h.GetType().GetProperty("IdentificacionPaciente").GetValue(h),
+            NombrePaciente = (string)h.GetType().GetProperty("NombrePaciente").GetValue(h),
+            NumeroDocumento = (string)h.GetType().GetProperty("NumeroDocumentoMedico").GetValue(h),
+            NombreMedico = (string)h.GetType().GetProperty("NombreMedico").GetValue(h),
+            Dia = Dias.GetById((int)h.GetType().GetProperty("Dia").GetValue(h)).Code,
+            Hora = HorasMedicas.GetById((int)h.GetType().GetProperty("Hora").GetValue(h)).Code,
+            Estado = EstadoHorarioMedico.GetById(int.Parse((string)h.GetType().GetProperty("Estado").GetValue(h))).Code,
+            Fecha = (DateOnly)h.GetType().GetProperty("Fecha").GetValue(h)
+        });
     }
 }

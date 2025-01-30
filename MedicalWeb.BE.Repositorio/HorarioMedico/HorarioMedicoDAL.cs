@@ -83,23 +83,62 @@ public class HorarioMedicoDAL : IHorarioMedicoDAL
         return horarioMedico;
     }
 
-    public async Task<IEnumerable<HorarioMedico>> GetHorarioMedicoAsync()
+    public async Task<IEnumerable<object>> GetHorarioMedicoAsync()
     {
-        return await _context.HorarioMedico
-            .ToListAsync();
+        return await (from h in _context.HorarioMedico
+                      join m in _context.Medicos on h.NumeroDocumento equals m.NumeroDocumento
+                      join p in _context.Pacientes on h.IdentificacionCliente equals p.NumeroDocumento
+                      select new
+                      {
+                          h.Id,
+                          NumeroDocumentoMedico = m.NumeroDocumento,
+                          NombreMedico = $"{m.PrimerNombre} {m.SegundoNombre} {m.PrimerApellido}", // Concatenación del nombre completo del médico
+                          IdentificacionPaciente = p.NumeroDocumento,
+                          NombrePaciente = $"{p.PrimerNombre} {p.SegundoNombre} {p.PrimerApellido}", // Concatenación del nombre completo del paciente
+                          Dia = h.DiaID,
+                          Hora = h.HoraID,
+                          Estado = h.EstadoHorarioID.ToString(),
+                          h.Fecha
+                      }).ToListAsync();
     }
 
-    public async Task<IEnumerable<HorarioMedico>> GetHorarioMedicoIdentificacionAsync(int Identificacion)
+    public async Task<IEnumerable<object>> GetHorarioMedicoIdentificacionAsync(int Identificacion)
     {
-        return await _context.HorarioMedico 
-            .Where(h => Convert.ToInt32(h.NumeroDocumento) == Identificacion)
-            .ToListAsync();
+        return await (from h in _context.HorarioMedico
+                      join m in _context.Medicos on h.NumeroDocumento equals m.NumeroDocumento
+                      join p in _context.Pacientes on h.IdentificacionCliente equals p.NumeroDocumento
+                      where h.NumeroDocumento == Identificacion.ToString()
+                      select new
+                      {
+                          h.Id,
+                          NumeroDocumentoMedico = m.NumeroDocumento,
+                          NombreMedico = m.PrimerNombre + " " + m.SegundoNombre + " " + m.PrimerApellido,
+                          IdentificacionPaciente = p.NumeroDocumento,
+                          NombrePaciente = p.PrimerNombre + " " + p.SegundoNombre + " " + p.PrimerApellido,
+                          Dia = h.DiaID,
+                          Hora = h.HoraID,
+                          Estado = h.EstadoHorarioID.ToString(),
+                          h.Fecha
+                      }).ToListAsync();
     }
 
-    public async Task<IEnumerable<HorarioMedico>> GetHorariosPorDiaYHoraAsync(string medicoId,int dia, int hora)
+    public async Task<IEnumerable<object>> GetHorariosPorDiaYHoraAsync(string medicoId, int dia, int hora)
     {
-        return await _context.HorarioMedico
-            .Where(h => h.NumeroDocumento == medicoId && h.DiaID == dia && h.HoraID == hora)
-            .ToListAsync();
+        return await (from h in _context.HorarioMedico
+                      join m in _context.Medicos on h.NumeroDocumento equals m.NumeroDocumento
+                      join p in _context.Pacientes on h.IdentificacionCliente equals p.NumeroDocumento
+                      where h.NumeroDocumento == medicoId && h.DiaID == dia && h.HoraID == hora
+                      select new
+                      {
+                          h.Id,
+                          NumeroDocumentoMedico = m.NumeroDocumento,
+                          NombreMedico = m.PrimerNombre + " " + m.SegundoNombre + " " + m.PrimerApellido,
+                          IdentificacionPaciente = p.NumeroDocumento,
+                          NombrePaciente = p.PrimerNombre + " " + p.SegundoNombre + " " + p.PrimerApellido,
+                          Dia = h.DiaID,
+                          Hora = h.HoraID,
+                          Estado = h.EstadoHorarioID.ToString(),
+                          h.Fecha
+                      }).ToListAsync();
     }
 }
