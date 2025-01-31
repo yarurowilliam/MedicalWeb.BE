@@ -29,19 +29,26 @@ public class HistoriaClinicaBLL: IHistoriaClinicaBLL
         return MapToDTO(historiaClinica);
     }
 
-    public async Task<HistoriaClinicaDTO> GetByIdAsync(string numeroDocumento)
+    public async Task<IEnumerable<HistoriaClinicaDTO>> ObtenerHistoriasClinicasPorMedicoAsync(int idMedico)
     {
-        var historiaClinica = await _historiaClinicaDAL.GetByIdAsync(numeroDocumento);
-        return MapToDTO(historiaClinica);
+        var historiasClinicas = await _historiaClinicaDAL.ObtenerHistoriasClinicasPorMedicoAsync(idMedico);
+        return historiasClinicas.Select(MapToDTO);
     }
 
+    public async Task<IEnumerable<HistoriaClinicaDTO>> ObtenerHistoriasClinicasPorPacienteAsync(string numeroDocumentoPaciente)
+    {
+        var historiasClinicas = await _historiaClinicaDAL.ObtenerHistoriasClinicasPorPacienteAsync(numeroDocumentoPaciente);
+        return historiasClinicas.Select(MapToDTO);
+    }
 
-    public static HistoriaClinicaDTO MapToDTO(HistoriaClinica historiaClinica)
+    private static HistoriaClinicaDTO MapToDTO(HistoriaClinica historiaClinica)
     {
         return new HistoriaClinicaDTO
         {
             NumeroDocumentoPaciente = historiaClinica.NumeroDocumentoPaciente,
+           // NombrePaciente = historiaClinica.Paciente?.Nombre,
             NumeroDocumentoMedico = historiaClinica.NumeroDocumentoMedico,
+           // NombreMedico = historiaClinica.Medico?.Nombre,
             FechaConsulta = historiaClinica.FechaConsulta,
             MotivoConsulta = historiaClinica.MotivoConsulta,
             Alergias = historiaClinica.Alergias,
@@ -55,7 +62,7 @@ public class HistoriaClinicaBLL: IHistoriaClinicaBLL
             MedicamentosRecetados = historiaClinica.MedicamentosRecetados,
             Dosis = historiaClinica.Dosis,
             DuracionTratamiento = historiaClinica.DuracionTratamiento,
-            EstadoActivo = historiaClinica.EstadoActivo,
+            EstadoActivo = historiaClinica.EstadoActivo
         };
     }
 
@@ -83,5 +90,10 @@ public class HistoriaClinicaBLL: IHistoriaClinicaBLL
     public async Task<HistoriaClinicaDTO> UpdateAsync(HistoriaClinicaDTO historiaClinica)
     {
         return await _historiaClinicaDAL.UpdateAsync(historiaClinica);
+    }
+
+    public Task<HistoriaClinicaDTO> GetByIdAsync(int idusuario)
+    {
+        throw new NotImplementedException();
     }
 }

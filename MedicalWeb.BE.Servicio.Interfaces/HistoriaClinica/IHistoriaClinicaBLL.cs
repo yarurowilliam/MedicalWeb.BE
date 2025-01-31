@@ -7,7 +7,8 @@ namespace MedicalWeb.BE.Servicio.Interfaces;
 public interface IHistoriaClinicaBLL
 {
     Task<IEnumerable<HistoriaClinicaDTO>> GetAllAsync();
-    Task<HistoriaClinicaDTO> GetByIdAsync(string numeroDocumento);
+    Task<IEnumerable<HistoriaClinicaDTO>> ObtenerHistoriasClinicasPorMedicoAsync(int idMedico);
+    Task<IEnumerable<HistoriaClinicaDTO>> ObtenerHistoriasClinicasPorPacienteAsync(string numeroDocumentoPaciente); 
     Task<HistoriaClinicaDTO> InsertAsync(HistoriaClinicaDTO historiaClinicaDTO);
     Task<HistoriaClinicaDTO> UpdateAsync(HistoriaClinicaDTO historiaClinicaDTO);
     Task DeleteAsync(string numeroDocumento);

@@ -1,9 +1,13 @@
 ﻿using MedicalWeb.BE.Infraestructure.Migrations;
 using MedicalWeb.BE.Infraestructure.Persitence;
 using MedicalWeb.BE.Repositorio.Interfaces;
+using MedicalWeb.BE.Transversales.Encriptacion;
 using MedicalWeb.BE.Transversales.Entidades;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace MedicalWeb.BE.Repositorio;
@@ -11,6 +15,7 @@ namespace MedicalWeb.BE.Repositorio;
 public class HistoriaClincaDAL : IHistoriaClinicaDAL
 {
     private readonly MedicalWebDbContext _context;
+
     public HistoriaClincaDAL(MedicalWebDbContext context)
     {
         _context = context;
@@ -21,9 +26,22 @@ public class HistoriaClincaDAL : IHistoriaClinicaDAL
         return await _context.Set<HistoriaClinica>().ToListAsync();
     }
 
-    public async Task<HistoriaClinica> GetByIdAsync(string numeroDocumento)
+    public async Task<IEnumerable<HistoriaClinica>> ObtenerHistoriasClinicasPorMedicoAsync(int idMedico)
     {
-        return await _context.Set<HistoriaClinica>().FirstOrDefaultAsync(x => x.NumeroDocumentoPaciente == numeroDocumento);
+        return await _context.HistoriaClinica
+            .Where(h => h.NumeroDocumentoMedico == idMedico.ToString())
+            .Include(h => h.Paciente)
+            .Include(h => h.Medico)
+            .ToListAsync();
+    }
+
+    public async Task<IEnumerable<HistoriaClinica>> ObtenerHistoriasClinicasPorPacienteAsync(string numeroDocumentoPaciente)
+    {
+        return await _context.HistoriaClinica
+            .Where(h => h.NumeroDocumentoPaciente == numeroDocumentoPaciente)
+            .Include(h => h.Paciente)
+            .Include(h => h.Medico)
+            .ToListAsync();
     }
 
     public async Task<HistoriaClinicaDTO> InsertAsync(HistoriaClinicaDTO historiaClinicaDTO)

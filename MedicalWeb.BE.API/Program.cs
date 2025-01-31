@@ -60,6 +60,31 @@ builder.Services.AddControllers()
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "MedicalWeb API", Version = "v1" });
+
+    // Agregar configuración de JWT
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "Por favor ingrese el token JWT con el prefijo Bearer",
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
 });
 
 // Inyección de dependencias (servicios y repositorios)
@@ -82,6 +107,7 @@ builder.Services.AddScoped<IUsuarioBLL, UsuarioBLL>();
 
 // Configuración de JWT
 var jwtSettings = builder.Configuration.GetSection("Jwt");
+builder.Services.AddHttpContextAccessor();
 var secretKey = Encoding.UTF8.GetBytes(jwtSettings["SecretKey"]);
 builder.Services.AddAuthentication(options =>
 {

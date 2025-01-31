@@ -1,7 +1,11 @@
 ﻿using MedicalWeb.BE.Servicio;
 using MedicalWeb.BE.Servicio.Interfaces;
+using MedicalWeb.BE.Transversales.Encriptacion;
 using MedicalWeb.BE.Transversales.Entidades;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace MedicalWeb.BE.API.Controllers.HistoriaClinica
 {
@@ -12,17 +16,44 @@ namespace MedicalWeb.BE.API.Controllers.HistoriaClinica
         private readonly IHistoriaClinicaBLL _historiaClinicaBLL;
         private readonly IMedicoBLL _medicoBLL;
         private readonly IPacientesBLL _pacientesBLL;
-        public HistoriaClinicaController(IHistoriaClinicaBLL historiaClinicaBLL, IMedicoBLL medicoBLL, IPacientesBLL pacientesBLL)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public HistoriaClinicaController(IHistoriaClinicaBLL historiaClinicaBLL, IMedicoBLL medicoBLL, IPacientesBLL pacientesBLL, IHttpContextAccessor httpContextAccessor)
         {
             _historiaClinicaBLL=historiaClinicaBLL;
             _medicoBLL=medicoBLL;
             _pacientesBLL=pacientesBLL;
+            _httpContextAccessor = httpContextAccessor;
         }
 
-        [HttpGet]
-        public async Task<IEnumerable<HistoriaClinicaDTO>> GetAllAsync()
+        [HttpGet("medico")]
+        public async Task<IActionResult> ObtenerHistoriasClinicasPorMedicoAsync()
         {
-            return await _historiaClinicaBLL.GetAllAsync();
+            try
+            {
+                var identity = _httpContextAccessor.HttpContext.User.Identity as ClaimsIdentity;
+                int idMedico = JwtConfiguration.GetTokenIdUsuario(identity);
+                var historiasClinicas = await _historiaClinicaBLL.ObtenerHistoriasClinicasPorMedicoAsync(idMedico);
+                return Ok(historiasClinicas);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("pacientes/historias/{numeroDocumentoPaciente}")]
+        public async Task<IActionResult> ObtenerHistoriasClinicasPorPacienteAsync(string numeroDocumentoPaciente)
+        {
+            try
+            {
+                var historiasClinicas = await _historiaClinicaBLL.ObtenerHistoriasClinicasPorPacienteAsync(numeroDocumentoPaciente);
+                return Ok(historiasClinicas);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("medico/{documentoMedico}")]
@@ -32,7 +63,7 @@ namespace MedicalWeb.BE.API.Controllers.HistoriaClinica
 
             if (medico == null)
             {
-                return NotFound("Médico no encontrado"); 
+                return NotFound("Médico no encontrado");
             }
 
             return Ok(new
@@ -51,7 +82,7 @@ namespace MedicalWeb.BE.API.Controllers.HistoriaClinica
             var paciente = await _pacientesBLL.GetByIdAsync(documentoPaciente);
             if (paciente == null)
             {
-                return NotFound("Paciente no encontrado"); 
+                return NotFound("Paciente no encontrado");
             }
             return Ok(new
             {
@@ -81,7 +112,5 @@ namespace MedicalWeb.BE.API.Controllers.HistoriaClinica
         {
             await _historiaClinicaBLL.DeleteAsync(numeroDocumento);
         }
-
-
     }
 }
