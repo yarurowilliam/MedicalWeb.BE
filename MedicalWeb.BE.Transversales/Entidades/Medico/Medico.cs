@@ -27,4 +27,5 @@ public class Medico
     public string FechaIngreso { get; set; }
     public string FechaSalida { get; set; }
     public string Estado { get; set; } 
+    public string ImagenUrl { get; set; }
 }

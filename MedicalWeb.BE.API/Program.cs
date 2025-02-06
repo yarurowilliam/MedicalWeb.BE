@@ -11,6 +11,9 @@ using MedicalWeb.BE.Transversales.Entidades;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using MedicalWeb.BE.Infraestructura.Image;
+using MedicalWeb.BE.Transversales.Image;
+using MedicalWeb.BE.Transversales.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +33,11 @@ builder.Services.Configure<FormOptions>(options =>
 {
     options.MultipartBodyLengthLimit = 104857600; // 100 MB
 });
+
+// Inyección de Cloudinary
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
+builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
+
 
 // Configuración de la base de datos y servicios relacionados
 builder.Services.AddDatabase(builder.Configuration);
@@ -79,6 +87,9 @@ builder.Services.AddScoped<IHistoriaClinicaBLL, HistoriaClinicaBLL>();
 builder.Services.AddScoped<IHistoriaClinicaDAL, HistoriaClincaDAL>();
 builder.Services.AddScoped<IUsuarioDAL, UsuarioDAL>();
 builder.Services.AddScoped<IUsuarioBLL, UsuarioBLL>();
+
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
+builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
 
 // Configuración de JWT
 var jwtSettings = builder.Configuration.GetSection("Jwt");
