@@ -1,46 +1,69 @@
 ﻿using MedicalWeb.BE.Servicio.Interfaces;
 using MedicalWeb.BE.Transversales.Entidades;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-namespace MedicalWeb.BE.API.Controllers;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-[Route("api/[controller]")]
-[ApiController]
-public class MedicoController : ControllerBase
+namespace MedicalWeb.BE.API.Controllers
 {
-    private readonly IMedicoBLL _medicoBLL;
-
-    public MedicoController(IMedicoBLL medicoBLL)
+    [Route("api/[controller]")]
+    [ApiController]
+    public class MedicoController : ControllerBase
     {
-        _medicoBLL = medicoBLL;
-    }
+        private readonly IMedicoBLL _medicoBLL;
 
-    [HttpGet]
-    public async Task<IEnumerable<MedicoDTO>> GetAllAsync()
-    {
-        return await _medicoBLL.GetAllAsync();
-    }
+        public MedicoController(IMedicoBLL medicoBLL)
+        {
+            _medicoBLL = medicoBLL;
+        }
 
     [HttpGet("{id}")]
     public async Task<MedicoDTO> GetByIdAsync(string id)
     {
          return await _medicoBLL.GetByIdAsync(id);
     }
+        [HttpGet]
+        public async Task<IEnumerable<MedicoDTO>> GetAllAsync()
+        {
+            return await _medicoBLL.GetAllAsync();
+        }
 
-    [HttpPost]
-    public async Task<Medico> InsertAsync(Medico medico)
-    {
-        return await _medicoBLL.InsertAsync(medico);
-    }
+        [HttpGet("{id}")]
+        public async Task<ActionResult<MedicoDTO>> GetByIdAsync(string id)
+        {
+            var medico = await _medicoBLL.GetByIdAsync(id);
+            if (medico == null)
+            {
+                return NotFound();
+            }
+            return medico;
+        }
 
-    [HttpDelete("{id}")]
-    public async Task DeleteAsync(string id)
-    {
-        await _medicoBLL.DeleteAsync(id);
-    }
+        [HttpPost]
+        public async Task<IActionResult> InsertAsync([FromForm] MedicoDTO medicoDTO)
+        {
+            var resultado = await _medicoBLL.InsertAsync(medicoDTO);
+            return CreatedAtAction(nameof(GetByIdAsync), new { id = resultado.NumeroDocumento }, resultado);
+        }
 
-    [HttpPut]
-    public async Task<Medico> UpdateAsync(Medico medico)
-    {
-        return await _medicoBLL.UpdateAsync(medico);
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateAsync(string id, [FromForm] MedicoDTO medicoDTO)
+        {
+            if (id != medicoDTO.NumeroDocumento)
+            {
+                return BadRequest("El ID en la URL no coincide con el ID del médico.");
+            }
+
+            var resultado = await _medicoBLL.UpdateAsync(medicoDTO);
+            return Ok(resultado);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAsync(string id)
+        {
+            await _medicoBLL.DeleteAsync(id);
+            return NoContent();
+        }
     }
 }

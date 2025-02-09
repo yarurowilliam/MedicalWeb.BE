@@ -15,7 +15,7 @@ public class HorarioMedicoController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<HorarioMedico>>> GetHorariosAsync()
+    public async Task<ActionResult<IEnumerable<HorarioMedicoDTO>>> GetHorariosAsync()
     {
         var horarios = await _horarioMedicoBLL.GetHorarioMedicoAsync();
         return Ok(horarios);
