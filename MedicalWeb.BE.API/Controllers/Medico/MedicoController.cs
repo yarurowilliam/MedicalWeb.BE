@@ -23,7 +23,7 @@ public class MedicoController : ControllerBase
     [HttpGet("{id}")]
     public async Task<MedicoDTO> GetByIdAsync(string id)
     {
-        return await _medicoBLL.GetByIdAsync(id);
+         return await _medicoBLL.GetByIdAsync(id);
     }
 
     [HttpPost]

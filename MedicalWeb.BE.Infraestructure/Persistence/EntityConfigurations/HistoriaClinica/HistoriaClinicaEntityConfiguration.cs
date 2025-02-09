@@ -33,6 +33,14 @@ namespace MedicalWeb.BE.Infraestructure.Persistence.EntityConfigurations
                 .HasColumnName("NumeroDocumentoMedico")
                 .HasMaxLength(20)
                 .IsRequired();
+            builder.Property(e => e.NombrePaciente)
+                .HasColumnName("NombrePaciente")
+                .HasMaxLength(100)
+                .IsRequired();
+            builder.Property(e => e.NombreMedico)
+                .HasColumnName("NombreMedico")
+                .HasMaxLength(100)
+                .IsRequired();
 
             builder.HasOne(e => e.Medico)
                 .WithMany()

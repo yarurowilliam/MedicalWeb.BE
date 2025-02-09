@@ -10,6 +10,8 @@ public class HistoriaClinicaDTO
 {
     public string NumeroDocumentoPaciente { get; set; }
     public string NumeroDocumentoMedico { get; set; }
+    public string NombrePaciente { get; set; }
+    public string NombreMedico { get; set; }
     public DateTime FechaConsulta { get; set; }
     public string MotivoConsulta { get; set; }
     public string Alergias { get; set; }

@@ -46,9 +46,9 @@ public class HistoriaClinicaBLL: IHistoriaClinicaBLL
         return new HistoriaClinicaDTO
         {
             NumeroDocumentoPaciente = historiaClinica.NumeroDocumentoPaciente,
-           // NombrePaciente = historiaClinica.Paciente?.Nombre,
+            NombrePaciente = historiaClinica.NombrePaciente,
             NumeroDocumentoMedico = historiaClinica.NumeroDocumentoMedico,
-           // NombreMedico = historiaClinica.Medico?.Nombre,
+            NombreMedico = historiaClinica.NombreMedico,
             FechaConsulta = historiaClinica.FechaConsulta,
             MotivoConsulta = historiaClinica.MotivoConsulta,
             Alergias = historiaClinica.Alergias,
