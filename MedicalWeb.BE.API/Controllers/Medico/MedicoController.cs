@@ -18,11 +18,6 @@ namespace MedicalWeb.BE.API.Controllers
             _medicoBLL = medicoBLL;
         }
 
-    [HttpGet("{id}")]
-    public async Task<MedicoDTO> GetByIdAsync(string id)
-    {
-         return await _medicoBLL.GetByIdAsync(id);
-    }
         [HttpGet]
         public async Task<IEnumerable<MedicoDTO>> GetAllAsync()
         {
