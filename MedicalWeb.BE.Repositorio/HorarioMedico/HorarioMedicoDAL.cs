@@ -8,9 +8,11 @@ namespace MedicalWeb.BE.Repositorio;
 public class HorarioMedicoDAL : IHorarioMedicoDAL
 {
     private readonly MedicalWebDbContext _context;
+   
 
     public HorarioMedicoDAL(MedicalWebDbContext context)
     {
+        
         _context = context;
     }
 
@@ -83,62 +85,82 @@ public class HorarioMedicoDAL : IHorarioMedicoDAL
         return horarioMedico;
     }
 
-    public async Task<IEnumerable<object>> GetHorarioMedicoAsync()
+    public async Task<IEnumerable<HorarioMedicoDTO>> GetHorarioMedicoAsync()
     {
         return await (from h in _context.HorarioMedico
                       join m in _context.Medicos on h.NumeroDocumento equals m.NumeroDocumento
                       join p in _context.Pacientes on h.IdentificacionCliente equals p.NumeroDocumento
-                      select new
+                      select new HorarioMedicoDTO
                       {
-                          h.Id,
-                          NumeroDocumentoMedico = m.NumeroDocumento,
-                          NombreMedico = $"{m.PrimerNombre} {m.SegundoNombre} {m.PrimerApellido}", // Concatenación del nombre completo del médico
-                          IdentificacionPaciente = p.NumeroDocumento,
-                          NombrePaciente = $"{p.PrimerNombre} {p.SegundoNombre} {p.PrimerApellido}", // Concatenación del nombre completo del paciente
-                          Dia = h.DiaID,
-                          Hora = h.HoraID,
-                          Estado = h.EstadoHorarioID.ToString(),
-                          h.Fecha
+                          Id = h.Id,
+                          NumeroDocumento = m.NumeroDocumento,
+                          NombreMedico = $"{m.PrimerNombre} {m.SegundoNombre} {m.PrimerApellido}".Trim(),
+                          IdentificacionCliente = p.NumeroDocumento,
+                          NombrePaciente = $"{p.PrimerNombre} {p.SegundoNombre} {p.PrimerApellido}".Trim(),
+                          Dia = Dias.GetById(h.DiaID).Code,
+                          Hora = HorasMedicas.GetById(h.HoraID).Code,
+                          Estado = EstadoHorarioMedico.GetById(h.EstadoHorarioID).Code,
+                          Fecha = h.Fecha,
+                          SalaId = h.SalaId
                       }).ToListAsync();
     }
 
-    public async Task<IEnumerable<object>> GetHorarioMedicoIdentificacionAsync(int Identificacion)
+    public async Task<IEnumerable<HorarioMedicoDTO>> GetHorarioMedicoIdentificacionAsync(int identificacion)
     {
         return await (from h in _context.HorarioMedico
                       join m in _context.Medicos on h.NumeroDocumento equals m.NumeroDocumento
                       join p in _context.Pacientes on h.IdentificacionCliente equals p.NumeroDocumento
-                      where h.NumeroDocumento == Identificacion.ToString()
-                      select new
+                      where h.NumeroDocumento == identificacion.ToString()
+                      select new HorarioMedicoDTO
                       {
-                          h.Id,
-                          NumeroDocumentoMedico = m.NumeroDocumento,
-                          NombreMedico = m.PrimerNombre + " " + m.SegundoNombre + " " + m.PrimerApellido,
-                          IdentificacionPaciente = p.NumeroDocumento,
-                          NombrePaciente = p.PrimerNombre + " " + p.SegundoNombre + " " + p.PrimerApellido,
-                          Dia = h.DiaID,
-                          Hora = h.HoraID,
-                          Estado = h.EstadoHorarioID.ToString(),
-                          h.Fecha
+                          Id = h.Id,
+                          NumeroDocumento = m.NumeroDocumento,
+                          NombreMedico = $"{m.PrimerNombre} {m.SegundoNombre} {m.PrimerApellido}".Trim(),
+                          IdentificacionCliente = p.NumeroDocumento,
+                          NombrePaciente = $"{p.PrimerNombre} {p.SegundoNombre} {p.PrimerApellido}".Trim(),
+                          Dia = Dias.GetById(h.DiaID).Code,
+                          Hora = HorasMedicas.GetById(h.HoraID).Code,
+                          Fecha = h.Fecha,
+                          Estado = EstadoHorarioMedico.GetById(h.EstadoHorarioID).Code,
+                          SalaId = h.SalaId
                       }).ToListAsync();
     }
 
-    public async Task<IEnumerable<object>> GetHorariosPorDiaYHoraAsync(string medicoId, int dia, int hora)
+    public async Task<IEnumerable<HorarioMedicoDTO>> GetHorarioMedicoIdentificacionPacienteAsync(int identificacion)
     {
         return await (from h in _context.HorarioMedico
                       join m in _context.Medicos on h.NumeroDocumento equals m.NumeroDocumento
                       join p in _context.Pacientes on h.IdentificacionCliente equals p.NumeroDocumento
-                      where h.NumeroDocumento == medicoId && h.DiaID == dia && h.HoraID == hora
-                      select new
+                      where h.IdentificacionCliente == identificacion.ToString() || h.Id == identificacion
+                      select new HorarioMedicoDTO
                       {
-                          h.Id,
-                          NumeroDocumentoMedico = m.NumeroDocumento,
-                          NombreMedico = m.PrimerNombre + " " + m.SegundoNombre + " " + m.PrimerApellido,
-                          IdentificacionPaciente = p.NumeroDocumento,
-                          NombrePaciente = p.PrimerNombre + " " + p.SegundoNombre + " " + p.PrimerApellido,
-                          Dia = h.DiaID,
-                          Hora = h.HoraID,
-                          Estado = h.EstadoHorarioID.ToString(),
-                          h.Fecha
+                          Id = h.Id,
+                          NumeroDocumento = m.NumeroDocumento,
+                          NombreMedico = $"{m.PrimerNombre} {m.SegundoNombre} {m.PrimerApellido}".Trim(),
+                          IdentificacionCliente = p.NumeroDocumento,
+                          NombrePaciente = $"{p.PrimerNombre} {p.SegundoNombre} {p.PrimerApellido}".Trim(),
+                          Dia = Dias.GetById(h.DiaID).Code,
+                          Hora = HorasMedicas.GetById(h.HoraID).Code,
+                          Estado = EstadoHorarioMedico.GetById(h.EstadoHorarioID).Code,
+                          Fecha = h.Fecha,
+                          SalaId = h.SalaId
                       }).ToListAsync();
     }
+
+
+    public async Task UpdateSalaIdAsync(int id, string salaId)
+    {
+        //var horario = await _context.HorarioMedico.FindAsync(id);
+        var horario = await _context.HorarioMedico
+                                             .FirstOrDefaultAsync(e => e.Id == id);
+        if (horario == null)
+        {
+            throw new InvalidOperationException("El horario médico no existe.");
+        }
+
+        horario.SalaId = salaId;
+        _context.Entry(horario).Property(h => h.SalaId).IsModified = true;
+        await _context.SaveChangesAsync();
+    }
+
 }

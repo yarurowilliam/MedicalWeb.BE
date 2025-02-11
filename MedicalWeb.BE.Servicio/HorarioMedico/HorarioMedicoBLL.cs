@@ -2,6 +2,8 @@
 using MedicalWeb.BE.Transversales.Entidades;
 using MedicalWeb.BE.Repositorio.Interfaces;
 using MedicalWeb.BE.Transversales;
+using MedicalWeb.BE.Infraestructure.Persitence;
+using Microsoft.EntityFrameworkCore;
 namespace MedicalWeb.BE.Servicio;
 
 public class HorarioMedicoBLL : IHorarioMedicoBLL
@@ -23,60 +25,29 @@ public class HorarioMedicoBLL : IHorarioMedicoBLL
         return await _horarioMedicoDAL.DeleteHorarioMedicoAsync(Identificacion);
     }
 
-    public async Task<IEnumerable<HorarioMedicoDTO>> GetHorarioMedicoAsync()
-    {
-        var horarios = await _horarioMedicoDAL.GetHorarioMedicoAsync();
-
-        return horarios.Select(h => new HorarioMedicoDTO
-        {
-            Id = (int)h.GetType().GetProperty("Id").GetValue(h),
-            IdentificacionCliente = (string)h.GetType().GetProperty("IdentificacionPaciente").GetValue(h),
-            NombrePaciente = (string)h.GetType().GetProperty("NombrePaciente").GetValue(h),
-            NumeroDocumento = (string)h.GetType().GetProperty("NumeroDocumentoMedico").GetValue(h),
-            NombreMedico = (string)h.GetType().GetProperty("NombreMedico").GetValue(h),
-            Dia = Dias.GetById((int)h.GetType().GetProperty("Dia").GetValue(h)).Code,
-            Hora = HorasMedicas.GetById((int)h.GetType().GetProperty("Hora").GetValue(h)).Code,
-            Estado = EstadoHorarioMedico.GetById(int.Parse((string)h.GetType().GetProperty("Estado").GetValue(h))).Code,
-            Fecha = (DateOnly)h.GetType().GetProperty("Fecha").GetValue(h)
-        });
-    }
-
-    public async Task<IEnumerable<HorarioMedicoDTO>> GetHorarioMedicoIdentificacionAsync(int id)
-    {
-        var horarios = await _horarioMedicoDAL.GetHorarioMedicoIdentificacionAsync(id);
-        return horarios.Select(h => new HorarioMedicoDTO
-        {
-            Id = (int)h.GetType().GetProperty("Id").GetValue(h),
-            IdentificacionCliente = (string)h.GetType().GetProperty("IdentificacionPaciente").GetValue(h),
-            NombrePaciente = (string)h.GetType().GetProperty("NombrePaciente").GetValue(h),
-            NumeroDocumento = (string)h.GetType().GetProperty("NumeroDocumentoMedico").GetValue(h),
-            NombreMedico = (string)h.GetType().GetProperty("NombreMedico").GetValue(h),
-            Dia = Dias.GetById((int)h.GetType().GetProperty("Dia").GetValue(h)).Code,
-            Hora = HorasMedicas.GetById((int)h.GetType().GetProperty("Hora").GetValue(h)).Code,
-            Estado = EstadoHorarioMedico.GetById(int.Parse((string)h.GetType().GetProperty("Estado").GetValue(h))).Code,
-            Fecha = (DateOnly)h.GetType().GetProperty("Fecha").GetValue(h)
-        });
-    }
-
     public async Task<HorarioMedico> UpdateHorarioMedicoAsync(HorarioMedico horarioMedico)
     {
         return await _horarioMedicoDAL.UpdateHorarioMedicoAsync(horarioMedico);
     }
 
-    public async Task<IEnumerable<HorarioMedicoDTO>> ConsultarHorariosPorDiaYHoraAsync(string medicoId, int dia, int hora)
+    public async Task<IEnumerable<HorarioMedicoDTO>> GetHorarioMedicoAsync()
     {
-        var horarios = await  _horarioMedicoDAL.GetHorariosPorDiaYHoraAsync(medicoId, dia, hora);
-        return horarios.Select(h => new HorarioMedicoDTO
-        {
-            Id = (int)h.GetType().GetProperty("Id").GetValue(h),
-            IdentificacionCliente = (string)h.GetType().GetProperty("IdentificacionPaciente").GetValue(h),
-            NombrePaciente = (string)h.GetType().GetProperty("NombrePaciente").GetValue(h),
-            NumeroDocumento = (string)h.GetType().GetProperty("NumeroDocumentoMedico").GetValue(h),
-            NombreMedico = (string)h.GetType().GetProperty("NombreMedico").GetValue(h),
-            Dia = Dias.GetById((int)h.GetType().GetProperty("Dia").GetValue(h)).Code,
-            Hora = HorasMedicas.GetById((int)h.GetType().GetProperty("Hora").GetValue(h)).Code,
-            Estado = EstadoHorarioMedico.GetById(int.Parse((string)h.GetType().GetProperty("Estado").GetValue(h))).Code,
-            Fecha = (DateOnly)h.GetType().GetProperty("Fecha").GetValue(h)
-        });
+        return await _horarioMedicoDAL.GetHorarioMedicoAsync();
     }
+
+    public async Task<IEnumerable<HorarioMedicoDTO>> GetHorarioMedicoIdentificacionAsync(int identificacion)
+    {
+        return await _horarioMedicoDAL.GetHorarioMedicoIdentificacionAsync(identificacion);
+    }
+
+    public async Task<IEnumerable<HorarioMedicoDTO>> GetHorarioMedicoIdentificacionPacienteAsync(int identificacion)
+    {
+        return await _horarioMedicoDAL.GetHorarioMedicoIdentificacionPacienteAsync(identificacion);
+    }
+
+    public async Task UpdateSalaIdAsync(int id, string salaId)
+    {
+        await _horarioMedicoDAL.UpdateSalaIdAsync(id, salaId);
+    }
+
 }
