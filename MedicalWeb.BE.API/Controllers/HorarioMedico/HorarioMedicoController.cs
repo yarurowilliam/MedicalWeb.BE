@@ -93,25 +93,9 @@ public class HorarioMedicoController : ControllerBase
 
     [HttpPatch("{id}/sala")]
     public async Task<IActionResult> UpdateSala(int id, [FromBody] string salaId)
-    {
-        if (string.IsNullOrEmpty(salaId))
-        {
-            return BadRequest("El campo salaId no puede ser nulo o vacío");
-        }
-
-        try
-        {
-            await _horarioMedicoBLL.UpdateSalaIdAsync(id, salaId);
-            return Ok("Sala actualizada correctamente");
-        }
-        catch (InvalidOperationException ex)
-        {
-            return NotFound(new { message = ex.Message });
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, $"Error interno: {ex.Message}");
-        }
+    { 
+        await _horarioMedicoBLL.UpdateSalaIdAsync(id, salaId);
+        return Ok();
     }
 
-}
+}  
