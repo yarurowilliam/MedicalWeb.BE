@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MedicalWeb.BE.Infraestructure\MedicalWeb.BE.Infraestructure.csproj" />
     <ProjectReference Include="..\MedicalWeb.BE.Repositorio.Interfaces\MedicalWeb.BE.Repositorio.Interfaces.csproj" />
     <ProjectReference Include="..\MedicalWeb.BE.Servicio.Interfaces\MedicalWeb.BE.Servicio.Interfaces.csproj" />
     <ProjectReference Include="..\MedicalWeb.BE.Transversales\MedicalWeb.BE.Transversales.csproj" />

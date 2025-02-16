@@ -111,4 +111,5 @@ public class HistoriaClincaDAL : IHistoriaClinicaDAL
             await _context.SaveChangesAsync();
         }
     }
+
 }

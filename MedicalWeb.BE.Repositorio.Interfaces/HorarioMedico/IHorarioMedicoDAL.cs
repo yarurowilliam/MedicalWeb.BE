@@ -5,8 +5,10 @@ public interface IHorarioMedicoDAL
 {
     Task<HorarioMedico> CreateHorarioMedicoIdAsync(HorarioMedico horarioMedico);
     Task<HorarioMedico> DeleteHorarioMedicoAsync(int id);
-    Task<IEnumerable<object>> GetHorarioMedicoAsync();
-    Task<IEnumerable<object>> GetHorarioMedicoIdentificacionAsync(int Identificacion);
+    Task<IEnumerable<HorarioMedicoDTO>> GetHorarioMedicoAsync();
+    Task<IEnumerable<HorarioMedicoDTO>> GetHorarioMedicoIdentificacionAsync(int identificacion);
+    Task<IEnumerable<HorarioMedicoDTO>> GetHorarioMedicoIdentificacionPacienteAsync(int identificacion);
+
     Task<HorarioMedico> UpdateHorarioMedicoAsync(HorarioMedico horarioMedico);
-    Task<IEnumerable<object>> GetHorariosPorDiaYHoraAsync(string medicoId, int dia, int hora);
+    Task UpdateSalaIdAsync(int id, string salaId);
 }

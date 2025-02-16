@@ -10,6 +10,7 @@ public class HorarioMedico
     public int EstadoHorarioID { get; set; }
     public string NumeroDocumento { get; set; }
     public string IdentificacionCliente { get; set; }
+    public string SalaId { get; set; }
 
     [JsonConverter(typeof(JsonDateOnlyConverter))]
     public DateOnly Fecha { get; set; }

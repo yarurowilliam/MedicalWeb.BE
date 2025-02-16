@@ -1,4 +1,5 @@
-﻿using MedicalWeb.BE.Transversales.Entidades;
+﻿using MedicalWeb.BE.Transversales;
+using MedicalWeb.BE.Transversales.Entidades;
 namespace MedicalWeb.BE.Servicio.Interfaces;
 
 public interface IHorarioMedicoBLL
@@ -8,5 +9,6 @@ public interface IHorarioMedicoBLL
     Task<IEnumerable<HorarioMedicoDTO>> GetHorarioMedicoAsync();
     Task<IEnumerable<HorarioMedicoDTO>> GetHorarioMedicoIdentificacionAsync(int Identificacion);
     Task<HorarioMedico> UpdateHorarioMedicoAsync(HorarioMedico horarioMedico);
-    Task<IEnumerable<HorarioMedicoDTO>> ConsultarHorariosPorDiaYHoraAsync(string medicoId, int dia, int hora);
+    Task UpdateSalaIdAsync(int id, string salaId);
+    Task<IEnumerable<HorarioMedicoDTO>> GetHorarioMedicoIdentificacionPacienteAsync(int id);
 }

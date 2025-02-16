@@ -1,6 +1,7 @@
 ﻿using MedicalWeb.BE.Servicio.Interfaces;
 using MedicalWeb.BE.Transversales.Entidades;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 namespace MedicalWeb.BE.API.Controllers;
 
 [Route("api/[controller]")]
@@ -79,14 +80,22 @@ public class HorarioMedicoController : ControllerBase
         return Ok(horarioEliminado);
     }
 
-    [HttpGet("consultar/{medicoId}/{dia}/{hora}")]
-    public async Task<ActionResult<IEnumerable<HorarioMedico>>> ConsultarHorariosPorDiaYHoraAsync(string medicoId, int dia, int hora)
+    [HttpGet("PacienteId")]
+    public async Task<ActionResult<HorarioMedico>> GetHorarioByIdentificacionPacienteAsync(int Identificacion)
     {
-        var horarios = await _horarioMedicoBLL.ConsultarHorariosPorDiaYHoraAsync(medicoId, dia, hora);
-        if (!horarios.Any())
+        var horario = await _horarioMedicoBLL.GetHorarioMedicoIdentificacionPacienteAsync(Identificacion);
+        if (horario == null)
         {
-            return NotFound(new { message = "No se encontraron horarios para el médico en el día y hora especificados." });
+            return NotFound();
         }
-        return Ok(horarios);
+        return Ok(horario);
     }
-}
+
+    [HttpPatch("{id}/sala")]
+    public async Task<IActionResult> UpdateSala(int id, [FromBody] string salaId)
+    { 
+        await _horarioMedicoBLL.UpdateSalaIdAsync(id, salaId);
+        return Ok();
+    }
+
+}  

@@ -69,10 +69,10 @@ public class UsuarioBLL : IUsuarioBLL
 
     public async Task<string> LoginAsync(string nombreUsuario, string password, IConfiguration config)
     {
-        if (string.IsNullOrEmpty(nombreUsuario) || string.IsNullOrEmpty(password))
-        {
-            throw new ArgumentException("El nombre de usuario y la contraseña son obligatorios.");
-        }
+        //if (string.IsNullOrEmpty(nombreUsuario) || string.IsNullOrEmpty(password))
+        //{
+        //    throw new ArgumentException("El nombre de usuario y la contraseña son obligatorios.");
+        //}
 
         string passwordEncriptada = Encrypt.EncriptarContrasena(password);
 
