@@ -26,4 +26,5 @@ public class HistoriaClinicaDTO
     public string Dosis { get; set; }
     public string DuracionTratamiento { get; set; }
     public char EstadoActivo { get; set; }
+
 }

@@ -21,6 +21,7 @@ public class HistoriaClinica
     public string Dosis { get; set; }
     public string DuracionTratamiento { get; set; }
     public char EstadoActivo { get; set; }
+    
 
     public Pacientes Paciente { get; set; }
     public Medico Medico { get; set; }

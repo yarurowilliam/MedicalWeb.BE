@@ -50,6 +50,8 @@ public class HistoriaClincaDAL : IHistoriaClinicaDAL
         {
             NumeroDocumentoPaciente = historiaClinicaDTO.NumeroDocumentoPaciente,
             NumeroDocumentoMedico = historiaClinicaDTO.NumeroDocumentoMedico,
+            NombreMedico = historiaClinicaDTO.NombreMedico,
+            NombrePaciente = historiaClinicaDTO.NombrePaciente,
             FechaConsulta = historiaClinicaDTO.FechaConsulta,
             MotivoConsulta = historiaClinicaDTO.MotivoConsulta,
             Alergias = historiaClinicaDTO.Alergias,
@@ -64,6 +66,7 @@ public class HistoriaClincaDAL : IHistoriaClinicaDAL
             Dosis = historiaClinicaDTO.Dosis,
             DuracionTratamiento = historiaClinicaDTO.DuracionTratamiento,
             EstadoActivo = historiaClinicaDTO.EstadoActivo,
+          
         };
 
         await _context.HistoriaClinica.AddAsync(HistoriaClinicas);
