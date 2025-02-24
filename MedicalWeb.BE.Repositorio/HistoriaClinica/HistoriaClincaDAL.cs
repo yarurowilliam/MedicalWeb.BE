@@ -20,10 +20,12 @@ public class HistoriaClincaDAL : IHistoriaClinicaDAL
     {
         _context = context;
     }
-
     public async Task<IEnumerable<HistoriaClinica>> GetAllAsync()
     {
-        return await _context.Set<HistoriaClinica>().ToListAsync();
+        return await _context.HistoriaClinica
+            .Include(h => h.Paciente)
+            .Include(h => h.Medico)
+            .ToListAsync();
     }
 
     public async Task<IEnumerable<HistoriaClinica>> ObtenerHistoriasClinicasPorMedicoAsync(int idMedico)
@@ -43,6 +45,7 @@ public class HistoriaClincaDAL : IHistoriaClinicaDAL
             .Include(h => h.Medico)
             .ToListAsync();
     }
+
 
     public async Task<HistoriaClinicaDTO> InsertAsync(HistoriaClinicaDTO historiaClinicaDTO)
     {

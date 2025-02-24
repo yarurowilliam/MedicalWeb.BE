@@ -96,4 +96,26 @@ public class HistoriaClinicaBLL: IHistoriaClinicaBLL
     {
         throw new NotImplementedException();
     }
+
+    public async Task<IEnumerable<PacienteConHistoriaDTO>> ObtenerPacientesConHistoriasClinicasAsync()
+    {
+        var todasLasHistorias = await _historiaClinicaDAL.GetAllAsync();
+        var pacientesConHistorias = todasLasHistorias
+            .GroupBy(h => h.NumeroDocumentoPaciente)
+            .Select(g => new PacienteConHistoriaDTO
+            {
+                NumeroDocumento = g.Key,
+                NombreCompleto = g.First().NombrePaciente,
+                UltimaConsulta = g.Max(h => h.FechaConsulta)
+            })
+            .OrderByDescending(p => p.UltimaConsulta);
+
+        return pacientesConHistorias;
+    }
+
+    public async Task<IEnumerable<HistoriaClinicaDTO>> ObtenerTodasHistoriasClinicasPorPacienteAsync(string numeroDocumentoPaciente)
+    {
+        var historiasClinicas = await _historiaClinicaDAL.ObtenerHistoriasClinicasPorPacienteAsync(numeroDocumentoPaciente);
+        return historiasClinicas.Select(MapToDTO);
+    }
 }

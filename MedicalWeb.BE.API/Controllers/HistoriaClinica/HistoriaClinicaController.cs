@@ -1,4 +1,5 @@
-﻿using MedicalWeb.BE.Servicio;
+﻿using Auth0.ManagementApi.Models.Forms;
+using MedicalWeb.BE.Servicio;
 using MedicalWeb.BE.Servicio.Interfaces;
 using MedicalWeb.BE.Transversales.Encriptacion;
 using MedicalWeb.BE.Transversales.Entidades;
@@ -59,58 +60,111 @@ namespace MedicalWeb.BE.API.Controllers.HistoriaClinica
         [HttpGet("medico/{documentoMedico}")]
         public async Task<IActionResult> GetMedicoByDocumento(string documentoMedico)
         {
-            var medico = await _medicoBLL.GetByIdAsync(documentoMedico);
-
-            if (medico == null)
+            try
             {
-                return NotFound("Médico no encontrado");
+                var medico = await _medicoBLL.GetByIdAsync(documentoMedico);
+
+                if (medico == null)
+                {
+                    return NotFound("Médico no encontrado");
+                }
+
+                return Ok(new
+                {
+                    nombre = medico.PrimerNombre,
+                    segundoNombre = medico.SegundoNombre,
+                    apellido = medico.PrimerApellido,
+                    segundoApellido = medico.SegundoApellido,
+                    genero = medico.Genero
+                });
             }
-
-            return Ok(new
+            catch (Exception ex)
             {
-                nombre = medico.PrimerNombre,
-                segundoNombre = medico.SegundoNombre,
-                apellido = medico.PrimerApellido,
-                segundoApellido = medico.SegundoApellido,
-                genero = medico.Genero
-            });
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("paciente/{documentoPaciente}")]
         public async Task<IActionResult> GetPacienteByDocumento(string documentoPaciente)
         {
-            var paciente = await _pacientesBLL.GetByIdAsync(documentoPaciente);
-            if (paciente == null)
+            try
             {
-                return NotFound("Paciente no encontrado");
+                var paciente = await _pacientesBLL.GetByIdAsync(documentoPaciente);
+                if (paciente == null)
+                {
+                    return NotFound("Paciente no encontrado");
+                }
+                return Ok(new
+                {
+                    nombre = paciente.PrimerNombre,
+                    segundoNombre = paciente.SegundoNombre,
+                    apellido = paciente.PrimerApellido,
+                    segundoApellido = paciente.SegundoApellido,
+                    genero = paciente.Genero,
+                    telefono = paciente.Telefono
+                });
             }
-            return Ok(new
+            catch (Exception ex)
             {
-                nombre = paciente.PrimerNombre,
-                segundoNombre = paciente.SegundoNombre,
-                apellido = paciente.PrimerApellido,
-                segundoApellido = paciente.SegundoApellido,
-                genero = paciente.Genero,
-                telefono = paciente.Telefono
-            });
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]
-        public async Task<HistoriaClinicaDTO> InsertAsync(HistoriaClinicaDTO historiaClinicaDTO)
+        public async Task<IActionResult> InsertAsync(HistoriaClinicaDTO historiaClinicaDTO)
         {
-            return await _historiaClinicaBLL.InsertAsync(historiaClinicaDTO);
+            try
+            {
+                await _historiaClinicaBLL.InsertAsync(historiaClinicaDTO);
+                return Ok("Historia clínica registrada con éxito");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPut]
-        public async Task<HistoriaClinicaDTO> UpdateAsync(HistoriaClinicaDTO historiaClinicaDTO)
+        public async Task<IActionResult> UpdateAsync(HistoriaClinicaDTO historiaClinicaDTO)
         {
-            return await _historiaClinicaBLL.UpdateAsync(historiaClinicaDTO);
+            try
+            {
+                var updatedHistoriaClinica = await _historiaClinicaBLL.UpdateAsync(historiaClinicaDTO);
+                return Ok(updatedHistoriaClinica);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpDelete("{numeroDocumento}")]
-        public async Task DeleteAsync(string numeroDocumento)
+        public async Task<IActionResult> DeleteAsync(string numeroDocumento)
         {
-            await _historiaClinicaBLL.DeleteAsync(numeroDocumento);
+            try
+            {
+                await _historiaClinicaBLL.DeleteAsync(numeroDocumento);
+                return Ok("Historia clínica eliminada correctamente");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("pacientes-con-historias")]
+        [Authorize(Roles = "ADMINISTRADOR")]
+        public async Task<IActionResult> ObtenerPacientesConHistoriasClinicas()
+        {
+            try
+            {
+                var pacientes = await _historiaClinicaBLL.ObtenerPacientesConHistoriasClinicasAsync();
+                return Ok(pacientes);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
