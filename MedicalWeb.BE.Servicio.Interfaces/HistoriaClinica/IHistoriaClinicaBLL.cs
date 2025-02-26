@@ -12,4 +12,6 @@ public interface IHistoriaClinicaBLL
     Task<HistoriaClinicaDTO> InsertAsync(HistoriaClinicaDTO historiaClinicaDTO);
     Task<HistoriaClinicaDTO> UpdateAsync(HistoriaClinicaDTO historiaClinicaDTO);
     Task DeleteAsync(string numeroDocumento);
+    Task<IEnumerable<PacienteConHistoriaDTO>> ObtenerPacientesConHistoriasClinicasAsync();
+    Task<IEnumerable<HistoriaClinicaDTO>> ObtenerTodasHistoriasClinicasPorPacienteAsync(string numeroDocumentoPaciente);
 }
