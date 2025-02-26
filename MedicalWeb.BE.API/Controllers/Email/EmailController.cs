@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace MedicalWeb.BE.API.Controllers
 {
@@ -22,15 +23,14 @@ namespace MedicalWeb.BE.API.Controllers
         }
 
         [HttpPost("send")]
-        public async Task<IActionResult> SendEmail([FromBody] EmailRequest request, CancellationToken cancellationToken)
+        public async Task<IActionResult> SendEmail([FromForm] EmailRequest request, CancellationToken cancellationToken)
         {
-
             if (request == null || string.IsNullOrWhiteSpace(request.To) || string.IsNullOrWhiteSpace(request.Subject) || string.IsNullOrWhiteSpace(request.Body))
             {
                 return BadRequest("Todos los campos son obligatorios.");
             }
 
-            await _emailService.SendEmailAsync(request.To, request.Subject, request.Body, cancellationToken);
+            await _emailService.SendEmailAsync(request.To, request.Subject, request.Body, request.Attachment, cancellationToken);
             return Ok(new { Message = "Correo enviado exitosamente." });
         }
 

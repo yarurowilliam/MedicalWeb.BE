@@ -6,6 +6,8 @@ using MedicalWeb.BE.Servicio.Interfaces;
 using System.Threading;
 using System.Threading.Tasks;
 using MedicalWeb.BE.Infraestructure.Options;
+using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace MedicalWeb.BE.Servicio
 {
@@ -18,9 +20,8 @@ namespace MedicalWeb.BE.Servicio
             _emailSettings = emailSettings.Value;
         }
 
-        public async Task SendEmailAsync(string to, string subject, string body, CancellationToken cancellationToken = default)
+        public async Task SendEmailAsync(string to, string subject, string body, IFormFile attachment, CancellationToken cancellationToken = default)
         {
-
             using var smtp = new SmtpClient(_emailSettings.SmtpServer)
             {
                 Port = _emailSettings.SmtpPort,
@@ -37,6 +38,16 @@ namespace MedicalWeb.BE.Servicio
             };
 
             mail.To.Add(to);
+
+            // Verificar si hay un archivo adjunto
+            if (attachment != null && attachment.Length > 0)
+            {
+                using var memoryStream = new MemoryStream();
+                await attachment.CopyToAsync(memoryStream, cancellationToken);
+                var attachmentData = new Attachment(new MemoryStream(memoryStream.ToArray()), attachment.FileName);
+                mail.Attachments.Add(attachmentData);
+            }
+
             await smtp.SendMailAsync(mail, cancellationToken);
         }
     }

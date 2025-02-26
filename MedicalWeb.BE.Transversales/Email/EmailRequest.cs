@@ -1,8 +1,10 @@
-﻿namespace MedicalWeb.BE.Transversales;
+﻿using Microsoft.AspNetCore.Http;
+namespace MedicalWeb.BE.Transversales;
 
 public class EmailRequest
 {
-    public string To { get; set; }
-    public string Subject { get; set; }
-    public string Body { get; set; }
+    public string To { get; set; } = default!;
+    public string Subject { get; set; } = default!;
+    public string Body { get; set; } = default!;
+    public IFormFile? Attachment { get; set; }
 }
