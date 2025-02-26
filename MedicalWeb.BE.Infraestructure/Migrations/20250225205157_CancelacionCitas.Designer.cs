@@ -4,6 +4,7 @@ using MedicalWeb.BE.Infraestructure.Persitence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedicalWeb.BE.Infraestructure.Migrations
 {
     [DbContext(typeof(MedicalWebDbContext))]
-    partial class MedicalWebDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250225205157_CancelacionCitas")]
+    partial class CancelacionCitas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2076,10 +2079,6 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<string>("NumDocumentoPaciente")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(20)");
-
                     b.Property<string>("UsuarioQueCanceloId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -2087,8 +2086,6 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CitaId");
-
-                    b.HasIndex("NumDocumentoPaciente");
 
                     b.ToTable("CancelacionCita", "dbo");
                 });
@@ -3056,12 +3053,6 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                     b.HasOne("MedicalWeb.BE.Transversales.Entidades.HorarioMedico", null)
                         .WithMany()
                         .HasForeignKey("CitaId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("MedicalWeb.BE.Transversales.Entidades.Pacientes", null)
-                        .WithMany()
-                        .HasForeignKey("NumDocumentoPaciente")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });

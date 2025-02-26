@@ -66,7 +66,7 @@ public class HorarioMedicoEntityConfiguration : IEntityTypeConfiguration<Horario
 
         //builder
         //    .HasOne<Usuario>() 
-        //    .WithMany()      
+        //    .WithMany()       
         //    .HasForeignKey(x => x.IdentificacionCliente)
         //    .OnDelete(DeleteBehavior.Restrict);
     }

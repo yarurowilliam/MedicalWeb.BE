@@ -98,4 +98,11 @@ public class HorarioMedicoController : ControllerBase
         return Ok();
     }
 
+    [HttpPatch("{id}/EstadoHorarioId")]
+    public async Task<IActionResult> UpdateEstadoHorarioId(int id, [FromBody] int EstadoHorarioId)
+    {
+        await _horarioMedicoBLL.UpdateEstadoHorarioId(id, Convert.ToInt32(EstadoHorarioId));
+        return Ok();
+    }
+
 }  

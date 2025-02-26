@@ -50,4 +50,9 @@ public class HorarioMedicoBLL : IHorarioMedicoBLL
         await _horarioMedicoDAL.UpdateSalaIdAsync(id, salaId);
     }
 
+    public async Task UpdateEstadoHorarioId(int id, int EstadoHorarioId)
+    {
+        await _horarioMedicoDAL.UpdateEstadoHorarioId(id, EstadoHorarioId);
+    }
+
 }

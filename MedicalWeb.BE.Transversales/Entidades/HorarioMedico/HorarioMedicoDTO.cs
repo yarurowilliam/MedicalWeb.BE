@@ -14,6 +14,7 @@ public class HorarioMedicoDTO
     public string Hora { get; set; }
     public string Estado { get; set; }
     public string SalaId { get; set; } 
+    public string Correo { get; set; }
 
     [JsonConverter(typeof(JsonDateOnlyConverter))]
     public DateOnly Fecha { get; set; }

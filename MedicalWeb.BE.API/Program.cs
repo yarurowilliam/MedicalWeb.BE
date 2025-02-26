@@ -87,6 +87,10 @@ builder.Services.AddScoped<IHistoriaClinicaBLL, HistoriaClinicaBLL>();
 builder.Services.AddScoped<IHistoriaClinicaDAL, HistoriaClincaDAL>();
 builder.Services.AddScoped<IUsuarioDAL, UsuarioDAL>();
 builder.Services.AddScoped<IUsuarioBLL, UsuarioBLL>();
+builder.Services.AddScoped<IValoracionesBLL, ValoracionesBLL>();
+builder.Services.AddScoped<IValoracionesDAL, ValoracionesDAL>();
+builder.Services.AddScoped<ICancelacionCitasBLL, CancelacionCitasBLL>();
+builder.Services.AddScoped<ICancelacionCitasDAL, CancelacionCitasDAL>();
 
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();

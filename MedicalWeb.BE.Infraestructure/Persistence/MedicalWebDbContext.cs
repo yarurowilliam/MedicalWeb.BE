@@ -31,6 +31,8 @@ public class MedicalWebDbContext(DbContextOptions options) : DbContext(options)
     public DbSet <Usuario> Usuario { get; set; }
     public DbSet <Rol> Rol { get; set; }
     public DbSet <UsuarioRoles> UsuarioRoles { get; set; }
+    public DbSet <Valoraciones> Valoraciones { get; set; }
+    public DbSet <CancelacionCita> cancelacionCita { get; set; }
 
     #endregion
 
