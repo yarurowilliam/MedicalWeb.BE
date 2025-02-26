@@ -101,7 +101,8 @@ public class HorarioMedicoDAL : IHorarioMedicoDAL
                           Hora = HorasMedicas.GetById(h.HoraID).Code,
                           Estado = EstadoHorarioMedico.GetById(h.EstadoHorarioID).Code,
                           Fecha = h.Fecha,
-                          SalaId = h.SalaId
+                          SalaId = h.SalaId,
+                          Correo = p.CorreoElectronico
                       }).ToListAsync();
     }
 
@@ -122,7 +123,8 @@ public class HorarioMedicoDAL : IHorarioMedicoDAL
                           Hora = HorasMedicas.GetById(h.HoraID).Code,
                           Fecha = h.Fecha,
                           Estado = EstadoHorarioMedico.GetById(h.EstadoHorarioID).Code,
-                          SalaId = h.SalaId
+                          SalaId = h.SalaId,
+                          Correo = p.CorreoElectronico
                       }).ToListAsync();
     }
 
@@ -143,14 +145,13 @@ public class HorarioMedicoDAL : IHorarioMedicoDAL
                           Hora = HorasMedicas.GetById(h.HoraID).Code,
                           Estado = EstadoHorarioMedico.GetById(h.EstadoHorarioID).Code,
                           Fecha = h.Fecha,
-                          SalaId = h.SalaId
+                          SalaId = h.SalaId,
+                          Correo = p.CorreoElectronico
                       }).ToListAsync();
     }
 
-
     public async Task UpdateSalaIdAsync(int id, string salaId)
     {
-        //var horario = await _context.HorarioMedico.FindAsync(id);
         var horario = await _context.HorarioMedico
                                              .FirstOrDefaultAsync(e => e.Id == id);
         if (horario == null)
@@ -163,4 +164,17 @@ public class HorarioMedicoDAL : IHorarioMedicoDAL
         await _context.SaveChangesAsync();
     }
 
+    public async Task UpdateEstadoHorarioId(int id, int EstadoHorarioId)
+    {
+        var horario = await _context.HorarioMedico
+                                             .FirstOrDefaultAsync(e => e.Id == id);
+        if (horario == null)
+        {
+            throw new InvalidOperationException("El horario médico no existe.");
+        }
+
+        horario.EstadoHorarioID = EstadoHorarioId;
+        _context.Entry(horario).Property(h => h.EstadoHorarioID).IsModified = true;
+        await _context.SaveChangesAsync();
+    }
 }

@@ -2057,6 +2057,42 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                         });
                 });
 
+            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.CancelacionCita", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CitaId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("FechaCancelacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Motivo")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("NumDocumentoPaciente")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("UsuarioQueCanceloId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CitaId");
+
+                    b.HasIndex("NumDocumentoPaciente");
+
+                    b.ToTable("CancelacionCita", "dbo");
+                });
+
             modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.Especialidad", b =>
                 {
                     b.Property<int>("Id")
@@ -2752,6 +2788,38 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                     b.ToTable("UsuarioRoles");
                 });
 
+            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.Valoraciones", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("Comentario")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
+
+                    b.Property<string>("NumMedico")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<decimal>("Valoracion")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("NumMedico");
+
+                    b.ToTable("Valoraciones", (string)null);
+                });
+
             modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.WorkSituation", b =>
                 {
                     b.Property<int>("Id")
@@ -2879,7 +2947,7 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                         new
                         {
                             EstadoHorarioID = 2,
-                            Code = "VENCIDA"
+                            Code = "COMPLETADA"
                         },
                         new
                         {
@@ -2995,6 +3063,21 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                     b.ToTable("Usuarios", "dbo");
                 });
 
+            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.CancelacionCita", b =>
+                {
+                    b.HasOne("MedicalWeb.BE.Transversales.Entidades.HorarioMedico", null)
+                        .WithMany()
+                        .HasForeignKey("CitaId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MedicalWeb.BE.Transversales.Entidades.Pacientes", null)
+                        .WithMany()
+                        .HasForeignKey("NumDocumentoPaciente")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.HistoriaClinica", b =>
                 {
                     b.HasOne("MedicalWeb.BE.Transversales.Entidades.Medico", "Medico")
@@ -3074,6 +3157,15 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                     b.HasOne("MedicalWeb.BE.Transversales.Entidades.TipoDocumento", null)
                         .WithMany()
                         .HasForeignKey("TipoDocumento")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.Valoraciones", b =>
+                {
+                    b.HasOne("MedicalWeb.BE.Transversales.Entidades.Medico", null)
+                        .WithMany()
+                        .HasForeignKey("NumMedico")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });

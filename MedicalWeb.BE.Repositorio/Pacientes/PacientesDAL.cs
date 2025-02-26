@@ -1,6 +1,7 @@
 ﻿using MedicalWeb.BE.Infraestructure.Persitence;
 using MedicalWeb.BE.Repositorio.Interfaces;
 using MedicalWeb.BE.Transversales;
+using MedicalWeb.BE.Transversales.Encriptacion;
 using MedicalWeb.BE.Transversales.Entidades;
 using Microsoft.EntityFrameworkCore;
 namespace MedicalWeb.BE.Repositorio;
@@ -93,7 +94,7 @@ public class PacientesDAL : IPacientesDAL
         {
             Identificacion = pacientesDto.NumeroDocumento,
             NombreUsuario = nombreUsuario,
-            Password = "Medical2024"
+            Password = Encrypt.EncriptarContrasena("Medical2024")
         };
 
         await _context.Set<Usuario>().AddAsync(usuario);

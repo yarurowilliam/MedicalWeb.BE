@@ -1,5 +1,4 @@
 ﻿using MedicalWeb.BE.Transversales.Common;
-
 namespace MedicalWeb.BE.Transversales.Entidades;
 
 public class MaritalStatus : EnumEntity

@@ -10,5 +10,6 @@ public interface IHorarioMedicoBLL
     Task<IEnumerable<HorarioMedicoDTO>> GetHorarioMedicoIdentificacionAsync(int Identificacion);
     Task<HorarioMedico> UpdateHorarioMedicoAsync(HorarioMedico horarioMedico);
     Task UpdateSalaIdAsync(int id, string salaId);
+    Task UpdateEstadoHorarioId(int id, int EstadoHorarioId);
     Task<IEnumerable<HorarioMedicoDTO>> GetHorarioMedicoIdentificacionPacienteAsync(int id);
 }
