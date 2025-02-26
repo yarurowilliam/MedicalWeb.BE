@@ -91,7 +91,8 @@ namespace MedicalWeb.BE.API.Controllers.HistoriaClinica
                 apellido = paciente.PrimerApellido,
                 segundoApellido = paciente.SegundoApellido,
                 genero = paciente.Genero,
-                telefono = paciente.Telefono
+                telefono = paciente.Telefono,
+                correo = paciente.CorreoElectronico
             });
         }
 
