@@ -39,6 +39,7 @@ public static class DbConstants
         public const string UsuarioRoles = nameof(UsuarioRoles);
         public const string Valoraciones = nameof(Valoraciones);
         public const string CancelacionCita = nameof(CancelacionCita);
+        public const string ChatMessage = nameof(ChatMessage);
         public const string EFMigrationsHistory = $"_{nameof(EFMigrationsHistory)}_";
     }
 

@@ -14,9 +14,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using MedicalWeb.BE.Infraestructura.Image;
 using MedicalWeb.BE.Transversales.Image;
 using MedicalWeb.BE.Transversales.Interfaces;
+using MedicalWeb.BE.Infraestructura;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configuración de serialización JSON
 builder.Services.Configure<Microsoft.AspNetCore.Mvc.JsonOptions>(options =>
 {
     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
@@ -27,18 +29,17 @@ builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =
     options.SerializerOptions.Converters.Add(new JsonStringEnumConverter());
 });
 
+// Configuración del tamaño máximo de archivos en FormOptions
 builder.Services.Configure<FormOptions>(options =>
 {
-    options.MultipartBodyLengthLimit = 104857600; 
+    options.MultipartBodyLengthLimit = 100_000_000; // 100 MB
 });
 
-
-builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
-builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
-
-builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
-builder.Services.AddScoped<IEmailService, EmailService>();
-
+// Configuración de Kestrel para permitir archivos grandes
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.Limits.MaxRequestBodySize = 100_000_000; // 100 MB
+});
 
 builder.Services.AddDatabase(builder.Configuration);
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
@@ -66,7 +67,6 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "MedicalWeb API", Version = "v1" });
 
-    // Agregar configuraci�n de JWT
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
@@ -92,6 +92,7 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+// Inyección de dependencias
 builder.Services.AddScoped<IMedicoDAL, MedicoDAL>();
 builder.Services.AddScoped<IMedicoBLL, MedicoBLL>();
 builder.Services.AddScoped<IEspecialidadDAL, EspecialidadDAL>();
@@ -112,16 +113,17 @@ builder.Services.AddScoped<IValoracionesBLL, ValoracionesBLL>();
 builder.Services.AddScoped<IValoracionesDAL, ValoracionesDAL>();
 builder.Services.AddScoped<ICancelacionCitasBLL, CancelacionCitasBLL>();
 builder.Services.AddScoped<ICancelacionCitasDAL, CancelacionCitasDAL>();
+builder.Services.AddScoped<IChatStorageBLL, ChatStorageBLL>();
+builder.Services.AddScoped<IChatStorageDAL, ChatStorageDAL>();
+builder.Services.AddScoped<IFileStorageDAL, FileStorageDAL>();
 
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
 
-
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 builder.Services.AddScoped<IEmailService, EmailService>();
 
-
-// Configuraci�n de JWT
+// Configuración de JWT
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 builder.Services.AddHttpContextAccessor();
 var secretKey = Encoding.UTF8.GetBytes(jwtSettings["SecretKey"]);
@@ -138,8 +140,8 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        ValidIssuer = jwtSettings["Issuer"], 
-        ValidAudience = jwtSettings["Audience"], 
+        ValidIssuer = jwtSettings["Issuer"],
+        ValidAudience = jwtSettings["Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(secretKey)
     };
 });
@@ -168,6 +170,5 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllers();
 });
 
-// Ejecutar la aplicaci�n
-await app.RunAsync();
+// Ejecutar la aplicación
 await app.RunAsync();

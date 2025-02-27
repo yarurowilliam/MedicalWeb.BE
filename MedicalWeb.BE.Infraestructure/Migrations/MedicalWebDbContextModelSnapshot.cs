@@ -2093,6 +2093,45 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                     b.ToTable("CancelacionCita", "dbo");
                 });
 
+            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.ChatMessage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ArchivoUrl")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<bool>("EsMedico")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("FechaEnvio")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("HorarioMedicoId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Mensaje")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("PacienteId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HorarioMedicoId");
+
+                    b.HasIndex("PacienteId");
+
+                    b.ToTable("ChatMessage", "dbo");
+                });
+
             modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.Especialidad", b =>
                 {
                     b.Property<int>("Id")
@@ -3074,6 +3113,21 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                     b.HasOne("MedicalWeb.BE.Transversales.Entidades.Pacientes", null)
                         .WithMany()
                         .HasForeignKey("NumDocumentoPaciente")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.ChatMessage", b =>
+                {
+                    b.HasOne("MedicalWeb.BE.Transversales.Entidades.HorarioMedico", null)
+                        .WithMany()
+                        .HasForeignKey("HorarioMedicoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MedicalWeb.BE.Transversales.Entidades.Pacientes", null)
+                        .WithMany()
+                        .HasForeignKey("PacienteId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
