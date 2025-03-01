@@ -90,14 +90,15 @@ public class PacientesDAL : IPacientesDAL
             contador++;
         }
 
-        var usuario = new Usuario
-        {
-            Identificacion = pacientesDto.NumeroDocumento,
-            NombreUsuario = nombreUsuario,
-            Password = Encrypt.EncriptarContrasena("Medical2024")
-        };
+        //var usuario = new Usuario
+        //{
+        //    Identificacion = pacientesDto.NumeroDocumento,
+        //    NombreUsuario = nombreUsuario,
+        //    Password = Encrypt.EncriptarContrasena("Medical2024"),
+        //    RolId = 3,
+        //};
 
-        await _context.Set<Usuario>().AddAsync(usuario);
+        //await _context.Set<Usuario>().AddAsync(usuario);
             
         await _context.SaveChangesAsync();
         return pacientesDto;
