@@ -75,7 +75,13 @@ namespace MedicalWeb.BE.API.Controllers.HistoriaClinica
                     segundoNombre = medico.SegundoNombre,
                     apellido = medico.PrimerApellido,
                     segundoApellido = medico.SegundoApellido,
-                    genero = medico.Genero
+                    genero = medico.Genero,
+                    correo = medico.CorreoElectronico,
+                    telefono = medico.Telefono,
+                    nacionalidad = medico.Nacionalidad,
+                    matriculaProfesional = medico.MatriculaProfesional,
+                    numeroDocumento = medico.NumeroDocumento,
+                    TipoDocumento = medico.TipoDocumento,
                 });
             }
             catch (Exception ex)
@@ -102,7 +108,15 @@ namespace MedicalWeb.BE.API.Controllers.HistoriaClinica
                     segundoApellido = paciente.SegundoApellido,
                     genero = paciente.Genero,
                     telefono = paciente.Telefono,
-                    correo = paciente.CorreoElectronico
+                    correo = paciente.CorreoElectronico,
+                    ciudad = paciente.Ciudad,
+                    departamento = paciente.Departamento,
+                    pais = paciente.Pais,
+                    estadoCivil = paciente.EstadoCivil,
+                    nacioladida = paciente.Nacionalidad,
+                    grupoSanguineo = paciente.GrupoSanguineo,
+                    numeroDocumento = paciente.NumeroDocumento,
+                    tipoDocumento = paciente.TipoDocumento,
                 });
             }
             catch (Exception ex)
