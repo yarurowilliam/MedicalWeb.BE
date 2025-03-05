@@ -58,7 +58,7 @@ public class MedicoDAL : IMedicoDAL
         //    nombreUsuario = $"{nombreUsuarioOriginal}{contador}";
         //    contador++;
         //}
-
+       
         // NOTE: Por el momento la contraseña se guarda de tipo string sin encriptación
         // A futuro se debe encriptar la contraseña antes de guardarla.
 
