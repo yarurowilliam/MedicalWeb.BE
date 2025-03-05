@@ -6,6 +6,7 @@ public interface IMedicoBLL
 {
     Task<IEnumerable<MedicoDTO>> GetAllAsync();
     Task<MedicoDTO> GetByIdAsync(string id);
+    Task<IEnumerable<MedicoDTO>> GetMedicosActivo();
     Task<Medico> InsertAsync(MedicoDTO medicoDTO);
     Task<Medico> UpdateAsync(MedicoDTO medicoDTO);
     Task DeleteAsync(string id);

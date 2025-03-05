@@ -24,6 +24,12 @@ namespace MedicalWeb.BE.API.Controllers
             return await _medicoBLL.GetAllAsync();
         }
 
+        [HttpGet("MedicoActivos")]
+        public async Task<IEnumerable<MedicoDTO>> GetMedicosActivo()
+        {
+            return await _medicoBLL.GetMedicosActivo();
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<MedicoDTO>> GetByIdAsync(string id)
         {
