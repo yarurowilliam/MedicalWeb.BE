@@ -11,4 +11,7 @@ public interface IUsuarioDAL
     Task<Usuario> UpdateUsuarioAsync(Usuario usuario);
     Task DeleteUsuarioAsync(string id);
     Task<IEnumerable<Usuario>> GetUsuarioByCredentialsAsync(string nombreUsuario, string passwordEncriptada);
+    Task<IEnumerable<Usuario>> ObtenerUsuariosPorIdentificacionAsync(string identificacion);
+    Task EliminarRolesUsuarioAsync(string identificacion, List<int> rolesAEliminar);
+    Task AgregarRolesUsuarioAsync(Usuario usuarioBase, List<int> rolesAAgregar);
 }

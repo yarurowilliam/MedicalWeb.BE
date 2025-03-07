@@ -75,5 +75,16 @@ namespace MedicalWeb.BE.API.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+
+        [HttpPatch("ActualizarRoles")]
+        public async Task<IActionResult> ActualizarRoles([FromBody] ActualizarRolesDTO request)
+        {
+            var resultado = await _usuarioBLL.ActualizarRolesUsuarioAsync(request.Identificacion, request.NuevosRoles);
+
+            if (!resultado)
+                return NotFound(new { mensaje = "Usuario no encontrado" });
+
+            return Ok(new { mensaje = "Roles actualizados correctamente" });
+        }
     }
 }

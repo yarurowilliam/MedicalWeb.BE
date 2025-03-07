@@ -18,10 +18,13 @@ public class MedicoDAL : IMedicoDAL
 
     public async Task DeleteAsync(string id)
     {
-        var medico = await _context.Set<Medico>().FindAsync(id);
+        var medico = await _context.Medicos
+            .FirstOrDefaultAsync(u => u.NumeroDocumento == id);
+
         if (medico != null)
         {
             medico.Estado = "I";
+            medico.FechaSalida = DateTime.Now.ToString("yyyy-MM-dd");
             await _context.SaveChangesAsync();
         }
     }

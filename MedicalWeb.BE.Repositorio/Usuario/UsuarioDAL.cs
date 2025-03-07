@@ -23,19 +23,21 @@ public class UsuarioDAL : IUsuarioDAL
         return usuario;
     }
 
-    public async Task DeleteUsuarioAsync(string id)
+    public async Task DeleteUsuarioAsync(string identificacion)
     {
-        var usuario = await _context.Usuarios.FindAsync(id);
+        var usuario = await _context.Usuarios
+            .FirstOrDefaultAsync(u => u.Identificacion == identificacion);
+
         if (usuario != null)
         {
-            usuario.Estado = 'I';
+            usuario.Estado = 'I'; 
             await _context.SaveChangesAsync();
         }
     }
 
     public async Task<IEnumerable<Usuario>> GetUsuarioAsync()
     {
-        return _context.Usuario.ToList();
+        return await _context.Usuario.ToListAsync();
     }
 
     public async Task<IEnumerable<Usuario>> GetUsuarioByIdAsync(string id)
@@ -49,17 +51,26 @@ public class UsuarioDAL : IUsuarioDAL
 
     public async Task<Usuario> UpdateUsuarioAsync(Usuario usuario)
     {
-        bool existeRol = await _context.Usuarios
-            .AnyAsync(u => u.RolId == usuario.RolId && u.Identificacion == usuario.Identificacion);
-        if (existeRol)
+        var usuarioExistente = await _context.Usuarios
+            .FirstOrDefaultAsync(u => u.Identificacion == usuario.Identificacion);
+
+        if (usuarioExistente == null)
         {
-            throw new InvalidOperationException("Ya existe un usuario con el mismo rol asignado.");
+            throw new KeyNotFoundException("El usuario no existe.");
         }
-    
-        usuario.Password = Encrypt.EncriptarContrasena(usuario.Password);
-        _context.Usuarios.Update(usuario);
+
+        // Mantener los roles actuales
+        usuario.RolId = usuarioExistente.RolId;
+
+        usuarioExistente.NombreUsuario = usuario.NombreUsuario;
+        usuarioExistente.Password = Encrypt.EncriptarContrasena(usuario.Password);
+        usuarioExistente.Estado = usuario.Estado;
+
+        // Indicar que no se debe modificar el campo RolId
+        _context.Entry(usuarioExistente).Property(u => u.RolId).IsModified = false;
+
         await _context.SaveChangesAsync();
-        return usuario;
+        return usuarioExistente;
     }
 
     public async Task<IEnumerable<Usuario>> GetUsuarioByCredentialsAsync(string nombreUsuario, string passwordEncriptada)
@@ -69,5 +80,41 @@ public class UsuarioDAL : IUsuarioDAL
                         u.Password == passwordEncriptada &&
                         u.Estado == 'A')
             .ToListAsync();
+    }
+    
+    public async Task<IEnumerable<Usuario>> ObtenerUsuariosPorIdentificacionAsync(string identificacion)
+    {
+        return await _context.Usuario
+        .Where(u => u.Identificacion == identificacion)
+        .ToListAsync();
+    }
+
+    public async Task EliminarRolesUsuarioAsync(string identificacion, List<int> rolesAEliminar)
+    {
+        var usuarios = await _context.Usuario
+            .Where(u => u.Identificacion == identificacion && rolesAEliminar.Contains(u.RolId))
+            .ToListAsync();
+
+        _context.Usuario.RemoveRange(usuarios);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task AgregarRolesUsuarioAsync(Usuario usuarioBase, List<int> rolesAAgregar)
+    {
+        foreach (var rolId in rolesAAgregar)
+        {
+            var nuevoUsuario = new Usuario
+            {
+                Identificacion = usuarioBase.Identificacion,
+                NombreUsuario = usuarioBase.NombreUsuario,
+                Password = usuarioBase.Password,
+                Estado = usuarioBase.Estado,
+                RolId = rolId
+            };
+
+            await _context.Usuario.AddAsync(nuevoUsuario);
+        }
+
+        await _context.SaveChangesAsync();
     }
 }
