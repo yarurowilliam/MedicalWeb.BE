@@ -39,15 +39,18 @@ public class UsuarioBLL : IUsuarioBLL
     {
         var usuarios = await _usuarioDAL.GetUsuarioAsync();
 
-        var usuariosDTO = usuarios.Select(u => new UsuarioDTO
-        {
-            UsuarioID = u.UsuarioID,
-            Identificacion = u.Identificacion,
-            NombreUsuario = u.NombreUsuario,
-            Password = u.Password,
-            Estado = u.Estado,
-            RolId = Rol.GetRolById(u.RolId)?.Nombre
-        }).ToList();
+        var usuariosDTO = usuarios
+            .GroupBy(u => u.Identificacion)  
+            .Select(g => new UsuarioDTO
+            {
+                UsuarioID = g.First().UsuarioID,  
+                Identificacion = g.Key,
+                NombreUsuario = g.First().NombreUsuario,  
+                Password = g.First().Password, 
+                Estado = g.First().Estado,  
+                RolId = string.Join(", ", g.Select(u => Rol.GetRolById(u.RolId)?.Nombre ?? "Desconocido"))  
+            })
+            .ToList();
 
         return usuariosDTO;
     }
@@ -69,10 +72,6 @@ public class UsuarioBLL : IUsuarioBLL
 
     public async Task<string> LoginAsync(string nombreUsuario, string password, IConfiguration config)
     {
-        //if (string.IsNullOrEmpty(nombreUsuario) || string.IsNullOrEmpty(password))
-        //{
-        //    throw new ArgumentException("El nombre de usuario y la contraseña son obligatorios.");
-        //}
 
         string passwordEncriptada = Encrypt.EncriptarContrasena(password);
 
@@ -100,4 +99,35 @@ public class UsuarioBLL : IUsuarioBLL
 
         return Transversales.Encriptacion.JwtConfiguration.GetToken(usuarioDTO, config);
     }
+
+    public async Task<bool> ActualizarRolesUsuarioAsync(string identificacion, List<int> nuevosRoles)
+    {
+        // Obtener todos los usuarios con la misma Identificación
+        var usuariosExistentes = await _usuarioDAL.ObtenerUsuariosPorIdentificacionAsync(identificacion);
+
+        if (!usuariosExistentes.Any())
+            return false; 
+
+        var rolesActuales = usuariosExistentes.Select(u => u.RolId).ToList();
+
+        // Determinar roles a eliminar (los que ya no están en la nueva lista)
+        var rolesAEliminar = rolesActuales.Except(nuevosRoles).ToList();
+
+        // Determinar roles a agregar (los nuevos que antes no estaban)
+        var rolesAAgregar = nuevosRoles.Except(rolesActuales).ToList();
+
+        // Eliminar solo los registros con roles obsoletos
+        if (rolesAEliminar.Any())
+            await _usuarioDAL.EliminarRolesUsuarioAsync(identificacion, rolesAEliminar);
+
+        // Agregar nuevos roles sin perder la información del usuario
+        if (rolesAAgregar.Any())
+        {
+            var usuarioBase = usuariosExistentes.First(); // Tomamos un usuario de referencia para mantener los datos
+            await _usuarioDAL.AgregarRolesUsuarioAsync(usuarioBase, rolesAAgregar);
+        }
+
+        return true; // Operación exitosa
+    }
+
 }
