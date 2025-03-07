@@ -29,6 +29,11 @@ public class MedicoBLL : IMedicoBLL
         return MapToDTO(medicos);
     }
 
+    public async Task<IEnumerable<MedicoDTO>> GetMedicosActivo()
+    {
+        var medicos = await _medicoDAL.GetMedicosActivo();
+        return MapToDTO(medicos);
+    }
     public static MedicoDTO MapToDTO(Medico medico)
     {
         return new MedicoDTO

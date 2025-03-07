@@ -29,6 +29,18 @@ public class MedicoDAL : IMedicoDAL
     public async Task<IEnumerable<Medico>> GetAllAsync()
     {
         return await _context.Set<Medico>().ToListAsync();
+
+        //Para que no se muestren lo médicos con el estado "I" (Inactivo)
+        //return await _context.Medicos
+        //.Where(m => m.Estado == "A")
+        //.ToListAsync();
+    }
+
+    public async Task<IEnumerable<Medico>> GetMedicosActivo()
+    {
+        return await _context.Medicos
+            .Where(m => m.Estado == "A")
+            .ToListAsync();
     }
 
     public async Task<Medico> GetByIdAsync(string id)
@@ -58,7 +70,7 @@ public class MedicoDAL : IMedicoDAL
         //    nombreUsuario = $"{nombreUsuarioOriginal}{contador}";
         //    contador++;
         //}
-
+       
         // NOTE: Por el momento la contraseña se guarda de tipo string sin encriptación
         // A futuro se debe encriptar la contraseña antes de guardarla.
 

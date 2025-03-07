@@ -52,7 +52,7 @@ namespace MedicalWeb.BE.API.Controllers
             // Convertir las rutas de archivo a URLs accesibles
             var baseUrl = $"{Request.Scheme}://{Request.Host}/uploads/";
             var recordingUrls = recordings
-                .Select(file => baseUrl + file.Replace("\\", "/")) // Reemplaza '\' por '/'
+                .Select(file => baseUrl + file.Replace("\\", "/")) 
                 .ToList();
 
             return Ok(recordingUrls);
