@@ -32,16 +32,21 @@ namespace MedicalWeb.BE.API.Controllers
         {
             return await _medicoBLL.GetMedicosActivo();
         }
+        // MedicoController.cs
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<MedicoDTO>> GetByIdAsync(string id)
+        [HttpPatch("{id}/activar")]
+        public async Task<IActionResult> ActivarAsync(string id)
         {
-            var medico = await _medicoBLL.GetByIdAsync(id);
-            if (medico == null)
+            try
             {
-                return NotFound();
+                await _medicoBLL.ActivarAsync(id);
+                return NoContent();
             }
-            return Ok(medico);
+            catch (Exception ex)
+            {
+                // Log the exception
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
+            }
         }
 
         [HttpPost]

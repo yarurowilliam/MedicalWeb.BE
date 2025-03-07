@@ -111,4 +111,19 @@ public class MedicoDAL : IMedicoDAL
         }
         return existingMedico;
     }
+
+    // MedicoDAL.cs
+
+    public async Task ActivarAsync(string id)
+    {
+        var medico = await _context.Medicos
+            .FirstOrDefaultAsync(u => u.NumeroDocumento == id);
+
+        if (medico != null)
+        {
+            medico.Estado = "A";
+            medico.FechaSalida = null; // Opcional: limpiar la fecha de salida
+            await _context.SaveChangesAsync();
+        }
+    }
 }

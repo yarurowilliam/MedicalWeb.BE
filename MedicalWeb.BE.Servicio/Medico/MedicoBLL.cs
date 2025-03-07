@@ -158,4 +158,11 @@ public class MedicoBLL : IMedicoBLL
 
         return await _medicoDAL.UpdateAsync(medicoExistente);
     }
+
+    // MedicoBLL.cs
+
+    public async Task ActivarAsync(string id)
+    {
+        await _medicoDAL.ActivarAsync(id);
+    }
 }
