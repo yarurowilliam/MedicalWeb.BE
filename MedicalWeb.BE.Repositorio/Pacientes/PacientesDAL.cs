@@ -28,7 +28,7 @@ public class PacientesDAL : IPacientesDAL
     public async Task<IEnumerable<Pacientes>> GetAllAsync()
     {
         return await _context.Set<Pacientes>().ToListAsync();
-    }
+    }   
 
     public async Task<Pacientes> GetByIdAsync(string numeroDocumento)
     {

@@ -37,22 +37,7 @@ public class UsuarioBLL : IUsuarioBLL
 
     public async Task<IEnumerable<UsuarioDTO>> GetUsuarioAsync()
     {
-        var usuarios = await _usuarioDAL.GetUsuarioAsync();
-
-        var usuariosDTO = usuarios
-            .GroupBy(u => u.Identificacion)  
-            .Select(g => new UsuarioDTO
-            {
-                UsuarioID = g.First().UsuarioID,  
-                Identificacion = g.Key,
-                NombreUsuario = g.First().NombreUsuario,  
-                Password = g.First().Password, 
-                Estado = g.First().Estado,  
-                RolId = string.Join(", ", g.Select(u => Rol.GetRolById(u.RolId)?.Nombre ?? "Desconocido"))  
-            })
-            .ToList();
-
-        return usuariosDTO;
+        return await _usuarioDAL.GetUsuarioAsync();
     }
 
     public async Task<Usuario> CreateUsuarioAsync(Usuario usuario)
@@ -128,6 +113,11 @@ public class UsuarioBLL : IUsuarioBLL
         }
 
         return true; // Operación exitosa
+    }
+
+    public async Task<bool> ResetPasswordAsync(ResetPassword dto)
+    {
+        return await _usuarioDAL.ResetPasswordAsync(dto.Identificacion, dto.NuevaPassword);
     }
 
 }

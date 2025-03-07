@@ -2,6 +2,7 @@
 using MedicalWeb.BE.Repositorio.Interfaces;
 using MedicalWeb.BE.Transversales;
 using MedicalWeb.BE.Transversales.Encriptacion;
+using MedicalWeb.BE.Transversales.Entidades;
 using Microsoft.EntityFrameworkCore;
 namespace MedicalWeb.BE.Repositorio;
 
@@ -35,9 +36,40 @@ public class UsuarioDAL : IUsuarioDAL
         }
     }
 
-    public async Task<IEnumerable<Usuario>> GetUsuarioAsync()
+    public async Task<IEnumerable<UsuarioDTO>> GetUsuarioAsync()
     {
-        return await _context.Usuario.ToListAsync();
+        var usuarios = await _context.Usuarios.ToListAsync(); // Traemos todos los usuarios primero
+
+        var usuariosDTO = usuarios
+            .Select(u => new UsuarioDTO
+            {
+                UsuarioID = u.UsuarioID,
+                Identificacion = u.Identificacion,
+                NombreUsuario = u.NombreUsuario,
+                Password = u.Password,
+                Estado = u.Estado,
+
+                RolId = string.Join(", ", usuarios.Where(x => x.Identificacion == u.Identificacion)
+                                                  .Select(x => Rol.GetRolById(x.RolId)?.Nombre ?? "Desconocido")
+                                                  .Distinct()),
+
+                // Obtener correos en memoria
+                Correos = string.Join(", ",
+                    _context.Pacientes.AsEnumerable()
+                        .Where(p => p.NumeroDocumento == u.Identificacion)
+                        .Select(p => p.CorreoElectronico)
+                    .Concat(
+                        _context.Medicos.AsEnumerable()
+                        .Where(m => m.NumeroDocumento == u.Identificacion)
+                        .Select(m => m.CorreoElectronico))
+                    .Distinct()
+                )
+            })
+            .GroupBy(u => u.Identificacion) // Agrupar por Identificación para evitar duplicados
+            .Select(g => g.First()) // Tomamos solo un registro por Identificación
+            .ToList();
+
+        return usuariosDTO;
     }
 
     public async Task<IEnumerable<Usuario>> GetUsuarioByIdAsync(string id)
@@ -116,5 +148,23 @@ public class UsuarioDAL : IUsuarioDAL
         }
 
         await _context.SaveChangesAsync();
+    }
+
+    public async Task<bool> ResetPasswordAsync(string identificacion)
+    {
+        var usuario = await _context.Usuarios
+            .FirstOrDefaultAsync(u => u.Identificacion == identificacion);
+
+        if (usuario == null)
+        {
+            throw new KeyNotFoundException("El usuario no existe.");
+        }
+
+        usuario.Password = Encrypt.EncriptarContrasena("CEMEDICAR"); // Contraseña por defecto
+
+        _context.Entry(usuario).Property(u => u.Password).IsModified = true;
+        await _context.SaveChangesAsync();
+
+        return true;
     }
 }

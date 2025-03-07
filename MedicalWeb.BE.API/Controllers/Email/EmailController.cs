@@ -21,7 +21,7 @@ namespace MedicalWeb.BE.API.Controllers
             _emailService = emailService;
             _emailSettings = emailSettings.Value;
         }
-
+        
         [HttpPost("send")]
         public async Task<IActionResult> SendEmail([FromForm] EmailRequest request, CancellationToken cancellationToken)
         {
