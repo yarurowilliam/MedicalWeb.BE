@@ -13,7 +13,7 @@ public class MedicoDAL : IMedicoDAL
 
     public MedicoDAL(MedicalWebDbContext context)
     {
-        _context = context;
+        _context = context; 
     }
 
     public async Task DeleteAsync(string id)

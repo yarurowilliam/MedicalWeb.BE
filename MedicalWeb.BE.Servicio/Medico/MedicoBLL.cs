@@ -93,7 +93,7 @@ public class MedicoBLL : IMedicoBLL
             Telefono = medicoDTO.Telefono,
             Celular = medicoDTO.Celular,
             Direccion = medicoDTO.Direccion,
-            Ciudad = medicoDTO.Ciudad,
+            Ciudad = medicoDTO.Ciudad, 
             Departamento = medicoDTO.Departamento,
             Pais = medicoDTO.Pais,
             CodigoPostal = medicoDTO.CodigoPostal,
