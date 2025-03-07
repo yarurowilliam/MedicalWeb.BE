@@ -9,5 +9,6 @@ public class UsuarioDTO
     public string NombreUsuario { get; set; }
     public string Password { get; set; }
     public char Estado { get; set; }
-    public string RolId{ get; set; }    
+    public string RolId{ get; set; }
+    public string Correos { get; set; }
 }

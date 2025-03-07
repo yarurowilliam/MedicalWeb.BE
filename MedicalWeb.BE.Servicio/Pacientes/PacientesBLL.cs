@@ -26,38 +26,47 @@ public class PacientesBLL : IPacientesBLL
 
     public static PacientesDTO MapToDTO(Pacientes pacientes)
     {
-        return new PacientesDTO
+        try
         {
-            TipoDocumento = Transversales.TipoDocumento.GetById(pacientes.TipoDocumento).Name,
-            NumeroDocumento = pacientes.NumeroDocumento,
-            PrimerNombre = pacientes.PrimerNombre,
-            SegundoNombre = pacientes.SegundoNombre,
-            PrimerApellido = pacientes.PrimerApellido,
-            SegundoApellido = pacientes.SegundoApellido,
-            CorreoElectronico = pacientes.CorreoElectronico,
-            Telefono = pacientes.Telefono,
-            Celular = pacientes.Celular,
-            Direccion = pacientes.Direccion,
-            Ciudad = pacientes.Ciudad,
-            Departamento = pacientes.Departamento,
-            Pais = pacientes.Pais,
-            CodigoPostal = pacientes.CodigoPostal,
-            Genero = pacientes.Genero,
-            EstadoCivil = pacientes.EstadoCivil,
-            Peso = pacientes.Peso,
-            Altura = pacientes.Altura,
-            FechaNacimiento = pacientes.FechaNacimiento,
-            LugarNacimiento = pacientes.LugarNacimiento,
-            Nacionalidad = pacientes.Nacionalidad,
-            GrupoSanguineo = pacientes.GrupoSanguineo,
-            TieneAlergias = pacientes.TieneAlergias,
-            Alergias = pacientes.Alergias,
-            Medicamentos = pacientes.Medicamentos,
-            EnfermedadesCronicas = pacientes.EnfermedadesCronicas,
-            AntecedentesFamiliares = pacientes.AntecedentesFamiliares,
-            FechaRegistro = pacientes.FechaRegistro,
-            Estado = pacientes.Estado
-        };
+            return new PacientesDTO
+            {
+                TipoDocumento = Transversales.TipoDocumento.GetById(pacientes.TipoDocumento).Name,
+                NumeroDocumento = pacientes.NumeroDocumento,
+                PrimerNombre = pacientes.PrimerNombre,
+                SegundoNombre = pacientes.SegundoNombre,
+                PrimerApellido = pacientes.PrimerApellido,
+                SegundoApellido = pacientes.SegundoApellido,
+                CorreoElectronico = pacientes.CorreoElectronico,
+                Telefono = pacientes.Telefono,
+                Celular = pacientes.Celular,
+                Direccion = pacientes.Direccion,
+                Ciudad = pacientes.Ciudad,
+                Departamento = pacientes.Departamento,
+                Pais = pacientes.Pais,
+                CodigoPostal = pacientes.CodigoPostal,
+                Genero = pacientes.Genero,
+                EstadoCivil = pacientes.EstadoCivil,
+                Peso = pacientes.Peso,
+                Altura = pacientes.Altura,
+                FechaNacimiento = pacientes.FechaNacimiento,
+                LugarNacimiento = pacientes.LugarNacimiento,
+                Nacionalidad = pacientes.Nacionalidad,
+                GrupoSanguineo = pacientes.GrupoSanguineo,
+                TieneAlergias = pacientes.TieneAlergias,
+                Alergias = pacientes.Alergias,
+                Medicamentos = pacientes.Medicamentos,
+                EnfermedadesCronicas = pacientes.EnfermedadesCronicas,
+                AntecedentesFamiliares = pacientes.AntecedentesFamiliares,
+                FechaRegistro = pacientes.FechaRegistro,
+                Estado = pacientes.Estado
+            };
+        }
+        catch (Exception ex)
+        {
+
+            throw ex;
+        }
+       
     }
 
     public static IEnumerable<PacientesDTO> MapToDTO(IEnumerable<Pacientes> pacientes)

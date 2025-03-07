@@ -86,5 +86,23 @@ namespace MedicalWeb.BE.API.Controllers
 
             return Ok(new { mensaje = "Roles actualizados correctamente" });
         }
+
+        [HttpPatch("ResetPassword")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPassword dto)
+        {
+            if (dto == null || string.IsNullOrWhiteSpace(dto.Identificacion) || string.IsNullOrWhiteSpace(dto.NuevaPassword))
+            {
+                return BadRequest("Los datos de entrada son inválidos.");
+            }
+
+            var resultado = await _usuarioBLL.ResetPasswordAsync(dto);
+            if (!resultado)
+            {
+                return NotFound("No se pudo restablecer la contraseña.");
+            }
+
+            return Ok("Contraseña restablecida con éxito.");
+        }
+
     }
 }

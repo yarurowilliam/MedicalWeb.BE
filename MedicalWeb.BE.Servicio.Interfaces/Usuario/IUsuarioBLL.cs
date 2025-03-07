@@ -12,4 +12,5 @@ public interface IUsuarioBLL
     Task DeleteUsuarioAsync(string id);
     Task<string> LoginAsync(string nombreUsuario, string password, IConfiguration config);
     Task<bool> ActualizarRolesUsuarioAsync(string identificacion, List<int> nuevosRoles);
+    Task<bool> ResetPasswordAsync(ResetPassword dto);
 }
