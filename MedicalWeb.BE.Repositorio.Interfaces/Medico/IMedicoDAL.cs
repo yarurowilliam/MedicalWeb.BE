@@ -10,4 +10,6 @@ public interface IMedicoDAL
     Task<Medico> InsertAsync(Medico medico);
     Task<Medico> UpdateAsync(Medico medico);
     Task DeleteAsync(string id);
+    Task ActivarAsync(string id);
+
 }

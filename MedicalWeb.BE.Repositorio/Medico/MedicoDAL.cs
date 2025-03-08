@@ -13,7 +13,7 @@ public class MedicoDAL : IMedicoDAL
 
     public MedicoDAL(MedicalWebDbContext context)
     {
-        _context = context;
+        _context = context; 
     }
 
     public async Task DeleteAsync(string id)
@@ -110,5 +110,20 @@ public class MedicoDAL : IMedicoDAL
             await _context.SaveChangesAsync();
         }
         return existingMedico;
+    }
+
+    // MedicoDAL.cs
+
+    public async Task ActivarAsync(string id)
+    {
+        var medico = await _context.Medicos
+            .FirstOrDefaultAsync(u => u.NumeroDocumento == id);
+
+        if (medico != null)
+        {
+            medico.Estado = "A";
+            medico.FechaSalida = null; // Opcional: limpiar la fecha de salida
+            await _context.SaveChangesAsync();
+        }
     }
 }

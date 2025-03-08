@@ -1,4 +1,5 @@
-﻿using MedicalWeb.BE.Servicio.Interfaces;
+﻿using MedicalWeb.BE.Servicio;
+using MedicalWeb.BE.Servicio.Interfaces;
 using MedicalWeb.BE.Transversales.Entidades;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,52 +20,83 @@ namespace MedicalWeb.BE.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<MedicoDTO>> GetAllAsync()
+        public async Task<ActionResult<IEnumerable<MedicoDTO>>> GetAllAsync()
         {
-            return await _medicoBLL.GetAllAsync();
+            var medicos = await _medicoBLL.GetAllAsync();
+            return Ok(medicos);
         }
 
+        [HttpGet("{id}", Name = "GetMedicoById")]
         [HttpGet("MedicoActivos")]
         public async Task<IEnumerable<MedicoDTO>> GetMedicosActivo()
         {
             return await _medicoBLL.GetMedicosActivo();
         }
+        // MedicoController.cs
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<MedicoDTO>> GetByIdAsync(string id)
+        [HttpPatch("{id}/activar")]
+        public async Task<IActionResult> ActivarAsync(string id)
         {
-            var medico = await _medicoBLL.GetByIdAsync(id);
-            if (medico == null)
+            try
             {
-                return NotFound();
+                await _medicoBLL.ActivarAsync(id);
+                return NoContent();
             }
-            return medico;
+            catch (Exception ex)
+            {
+                // Log the exception
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
+            }
         }
 
         [HttpPost]
-        public async Task<IActionResult> InsertAsync([FromForm] MedicoDTO medicoDTO)
+        public async Task<ActionResult<MedicoDTO>> InsertAsync([FromForm] MedicoDTO medicoDTO)
         {
-            var resultado = await _medicoBLL.InsertAsync(medicoDTO);
-            return CreatedAtAction(nameof(GetByIdAsync), new { id = resultado.NumeroDocumento }, resultado);
+            try
+            {
+                var resultado = await _medicoBLL.InsertAsync(medicoDTO);
+                return CreatedAtRoute("GetMedicoById", new { id = resultado.NumeroDocumento }, MedicoBLL.MapToDTO(resultado));
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
+            }
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateAsync(string id, [FromForm] MedicoDTO medicoDTO)
+        public async Task<ActionResult<MedicoDTO>> UpdateAsync(string id, [FromForm] MedicoDTO medicoDTO)
         {
             if (id != medicoDTO.NumeroDocumento)
             {
                 return BadRequest("El ID en la URL no coincide con el ID del médico.");
             }
 
-            var resultado = await _medicoBLL.UpdateAsync(medicoDTO);
-            return Ok(resultado);
+            try
+            {
+                var resultado = await _medicoBLL.UpdateAsync(medicoDTO);
+                return Ok(MedicoBLL.MapToDTO(resultado));
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
+            }
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(string id)
         {
-            await _medicoBLL.DeleteAsync(id);
-            return NoContent();
+            try
+            {
+                await _medicoBLL.DeleteAsync(id);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
+            }
         }
     }
 }

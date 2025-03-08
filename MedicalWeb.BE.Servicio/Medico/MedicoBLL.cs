@@ -98,7 +98,7 @@ public class MedicoBLL : IMedicoBLL
             Telefono = medicoDTO.Telefono,
             Celular = medicoDTO.Celular,
             Direccion = medicoDTO.Direccion,
-            Ciudad = medicoDTO.Ciudad,
+            Ciudad = medicoDTO.Ciudad, 
             Departamento = medicoDTO.Departamento,
             Pais = medicoDTO.Pais,
             CodigoPostal = medicoDTO.CodigoPostal,
@@ -157,5 +157,12 @@ public class MedicoBLL : IMedicoBLL
         medicoExistente.Estado = medicoDTO.Estado;
 
         return await _medicoDAL.UpdateAsync(medicoExistente);
+    }
+
+    // MedicoBLL.cs
+
+    public async Task ActivarAsync(string id)
+    {
+        await _medicoDAL.ActivarAsync(id);
     }
 }

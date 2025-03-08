@@ -10,4 +10,5 @@ public interface IMedicoBLL
     Task<Medico> InsertAsync(MedicoDTO medicoDTO);
     Task<Medico> UpdateAsync(MedicoDTO medicoDTO);
     Task DeleteAsync(string id);
+    Task ActivarAsync(string id);
 }
