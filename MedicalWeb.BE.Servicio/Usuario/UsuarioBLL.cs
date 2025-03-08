@@ -50,7 +50,7 @@ public class UsuarioBLL : IUsuarioBLL
         await _usuarioDAL.DeleteUsuarioAsync(id);
     }
 
-    public async Task<Usuario> UpdateUsuarioAsync(Usuario usuario)
+    public async Task<UsuarioUpdate> UpdateUsuarioAsync(UsuarioUpdate usuario)
     {
         return await _usuarioDAL.UpdateUsuarioAsync(usuario);
     }
