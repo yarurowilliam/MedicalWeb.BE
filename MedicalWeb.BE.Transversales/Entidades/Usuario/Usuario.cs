@@ -1,6 +1,5 @@
 ﻿using MedicalWeb.BE.Transversales.Entidades;
 using System.Text.Json.Serialization;
-
 namespace MedicalWeb.BE.Transversales;
 
 public class Usuario

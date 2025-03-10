@@ -81,7 +81,7 @@ public class UsuarioDAL : IUsuarioDAL
         return usuarios;
     }
 
-    public async Task<Usuario> UpdateUsuarioAsync(Usuario usuario)
+    public async Task<UsuarioUpdate> UpdateUsuarioAsync(UsuarioUpdate usuario)
     {
         var usuarioExistente = await _context.Usuarios
             .FirstOrDefaultAsync(u => u.Identificacion == usuario.Identificacion);
@@ -91,19 +91,29 @@ public class UsuarioDAL : IUsuarioDAL
             throw new KeyNotFoundException("El usuario no existe.");
         }
 
-        // Mantener los roles actuales
-        usuario.RolId = usuarioExistente.RolId;
+        // Mantener el RolId del usuario existente
+        usuario.UsuarioID = usuarioExistente.UsuarioID;
 
+        // Actualizar los campos con los nuevos valores
         usuarioExistente.NombreUsuario = usuario.NombreUsuario;
         usuarioExistente.Password = Encrypt.EncriptarContrasena(usuario.Password);
         usuarioExistente.Estado = usuario.Estado;
 
-        // Indicar que no se debe modificar el campo RolId
+        // Evitar la modificación de RolId
         _context.Entry(usuarioExistente).Property(u => u.RolId).IsModified = false;
 
         await _context.SaveChangesAsync();
-        return usuarioExistente;
+
+        return new UsuarioUpdate
+        {
+            UsuarioID = usuarioExistente.UsuarioID,
+            Identificacion = usuarioExistente.Identificacion,
+            NombreUsuario = usuarioExistente.NombreUsuario,
+            Password = usuario.Password, // Retornamos la nueva contraseña en texto plano si es necesario
+            Estado = usuarioExistente.Estado
+        };
     }
+
 
     public async Task<IEnumerable<Usuario>> GetUsuarioByCredentialsAsync(string nombreUsuario, string passwordEncriptada)
     {
@@ -150,7 +160,7 @@ public class UsuarioDAL : IUsuarioDAL
         await _context.SaveChangesAsync();
     }
 
-    public async Task<bool> ResetPasswordAsync(string identificacion, object nuevaPassword)
+    public async Task<bool> ResetPasswordAsync(string identificacion, string nuevaPassword)
     {
         var usuario = await _context.Usuarios
     .FirstOrDefaultAsync(u => u.Identificacion == identificacion);
@@ -160,11 +170,12 @@ public class UsuarioDAL : IUsuarioDAL
             throw new KeyNotFoundException("El usuario no existe.");
         }
 
-        usuario.Password = Encrypt.EncriptarContrasena("CEMEDICAR"); // Contraseña por defecto
+        usuario.Password = Encrypt.EncriptarContrasena(nuevaPassword);
 
         _context.Entry(usuario).Property(u => u.Password).IsModified = true;
         await _context.SaveChangesAsync();
 
         return true;
     }
+
 }

@@ -38,7 +38,7 @@ namespace MedicalWeb.BE.API.Controllers
         }
 
         [HttpPut]
-        public async Task<Usuario> UpdateUsuarioAsync(Usuario usuario)
+        public async Task<UsuarioUpdate> UpdateUsuarioAsync(UsuarioUpdate usuario)
         {
             return await _usuarioBLL.UpdateUsuarioAsync(usuario);
         }
@@ -101,7 +101,7 @@ namespace MedicalWeb.BE.API.Controllers
                 return NotFound("No se pudo restablecer la contraseña.");
             }
 
-            return Ok("Contraseña restablecida con éxito.");
+            return Ok();
         }
 
     }
