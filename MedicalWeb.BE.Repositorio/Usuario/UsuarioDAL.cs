@@ -150,10 +150,10 @@ public class UsuarioDAL : IUsuarioDAL
         await _context.SaveChangesAsync();
     }
 
-    public async Task<bool> ResetPasswordAsync(string identificacion)
+    public async Task<bool> ResetPasswordAsync(string identificacion, object nuevaPassword)
     {
         var usuario = await _context.Usuarios
-            .FirstOrDefaultAsync(u => u.Identificacion == identificacion);
+    .FirstOrDefaultAsync(u => u.Identificacion == identificacion);
 
         if (usuario == null)
         {

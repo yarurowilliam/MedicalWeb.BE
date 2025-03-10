@@ -14,5 +14,5 @@ public interface IUsuarioDAL
     Task<IEnumerable<Usuario>> ObtenerUsuariosPorIdentificacionAsync(string identificacion);
     Task EliminarRolesUsuarioAsync(string identificacion, List<int> rolesAEliminar);
     Task AgregarRolesUsuarioAsync(Usuario usuarioBase, List<int> rolesAAgregar);
-    Task<bool> ResetPasswordAsync(string identificacion);
+    Task<bool> ResetPasswordAsync(string identificacion, object nuevaPassword);
 }
