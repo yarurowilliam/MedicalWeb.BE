@@ -163,7 +163,7 @@ public class UsuarioDAL : IUsuarioDAL
     public async Task<bool> ResetPasswordAsync(string identificacion, string nuevaPassword)
     {
         var usuario = await _context.Usuarios
-            .FirstOrDefaultAsync(u => u.Identificacion == identificacion);
+    .FirstOrDefaultAsync(u => u.Identificacion == identificacion);
 
         if (usuario == null)
         {
