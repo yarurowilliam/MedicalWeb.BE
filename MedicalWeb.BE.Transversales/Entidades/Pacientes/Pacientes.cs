@@ -17,7 +17,7 @@ public class Pacientes
     public string Pais { get; set; }
     public string CodigoPostal { get; set; }
     public string Genero { get; set; }
-    public string EstadoCivil { get; set; }
+    public int EstadoCivil { get; set; }
     public decimal Peso { get; set; }
     public decimal Altura { get; set; }
     public DateTime? FechaNacimiento { get; set; }

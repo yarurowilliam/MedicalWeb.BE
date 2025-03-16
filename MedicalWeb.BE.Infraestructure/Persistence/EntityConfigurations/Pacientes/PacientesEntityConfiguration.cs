@@ -91,7 +91,7 @@ public class PacientesEntityConfiguration : IEntityTypeConfiguration<Pacientes>
 
         builder.Property(e => e.EstadoCivil)
             .HasColumnName("EstadoCivil")
-            .HasMaxLength(20);
+            .IsRequired();
 
         builder.Property(e => e.FechaNacimiento)
             .HasColumnName("FechaNacimiento")
