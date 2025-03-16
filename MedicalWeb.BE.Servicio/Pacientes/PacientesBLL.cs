@@ -45,7 +45,7 @@ public class PacientesBLL : IPacientesBLL
                 Pais = pacientes.Pais,
                 CodigoPostal = pacientes.CodigoPostal,
                 Genero = pacientes.Genero,
-                EstadoCivil = pacientes.EstadoCivil,
+                EstadoCivil = Convert.ToString(pacientes.EstadoCivil),
                 Peso = pacientes.Peso,
                 Altura = pacientes.Altura,
                 FechaNacimiento = pacientes.FechaNacimiento,
