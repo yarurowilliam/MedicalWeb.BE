@@ -110,9 +110,16 @@ namespace MedicalWeb.BE.API.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception
                 return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
         }
+
+        [HttpGet("EstadosCiviles")]
+        public async Task<IActionResult> GetMaritalStatuses()
+        {
+            var estadosCiviles = await Task.FromResult(MaritalStatus.GetAll());
+            return Ok(estadosCiviles);
+        }
+
     }
 }

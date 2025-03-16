@@ -53,7 +53,7 @@ public class MedicoBLL : IMedicoBLL
             Pais = medico.Pais,
             CodigoPostal = medico.CodigoPostal,
             Genero = medico.Genero,
-            EstadoCivil = medico.EstadoCivil,
+            EstadoCivil = Convert.ToString(medico.EstadoCivil),
             FechaNacimiento = medico.FechaNacimiento,
             LugarNacimiento = medico.LugarNacimiento,
             Nacionalidad = medico.Nacionalidad,
@@ -103,7 +103,7 @@ public class MedicoBLL : IMedicoBLL
             Pais = medicoDTO.Pais,
             CodigoPostal = medicoDTO.CodigoPostal,
             Genero = medicoDTO.Genero,
-            EstadoCivil = medicoDTO.EstadoCivil,
+            EstadoCivil = int.Parse(medicoDTO.EstadoCivil),
             FechaNacimiento = medicoDTO.FechaNacimiento,
             LugarNacimiento = medicoDTO.LugarNacimiento,
             Nacionalidad = medicoDTO.Nacionalidad,
@@ -145,7 +145,7 @@ public class MedicoBLL : IMedicoBLL
         medicoExistente.Pais = medicoDTO.Pais;
         medicoExistente.CodigoPostal = medicoDTO.CodigoPostal;
         medicoExistente.Genero = medicoDTO.Genero;
-        medicoExistente.EstadoCivil = medicoDTO.EstadoCivil;
+        medicoExistente.EstadoCivil = int.Parse(medicoDTO.EstadoCivil);
         medicoExistente.FechaNacimiento = medicoDTO.FechaNacimiento;
         medicoExistente.LugarNacimiento = medicoDTO.LugarNacimiento;
         medicoExistente.Nacionalidad = medicoDTO.Nacionalidad;
