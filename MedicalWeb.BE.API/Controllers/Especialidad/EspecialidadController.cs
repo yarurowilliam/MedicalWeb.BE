@@ -1,4 +1,5 @@
-﻿using MedicalWeb.BE.Servicio.Interfaces;
+﻿using MedicalWeb.BE.Servicio;
+using MedicalWeb.BE.Servicio.Interfaces;
 using MedicalWeb.BE.Transversales.Entidades;
 using Microsoft.AspNetCore.Mvc;
 
@@ -71,5 +72,20 @@ public class EspecialidadController : ControllerBase
 
         var especialidadEliminada = await _especialidadBLL.DeleteEspecialidadAsync(id);
         return Ok(especialidadEliminada);
+    }
+
+    [HttpPatch("{id}/activar")]
+    public async Task<IActionResult> ActivarAsync(int id)
+    {
+        try
+        {
+            await _especialidadBLL.ActivarAsync(id);
+            return NoContent();
+        }
+        catch (Exception ex)
+        {
+            // Log the exception
+            return StatusCode(500, $"Error interno del servidor: {ex.Message}");
+        }
     }
 }
