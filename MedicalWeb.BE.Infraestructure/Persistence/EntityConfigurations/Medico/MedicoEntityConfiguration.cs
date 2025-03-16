@@ -89,7 +89,7 @@ public class MedicoEntityConfiguration : IEntityTypeConfiguration<Medico>
 
         builder.Property(e => e.EstadoCivil)
             .HasColumnName("EstadoCivil")
-            .HasMaxLength(20);
+            .IsRequired();
 
         builder.Property(e => e.FechaNacimiento)
             .HasColumnName("FechaNacimiento")

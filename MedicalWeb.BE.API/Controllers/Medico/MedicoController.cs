@@ -13,6 +13,7 @@ namespace MedicalWeb.BE.API.Controllers
     public class MedicoController : ControllerBase
     {
         private readonly IMedicoBLL _medicoBLL;
+        //private readonly Core
 
         public MedicoController(IMedicoBLL medicoBLL)
         {
@@ -53,10 +54,16 @@ namespace MedicalWeb.BE.API.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception
                 return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
         }
+
+        //[HttpGet]
+        //public async Task<IActionResult> EstadosCiviles()
+        //{
+        //    var estadosCiviles = await _medicoBLL();
+        //    return Ok(estadosCiviles);
+        //}
 
         [HttpPost]
         public async Task<ActionResult<MedicoDTO>> InsertAsync([FromForm] MedicoDTO medicoDTO)
@@ -103,12 +110,16 @@ namespace MedicalWeb.BE.API.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception
                 return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
         }
 
-        
+        [HttpGet("EstadosCiviles")]
+        public async Task<IActionResult> GetMaritalStatuses()
+        {
+            var estadosCiviles = await Task.FromResult(MaritalStatus.GetAll());
+            return Ok(estadosCiviles);
+        }
 
     }
 }
