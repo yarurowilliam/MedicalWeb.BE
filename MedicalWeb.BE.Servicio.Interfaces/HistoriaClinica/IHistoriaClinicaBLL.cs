@@ -14,4 +14,5 @@ public interface IHistoriaClinicaBLL
     Task DeleteAsync(string numeroDocumento);
     Task<IEnumerable<PacienteConHistoriaDTO>> ObtenerPacientesConHistoriasClinicasAsync();
     Task<IEnumerable<HistoriaClinicaDTO>> ObtenerTodasHistoriasClinicasPorPacienteAsync(string numeroDocumentoPaciente);
+    Task<MedicoPacienteDTO> ObtenerInfoMedicoYPacienteAsync(string documentoMedico, string documentoPaciente);
 }

@@ -117,5 +117,54 @@ public class HistoriaClincaDAL : IHistoriaClinicaDAL
             await _context.SaveChangesAsync();
         }
     }
+    public async Task<MedicoPacienteDTO> ObtenerInfoMedicoYPacienteAsync(string documentoMedico, string documentoPaciente)
+    {
+        var medico = await _context.Medicos
+            .FirstOrDefaultAsync(m => m.NumeroDocumento == documentoMedico);
+
+        var paciente = await _context.Pacientes
+            .FirstOrDefaultAsync(p => p.NumeroDocumento == documentoPaciente);
+
+        if (medico == null || paciente == null)
+        {
+            return null;
+        }
+
+        return new MedicoPacienteDTO
+        {
+            Medico = new MedicoInfoDTO
+            {
+                Nombre = medico.PrimerNombre,
+                SegundoNombre = medico.SegundoNombre,
+                Apellido = medico.PrimerApellido,
+                SegundoApellido = medico.SegundoApellido,
+                Genero = medico.Genero,
+                Correo = medico.CorreoElectronico,
+                Telefono = medico.Telefono,
+                Nacionalidad = medico.Nacionalidad,
+                MatriculaProfesional = medico.MatriculaProfesional,
+                NumeroDocumento = medico.NumeroDocumento,
+                TipoDocumento = medico.TipoDocumento.ToString()
+            },
+            Paciente = new PacienteInfoDTO
+            {
+                Nombre = paciente.PrimerNombre,
+                SegundoNombre = paciente.SegundoNombre,
+                Apellido = paciente.PrimerApellido,
+                SegundoApellido = paciente.SegundoApellido,
+                Genero = paciente.Genero,
+                Telefono = paciente.Telefono,
+                Correo = paciente.CorreoElectronico,
+                Ciudad = paciente.Ciudad,
+                Departamento = paciente.Departamento,
+                Pais = paciente.Pais,
+                EstadoCivil = paciente.EstadoCivil.ToString(),
+                Nacionalidad = paciente.Nacionalidad,
+                GrupoSanguineo = paciente.GrupoSanguineo,
+                NumeroDocumento = paciente.NumeroDocumento,
+                TipoDocumento = paciente.TipoDocumento.ToString()
+            }
+        };
+    }
 
 }

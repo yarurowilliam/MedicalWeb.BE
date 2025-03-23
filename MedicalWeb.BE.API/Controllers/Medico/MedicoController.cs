@@ -18,7 +18,7 @@ namespace MedicalWeb.BE.API.Controllers
         public MedicoController(IMedicoBLL medicoBLL)
         {
             _medicoBLL = medicoBLL;
-        }
+        } 
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MedicoDTO>>> GetAllAsync()
@@ -102,7 +102,7 @@ namespace MedicalWeb.BE.API.Controllers
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(string id)
-        {
+        { 
             try
             {
                 await _medicoBLL.DeleteAsync(id);

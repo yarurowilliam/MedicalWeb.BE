@@ -8,4 +8,6 @@ public interface IEspecialidadDAL
     Task<Especialidad> CreateEspecialidadAsync(Especialidad especialidad);
     Task<Especialidad> UpdateEspecialidadAsync(Especialidad especialidad);
     Task<Especialidad> DeleteEspecialidadAsync(int id);
+    Task ActivarAsync(int id);
+
 }

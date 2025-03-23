@@ -118,4 +118,9 @@ public class HistoriaClinicaBLL: IHistoriaClinicaBLL
         var historiasClinicas = await _historiaClinicaDAL.ObtenerHistoriasClinicasPorPacienteAsync(numeroDocumentoPaciente);
         return historiasClinicas.Select(MapToDTO);
     }
+
+    public async Task<MedicoPacienteDTO> ObtenerInfoMedicoYPacienteAsync(string documentoMedico, string documentoPaciente)
+    {
+        return await _historiaClinicaDAL.ObtenerInfoMedicoYPacienteAsync(documentoMedico, documentoPaciente);
+    }
 }

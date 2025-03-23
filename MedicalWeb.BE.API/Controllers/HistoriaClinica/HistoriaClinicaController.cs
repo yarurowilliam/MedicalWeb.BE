@@ -57,67 +57,19 @@ namespace MedicalWeb.BE.API.Controllers.HistoriaClinica
             }
         }
 
-        [HttpGet("medico/{documentoMedico}")]
-        public async Task<IActionResult> GetMedicoByDocumento(string documentoMedico)
+        [HttpGet("info/{documentoMedico}/{documentoPaciente}")]
+        public async Task<IActionResult> GetMedicoYPacienteByDocumento(string documentoMedico, string documentoPaciente)
         {
             try
             {
-                var medico = await _medicoBLL.GetByIdAsync(documentoMedico);
+                var resultado = await _historiaClinicaBLL.ObtenerInfoMedicoYPacienteAsync(documentoMedico, documentoPaciente);
 
-                if (medico == null)
+                if (resultado == null)
                 {
-                    return NotFound("Médico no encontrado");
+                    return NotFound("No se encontró el médico o el paciente");
                 }
 
-                return Ok(new
-                {
-                    nombre = medico.PrimerNombre,
-                    segundoNombre = medico.SegundoNombre,
-                    apellido = medico.PrimerApellido,
-                    segundoApellido = medico.SegundoApellido,
-                    genero = medico.Genero,
-                    correo = medico.CorreoElectronico,
-                    telefono = medico.Telefono,
-                    nacionalidad = medico.Nacionalidad,
-                    matriculaProfesional = medico.MatriculaProfesional,
-                    numeroDocumento = medico.NumeroDocumento,
-                    TipoDocumento = medico.TipoDocumento,
-                });
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-
-        [HttpGet("paciente/{documentoPaciente}")]
-        public async Task<IActionResult> GetPacienteByDocumento(string documentoPaciente)
-        {
-            try
-            {
-                var paciente = await _pacientesBLL.GetByIdAsync(documentoPaciente);
-                if (paciente == null)
-                {
-                    return NotFound("Paciente no encontrado");
-                }
-                return Ok(new
-                {
-                    nombre = paciente.PrimerNombre,
-                    segundoNombre = paciente.SegundoNombre,
-                    apellido = paciente.PrimerApellido,
-                    segundoApellido = paciente.SegundoApellido,
-                    genero = paciente.Genero,
-                    telefono = paciente.Telefono,
-                    correo = paciente.CorreoElectronico,
-                    ciudad = paciente.Ciudad,
-                    departamento = paciente.Departamento,
-                    pais = paciente.Pais,
-                    estadoCivil = paciente.EstadoCivil,
-                    nacioladida = paciente.Nacionalidad,
-                    grupoSanguineo = paciente.GrupoSanguineo,
-                    numeroDocumento = paciente.NumeroDocumento,
-                    tipoDocumento = paciente.TipoDocumento,
-                });
+                return Ok(resultado);
             }
             catch (Exception ex)
             {
