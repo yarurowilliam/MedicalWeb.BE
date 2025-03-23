@@ -38,36 +38,35 @@ public class UsuarioDAL : IUsuarioDAL
 
     public async Task<IEnumerable<UsuarioDTO>> GetUsuarioAsync()
     {
-        var usuarios = await _context.Usuarios.ToListAsync(); // Traemos todos los usuarios primero
+        // Cargar los roles en memoria solo una vez
+        var rolesDict = Rol.GetAll().ToDictionary(r => r.Id, r => r.Nombre);
 
-        var usuariosDTO = usuarios
-            .Select(u => new UsuarioDTO
-            {
-                UsuarioID = u.UsuarioID,
-                Identificacion = u.Identificacion,
-                NombreUsuario = u.NombreUsuario,
-                Password = u.Password,
-                Estado = u.Estado,
+        var usuariosDTO = await (from u in _context.Usuarios
+                                 group u by u.Identificacion into g
+                                 select new UsuarioDTO
+                                 {
+                                     UsuarioID = g.First().UsuarioID, // Se toma solo un valor representativo
+                                     Identificacion = g.Key,
+                                     NombreUsuario = g.First().NombreUsuario,
+                                     Password = g.First().Password,
+                                     Estado = g.First().Estado,
 
-                RolId = string.Join(", ", usuarios.Where(x => x.Identificacion == u.Identificacion)
-                                                  .Select(x => Rol.GetRolById(x.RolId)?.Nombre ?? "Desconocido")
-                                                  .Distinct()),
+                                     // Concatenar roles directamente en SQL
+                                     RolId = string.Join(", ", g.Select(u => rolesDict.ContainsKey(u.RolId) ? rolesDict[u.RolId] : "Desconocido")
+                                                                .Distinct()),
 
-                // Obtener correos en memoria
-                Correos = string.Join(", ",
-                    _context.Pacientes.AsEnumerable()
-                        .Where(p => p.NumeroDocumento == u.Identificacion)
-                        .Select(p => p.CorreoElectronico)
-                    .Concat(
-                        _context.Medicos.AsEnumerable()
-                        .Where(m => m.NumeroDocumento == u.Identificacion)
-                        .Select(m => m.CorreoElectronico))
-                    .Distinct()
-                )
-            })
-            .GroupBy(u => u.Identificacion) // Agrupar por Identificación para evitar duplicados
-            .Select(g => g.First()) // Tomamos solo un registro por Identificación
-            .ToList();
+                                     // Obtener correos con LEFT JOIN en SQL y evitar múltiples consultas a la DB
+                                     Correos = string.Join(", ",
+                                         (from p in _context.Pacientes
+                                          where p.NumeroDocumento == g.Key
+                                          select p.CorreoElectronico)
+                                         .Union(
+                                             from m in _context.Medicos
+                                             where m.NumeroDocumento == g.Key
+                                             select m.CorreoElectronico
+                                         )
+                                     )
+                                 }).ToListAsync();
 
         return usuariosDTO;
     }
@@ -162,20 +161,26 @@ public class UsuarioDAL : IUsuarioDAL
 
     public async Task<bool> ResetPasswordAsync(string identificacion, string nuevaPassword)
     {
-        var usuario = await _context.Usuarios
-    .FirstOrDefaultAsync(u => u.Identificacion == identificacion);
+        var usuarios = await _context.Usuarios
+            .Where(u => u.Identificacion == identificacion)
+            .ToListAsync(); // Obtiene todos los usuarios con esa identificación
 
-        if (usuario == null)
+        if (!usuarios.Any()) // Verifica si la lista está vacía
         {
             throw new KeyNotFoundException("El usuario no existe.");
         }
 
-        usuario.Password = Encrypt.EncriptarContrasena(nuevaPassword);
+        string nuevaPasswordEncriptada = Encrypt.EncriptarContrasena(nuevaPassword);
 
-        _context.Entry(usuario).Property(u => u.Password).IsModified = true;
+        foreach (var usuario in usuarios)
+        {
+            usuario.Password = nuevaPasswordEncriptada;
+            _context.Entry(usuario).Property(u => u.Password).IsModified = true;
+        }
+
         await _context.SaveChangesAsync();
-
         return true;
     }
+
 
 }
