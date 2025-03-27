@@ -152,6 +152,7 @@ await app.MigrateDbContext<MedicalWebDbContext>();
 
 if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
+    app.UsePathBase("/swagger");
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
