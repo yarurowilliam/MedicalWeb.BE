@@ -156,8 +156,11 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "MedicalWeb API v1");
+        c.RoutePrefix = string.Empty;
     });
 }
+
+app.UseStaticFiles();
 
 app.UseRouting();
 app.UseCors("CorsPolicy");
