@@ -15,6 +15,9 @@ using MedicalWeb.BE.Infraestructura.Image;
 using MedicalWeb.BE.Transversales.Image;
 using MedicalWeb.BE.Transversales.Interfaces;
 using MedicalWeb.BE.Infraestructura;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -146,13 +149,27 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// Agregar HealthChecks antes de construir la app
-builder.Services.AddHealthChecks();
+// Configuración de HealthChecks
+builder.Services.AddHealthChecks()
+    .AddCheck("self", () => HealthCheckResult.Healthy());
 
 var app = builder.Build();
 
-await app.MigrateDbContext<MedicalWebDbContext>();
+// Redirección HTTPS
+app.UseHttpsRedirection();
 
+// Archivos estáticos
+app.UseStaticFiles();
+
+// Configuración de rutas y CORS
+app.UseRouting();
+app.UseCors("CorsPolicy");
+
+// Autenticación y Autorización
+app.UseAuthentication();
+app.UseAuthorization();
+
+// Swagger
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
@@ -160,21 +177,26 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = "swagger";
 });
 
-// Mapear el endpoint de Health Check
-app.MapHealthChecks("/health");
-
-app.UseStaticFiles();
-
-app.UseRouting();
-app.UseCors("CorsPolicy");
-
-app.UseAuthentication();
-app.UseAuthorization();
-
-app.UseEndpoints(endpoints =>
+// Mapeo de endpoints (usando el estilo de .NET 8)
+app.MapHealthChecks("/health", new HealthCheckOptions
 {
-    endpoints.MapControllers();
+    AllowCachingResponses = false,
+    ResponseWriter = async (context, report) =>
+    {
+        context.Response.ContentType = "application/json";
+        var response = new
+        {
+            Status = report.Status.ToString(),
+            Time = DateTime.UtcNow
+        };
+        await JsonSerializer.SerializeAsync(context.Response.Body, response);
+    }
 });
+
+app.MapControllers();
+
+// Migración de base de datos
+await app.MigrateDbContext<MedicalWebDbContext>();
 
 // Ejecutar la aplicación
 await app.RunAsync();
