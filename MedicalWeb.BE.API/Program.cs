@@ -150,15 +150,13 @@ var app = builder.Build();
 
 await app.MigrateDbContext<MedicalWebDbContext>();
 
-if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "MedicalWeb API v1");
-        c.RoutePrefix = string.Empty;
-    });
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "MedicalWeb API v1");
+    c.RoutePrefix = "swagger";
+});
+
 
 app.UseStaticFiles();
 
