@@ -146,6 +146,9 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+// Agregar HealthChecks antes de construir la app
+builder.Services.AddHealthChecks();
+
 var app = builder.Build();
 
 await app.MigrateDbContext<MedicalWebDbContext>();
@@ -157,6 +160,8 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = "swagger";
 });
 
+// Mapear el endpoint de Health Check
+app.MapHealthChecks("/health");
 
 app.UseStaticFiles();
 
