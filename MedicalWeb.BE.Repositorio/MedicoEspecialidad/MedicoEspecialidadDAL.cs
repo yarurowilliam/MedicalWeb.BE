@@ -134,5 +134,59 @@ namespace MedicalWeb.BE.Repositorio
                 .Include(me => me.Especialidad)
                 .ToListAsync();
         }
+
+        // Implementación del nuevo método para actualizar todas las especialidades de un médico
+        public async Task UpdateMedicoEspecialidadesAsync(string medicoNumeroDocumento, List<int> especialidadesIds)
+        {
+            // Obtener las especialidades actuales del médico
+            var especialidadesActuales = await _context.MedicoEspecialidades
+                .Where(me => me.MedicoNumeroDocumento == medicoNumeroDocumento)
+                .ToListAsync();
+
+            // Identificar especialidades a eliminar (las que están en la BD pero no en la lista nueva)
+            var especialidadesAEliminar = especialidadesActuales
+                .Where(me => !especialidadesIds.Contains(me.EspecialidadId))
+                .ToList();
+
+            // Identificar especialidades a agregar (las que están en la lista nueva pero no en la BD)
+            var especialidadesIdsActuales = especialidadesActuales.Select(me => me.EspecialidadId).ToList();
+            var especialidadesAAgregar = especialidadesIds
+                .Where(id => !especialidadesIdsActuales.Contains(id))
+                .ToList();
+
+            // Eliminar las especialidades que ya no están seleccionadas
+            foreach (var especialidad in especialidadesAEliminar)
+            {
+                _context.MedicoEspecialidades.Remove(especialidad);
+            }
+
+            // Agregar las nuevas especialidades seleccionadas
+            foreach (var especialidadId in especialidadesAAgregar)
+            {
+                // Verificar que la especialidad existe
+                var especialidadExiste = await _context.Especialidades.AnyAsync(e => e.Id == especialidadId);
+                if (especialidadExiste)
+                {
+                    _context.MedicoEspecialidades.Add(new MedicoEspecialidad
+                    {
+                        MedicoNumeroDocumento = medicoNumeroDocumento,
+                        EspecialidadId = especialidadId
+                    });
+                }
+            }
+
+            // Guardar todos los cambios en una sola transacción
+            await _context.SaveChangesAsync();
+        }
+
+        // Implementación del nuevo método para obtener las especialidades de un médico
+        public async Task<IEnumerable<MedicoEspecialidad>> GetEspecialidadesByMedicoAsync(string medicoNumeroDocumento)
+        {
+            return await _context.MedicoEspecialidades
+                .Where(me => me.MedicoNumeroDocumento == medicoNumeroDocumento)
+                .Include(me => me.Especialidad)
+                .ToListAsync();
+        }
     }
 }
+

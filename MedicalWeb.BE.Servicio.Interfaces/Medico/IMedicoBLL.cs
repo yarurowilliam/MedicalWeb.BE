@@ -1,5 +1,6 @@
 ﻿using MedicalWeb.BE.Transversales.Entidades;
 using Microsoft.AspNetCore.Http;
+
 namespace MedicalWeb.BE.Servicio.Interfaces;
 
 public interface IMedicoBLL
@@ -11,4 +12,6 @@ public interface IMedicoBLL
     Task<Medico> UpdateAsync(MedicoDTO medicoDTO);
     Task DeleteAsync(string id);
     Task ActivarAsync(string id);
+    Task<IEnumerable<MedicoEspecialidadUpdateDto2>> GetMedicoEspecialidad(string id);
 }
+

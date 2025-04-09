@@ -14,5 +14,10 @@ namespace MedicalWeb.BE.Repositorio.Interfaces
         Task<MedicoEspecialidad> GetByMedicoAndEspecialidadAsync(string medicoNumeroDocumento, int especialidadId);
         Task<MedicoEspecialidad> UpdateAsync(string medicoNumeroDocumento, int especialidadId, int especialidadIdNueva);
         Task<IEnumerable<MedicoEspecialidad>> GetMedicosEspecialidadesAsync();
+
+        // Nuevos métodos
+        Task UpdateMedicoEspecialidadesAsync(string medicoNumeroDocumento, List<int> especialidadesIds);
+        Task<IEnumerable<MedicoEspecialidad>> GetEspecialidadesByMedicoAsync(string medicoNumeroDocumento);
     }
 }
+

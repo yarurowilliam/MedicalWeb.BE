@@ -58,7 +58,7 @@ public class EspecialidadDAL : IEspecialidadDAL
 
         if (especialidad != null)
         {
-            especialidad.Estado = "A";
+            especialidad.Estado = "ACTIVO";
             await _context.SaveChangesAsync();
         }
     }

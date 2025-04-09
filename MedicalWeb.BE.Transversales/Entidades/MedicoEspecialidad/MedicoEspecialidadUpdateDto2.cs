@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace MedicalWeb.BE.Transversales.Entidades;
 
-public class MedicoEspecialidadUpdateDto
+// Primero, necesitamos modificar el DTO para incluir los campos adicionales
+public class MedicoEspecialidadUpdateDto2
 {
     public string MedicoNumeroDocumento { get; set; }
     public int EspecialidadId { get; set; }
-    public int EspecialidadIdNueva { get; set; }
+    public string Nombre { get; set; }
+    public string Descripcion { get; set; }
+    public string Estado { get; set; }
 }

@@ -3,6 +3,7 @@ using MedicalWeb.BE.Servicio.Interfaces;
 using MedicalWeb.BE.Transversales.Entidades;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -13,12 +14,11 @@ namespace MedicalWeb.BE.API.Controllers
     public class MedicoController : ControllerBase
     {
         private readonly IMedicoBLL _medicoBLL;
-        //private readonly Core
 
         public MedicoController(IMedicoBLL medicoBLL)
         {
             _medicoBLL = medicoBLL;
-        } 
+        }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MedicoDTO>>> GetAllAsync()
@@ -28,6 +28,7 @@ namespace MedicalWeb.BE.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [ActionName("GetMedicoById")]
         public async Task<ActionResult<MedicoDTO>> GetByIdAsync(string id)
         {
             var medico = await _medicoBLL.GetByIdAsync(id);
@@ -58,20 +59,13 @@ namespace MedicalWeb.BE.API.Controllers
             }
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> EstadosCiviles()
-        //{
-        //    var estadosCiviles = await _medicoBLL();
-        //    return Ok(estadosCiviles);
-        //}
-
         [HttpPost]
         public async Task<ActionResult<MedicoDTO>> InsertAsync([FromForm] MedicoDTO medicoDTO)
         {
             try
             {
                 var resultado = await _medicoBLL.InsertAsync(medicoDTO);
-                return CreatedAtRoute("GetMedicoById", new { id = resultado.NumeroDocumento }, MedicoBLL.MapToDTO(resultado));
+                return CreatedAtAction("GetMedicoById", new { id = resultado.NumeroDocumento }, MedicoBLL.MapToDTO(resultado));
             }
             catch (Exception ex)
             {
@@ -102,7 +96,7 @@ namespace MedicalWeb.BE.API.Controllers
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(string id)
-        { 
+        {
             try
             {
                 await _medicoBLL.DeleteAsync(id);
@@ -121,5 +115,26 @@ namespace MedicalWeb.BE.API.Controllers
             return Ok(estadosCiviles);
         }
 
+        // Endpoint corregido para obtener las especialidades de un médico
+        [HttpGet("{id}/especialidades")]
+        public async Task<ActionResult<IEnumerable<MedicoEspecialidadUpdateListDto>>> GetMedicoEspecialidad(string id)
+        {
+            try
+            {
+                var especialidades = await _medicoBLL.GetMedicoEspecialidad(id);
+                if (especialidades == null || !especialidades.Any())
+                {
+                    return NotFound($"No se encontraron especialidades para el médico con ID {id}");
+                }
+
+                // Las especialidades ya incluyen nombre y descripción, así que podemos devolverlas directamente
+                return Ok(especialidades);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error Interno del Servidor: {ex.Message}");
+            }
+        }
     }
 }
+
