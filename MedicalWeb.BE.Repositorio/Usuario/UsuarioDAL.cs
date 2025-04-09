@@ -181,6 +181,4 @@ public class UsuarioDAL : IUsuarioDAL
         await _context.SaveChangesAsync();
         return true;
     }
-
-
 }
