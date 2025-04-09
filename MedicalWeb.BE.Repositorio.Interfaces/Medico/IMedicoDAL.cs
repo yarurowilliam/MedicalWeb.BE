@@ -11,5 +11,6 @@ public interface IMedicoDAL
     Task<Medico> UpdateAsync(Medico medico);
     Task DeleteAsync(string id);
     Task ActivarAsync(string id);
-
+    Task<IEnumerable<MedicoEspecialidadUpdateDto2>> GetMedicoEspecialidad(string id);
 }
+

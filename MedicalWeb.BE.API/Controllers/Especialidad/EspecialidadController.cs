@@ -41,23 +41,25 @@ public class EspecialidadController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<Especialidad>> UpdateEspecialidadAsync(int id, Especialidad especialidad)
+    public async Task<IActionResult> PutEspecialidad(int id, Especialidad especialidad)
     {
-        if (id != especialidad.Id)
+        try
         {
-            return BadRequest("El ID en la URL no coincide con el ID de la especialidad.");
-        }
+            especialidad.Id = id;
 
-        // Verificar si la especialidad existe
-        var especialidadExistente = await _especialidadBLL.GetEspecialidadByIdAsync(id);
-        if (especialidadExistente == null)
+            var result = await _especialidadBLL.UpdateEspecialidadAsync(especialidad);
+
+            if (result == null)
+            {
+                return NotFound($"Especialidad con ID {id} no encontrada");
+            }
+
+            return NoContent();
+        }
+        catch (Exception ex)
         {
-            return NotFound("La especialidad no existe.");
+            return StatusCode(500, $"Error interno del servidor: {ex.Message}");
         }
-
-        // Realizar la actualización
-        var especialidadActualizada = await _especialidadBLL.UpdateEspecialidadAsync(especialidad);
-        return Ok(especialidadActualizada);
     }
 
 
@@ -74,17 +76,22 @@ public class EspecialidadController : ControllerBase
         return Ok(especialidadEliminada);
     }
 
-    [HttpPatch("{id}/activar")]
+    [HttpPut("{id}/activar")] 
     public async Task<IActionResult> ActivarAsync(int id)
     {
         try
         {
+            var especialidad = await _especialidadBLL.GetEspecialidadByIdAsync(id);
+            if (especialidad == null)
+            {
+                return NotFound("La especialidad no existe.");
+            }
+
             await _especialidadBLL.ActivarAsync(id);
             return NoContent();
         }
         catch (Exception ex)
         {
-            // Log the exception
             return StatusCode(500, $"Error interno del servidor: {ex.Message}");
         }
     }

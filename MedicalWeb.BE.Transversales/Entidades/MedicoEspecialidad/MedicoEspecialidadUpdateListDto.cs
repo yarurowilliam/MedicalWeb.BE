@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace MedicalWeb.BE.Transversales.Entidades;
 
-public class MedicoEspecialidadUpdateDto
+public class MedicoEspecialidadUpdateListDto
 {
     public string MedicoNumeroDocumento { get; set; }
-    public int EspecialidadId { get; set; }
-    public int EspecialidadIdNueva { get; set; }
+    public List<int> EspecialidadesIds { get; set; }
 }
