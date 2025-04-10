@@ -24,15 +24,15 @@ public class EspecialidadDAL : IEspecialidadDAL
         return especialidad;
     }
 
-    public async Task<Especialidad> DeleteEspecialidadAsync(int id)
+    public async Task<bool> DeleteEspecialidadAsync(int id)
     {
         var especialidad = await _context.Especialidades.FindAsync(id);
         if (especialidad != null)
         {
-            especialidad.Estado = "Inactivo";
-            await _context.SaveChangesAsync();
+            _context.Especialidades.Remove(especialidad);
+            return await _context.SaveChangesAsync() > 0;
         }
-        return especialidad;
+        return false;
     }
 
     public async Task<Especialidad> GetEspecialidadByIdAsync(int id)
@@ -42,7 +42,7 @@ public class EspecialidadDAL : IEspecialidadDAL
 
     public async Task<IEnumerable<Especialidad>> GetEspecialidadesAsync()
     {
-        return _context.Especialidades.ToList();
+        return await _context.Especialidades.ToListAsync();
     }
 
     public async Task<Especialidad> UpdateEspecialidadAsync(Especialidad especialidad)

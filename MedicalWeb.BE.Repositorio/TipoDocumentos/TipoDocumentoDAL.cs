@@ -20,16 +20,15 @@ namespace MedicalWeb.BE.Repositorio
             return tipodocumento;
         }
 
-        public async Task<TipoDocumento> DeleteTipoDocumentoAsync(int id)
+        public async Task<bool> DeleteTipoDocumentoAsync(int id)
         {
-            var tipodocumento = await _context.TipoDocumento.FindAsync(id);
-            if (tipodocumento != null)
+            var tipoDocumento = await _context.TipoDocumento.FindAsync(id);
+            if (tipoDocumento != null)
             {
-                return null;
+                _context.TipoDocumento.Remove(tipoDocumento);
+                return await _context.SaveChangesAsync() > 0;
             }
-            _context.TipoDocumento.Remove(tipodocumento);
-            await _context.SaveChangesAsync();
-            return tipodocumento;
+            return false;
         }
 
         public async Task<TipoDocumento> UpdateTipoDocumentoAsync(TipoDocumento tipodocumento)
@@ -41,7 +40,7 @@ namespace MedicalWeb.BE.Repositorio
 
         public async Task<IEnumerable<TipoDocumento>> GetTipoDocumentosAsync()
         {
-            return _context.TipoDocumento.ToList();
+            return await _context.TipoDocumento.ToListAsync();
         }
 
         public async Task<TipoDocumento> GetTipoDocumentoByIdAsync(int id)

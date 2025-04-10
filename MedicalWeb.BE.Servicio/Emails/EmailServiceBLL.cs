@@ -20,7 +20,7 @@ namespace MedicalWeb.BE.Servicio
             _emailSettings = emailSettings.Value;
         }
 
-        public async Task SendEmailAsync(string to, string subject, string body, IFormFile attachment, CancellationToken cancellationToken = default)
+        public async Task SendEmailAsync(string to, string subject, string body, IFormFile? attachment = null, CancellationToken cancellationToken = default)
         {
             using var smtp = new SmtpClient(_emailSettings.SmtpServer)
             {
