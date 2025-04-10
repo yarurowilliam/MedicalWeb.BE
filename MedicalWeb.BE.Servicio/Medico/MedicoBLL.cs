@@ -4,6 +4,10 @@ using MedicalWeb.BE.Servicio.Interfaces;
 using MedicalWeb.BE.Transversales.Entidades;
 using MedicalWeb.BE.Transversales.Interfaces;
 using Microsoft.AspNetCore.Http;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MedicalWeb.BE.Servicio;
 
@@ -34,6 +38,7 @@ public class MedicoBLL : IMedicoBLL
         var medicos = await _medicoDAL.GetMedicosActivo();
         return MapToDTO(medicos);
     }
+
     public static MedicoDTO MapToDTO(Medico medico)
     {
         return new MedicoDTO
@@ -98,7 +103,7 @@ public class MedicoBLL : IMedicoBLL
             Telefono = medicoDTO.Telefono,
             Celular = medicoDTO.Celular,
             Direccion = medicoDTO.Direccion,
-            Ciudad = medicoDTO.Ciudad, 
+            Ciudad = medicoDTO.Ciudad,
             Departamento = medicoDTO.Departamento,
             Pais = medicoDTO.Pais,
             CodigoPostal = medicoDTO.CodigoPostal,
@@ -159,10 +164,16 @@ public class MedicoBLL : IMedicoBLL
         return await _medicoDAL.UpdateAsync(medicoExistente);
     }
 
-    // MedicoBLL.cs
-
     public async Task ActivarAsync(string id)
     {
         await _medicoDAL.ActivarAsync(id);
     }
+
+    // Método corregido para obtener las especialidades de un médico
+    public async Task<IEnumerable<MedicoEspecialidadUpdateDto2>> GetMedicoEspecialidad(string id)
+    {
+        // Convertir el id a string si es necesario (depende de cómo esté implementado en el DAL)
+        return await _medicoDAL.GetMedicoEspecialidad(id);
+    }
 }
+

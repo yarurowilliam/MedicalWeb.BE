@@ -82,6 +82,26 @@ namespace MedicalWeb.BE.API.Controllers
             }
         }
 
+        // Nuevo endpoint para actualizar todas las especialidades de un médico
+        [HttpPost("update")]
+        public async Task<IActionResult> UpdateMedicoEspecialidadesAsync([FromBody] MedicoEspecialidadUpdateListDto updateDto)
+        {
+            if (updateDto == null || string.IsNullOrEmpty(updateDto.MedicoNumeroDocumento))
+            {
+                return BadRequest("Datos de actualización inválidos.");
+            }
+
+            try
+            {
+                await _medicoEspecialidadBLL.UpdateMedicoEspecialidadesAsync(updateDto.MedicoNumeroDocumento, updateDto.EspecialidadesIds);
+                return Ok(new { message = "Especialidades actualizadas correctamente" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al actualizar especialidades: {ex.Message}");
+            }
+        }
+
         [HttpDelete("medico/{medicoNumeroDocumento}/especialidad/{especialidadId}")]
         public async Task<IActionResult> DeleteMedicoEspecialidadAsync(string medicoNumeroDocumento, int especialidadId)
         {
@@ -120,5 +140,27 @@ namespace MedicalWeb.BE.API.Controllers
 
             return Ok(medicosEspecialidadesInactivas);
         }
+
+        // Nuevo endpoint para obtener las especialidades de un médico específico
+        [HttpGet("medico/{medicoNumeroDocumento}")]
+        public async Task<ActionResult<IEnumerable<MedicoEspecialidad>>> GetEspecialidadesByMedicoAsync(string medicoNumeroDocumento)
+        {
+            try
+            {
+                var especialidades = await _medicoEspecialidadBLL.GetEspecialidadesByMedicoAsync(medicoNumeroDocumento);
+
+                if (especialidades == null || !especialidades.Any())
+                {
+                    return Ok(new List<MedicoEspecialidad>()); // Devolver lista vacía en lugar de 404
+                }
+
+                return Ok(especialidades);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al obtener especialidades del médico: {ex.Message}");
+            }
+        }
     }
 }
+
