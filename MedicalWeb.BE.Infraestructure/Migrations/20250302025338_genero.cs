@@ -5,7 +5,7 @@
 namespace MedicalWeb.BE.Infraestructure.Migrations
 {
     /// <inheritdoc />
-    public partial class Genero : Migration
+    public partial class genero : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
