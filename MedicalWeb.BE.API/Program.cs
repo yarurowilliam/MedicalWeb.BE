@@ -18,6 +18,8 @@ using MedicalWeb.BE.Infraestructura;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using System.Text.Json;
+using MedicalWeb.BE.BLL;
+using MedicalWeb.BE.BLL.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -121,6 +123,10 @@ builder.Services.AddScoped<IChatStorageDAL, ChatStorageDAL>();
 builder.Services.AddScoped<IFileStorageDAL, FileStorageDAL>();
 builder.Services.AddScoped<IMedicamentosRecetadosBLL, MedicamentosRecetadosBLL>();
 builder.Services.AddScoped<IMedicamentosRecetadosDAL, MedicamentosRecetadosDAL>();
+builder.Services.AddScoped<IReportesBLL, ReportesBLL>();
+builder.Services.AddScoped<IReportesDAL, ReportesDAL>();
+builder.Services.AddScoped<IDesactivacionMedicoBLL, DesactivacionMedicoBLL>();
+builder.Services.AddScoped<IDesactivacionMedicoDAL, DesactivacionMedicoDAL>();
 
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
