@@ -44,6 +44,7 @@ public class ReportesDAL : IReportesDAL
         await _context.SaveChangesAsync();
         return entity;
     }
+
     public async Task<bool> DeleteAsync(int id)
     {
         var reporte = await _context.Reporte.FindAsync(id);

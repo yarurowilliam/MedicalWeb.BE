@@ -4,6 +4,7 @@ using MedicalWeb.BE.Infraestructure.Persitence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedicalWeb.BE.Infraestructure.Migrations
 {
     [DbContext(typeof(MedicalWebDbContext))]
-    partial class MedicalWebDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250413040937_DesactivacionMedico")]
+    partial class DesactivacionMedico
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2831,11 +2834,6 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                         .IsRequired()
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
 
                     b.Property<int>("UsuarioId")
                         .HasColumnType("int");

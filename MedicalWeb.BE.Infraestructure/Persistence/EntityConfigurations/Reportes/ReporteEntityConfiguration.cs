@@ -39,6 +39,10 @@ namespace MedicalWeb.BE.Infraestructure.Persistence.EntityConfigurations
 
             builder.Property(x => x.FechaCreacion)
                 .IsRequired();
+
+            builder.Property(x => x.Nombre)
+                .IsRequired()
+                .HasMaxLength(DbConstants.StringLength.Names);
         }
     }
 }
