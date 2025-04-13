@@ -65,4 +65,3 @@ jobs:
           app-name: 'MedicalWeb-BE'
           slot-name: 'Production'
           package: .
-          

@@ -1,4 +1,4 @@
-﻿    using MedicalWeb.BE.Infraestructure.Data;
+﻿using MedicalWeb.BE.Infraestructure.Data;
 using MedicalWeb.BE.Transversales;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
