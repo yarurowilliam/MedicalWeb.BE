@@ -3,7 +3,6 @@ using MedicalWeb.BE.Repositorio.Interfaces;
 using MedicalWeb.BE.Transversales;
 using MedicalWeb.BE.Transversales.Entidades;
 using Microsoft.EntityFrameworkCore;
-using System.Globalization;
 namespace MedicalWeb.BE.Repositorio;
 
 public class HorarioMedicoDAL : IHorarioMedicoDAL
@@ -168,8 +167,7 @@ public class HorarioMedicoDAL : IHorarioMedicoDAL
     public async Task UpdateEstadoHorarioId(int id, int EstadoHorarioId)
     {
         var horario = await _context.HorarioMedico
-            .FirstOrDefaultAsync(e => e.Id == id);
-        
+                                             .FirstOrDefaultAsync(e => e.Id == id);
         if (horario == null)
         {
             throw new InvalidOperationException("El horario médico no existe.");
@@ -178,43 +176,5 @@ public class HorarioMedicoDAL : IHorarioMedicoDAL
         horario.EstadoHorarioID = EstadoHorarioId;
         _context.Entry(horario).Property(h => h.EstadoHorarioID).IsModified = true;
         await _context.SaveChangesAsync();
-    }
-
-    public async Task<IEnumerable<HorarioMedicoDTO>> GetCitasByPacienteAndDateRangeAsync(string pacienteId, DateTime fechaInicio, DateTime fechaFin)
-    {
-        try
-        {
-            // Convertir las fechas al formato que se usa en la base de datos
-            string fechaInicioStr = fechaInicio.ToString("dd-MM-yyyy");
-            string fechaFinStr = fechaFin.ToString("dd-MM-yyyy");
-
-            // Consultar las citas del paciente en el rango de fechas
-            var query = from h in _context.HorarioMedico
-                        join m in _context.Medicos on h.NumeroDocumento equals m.NumeroDocumento
-                        join p in _context.Pacientes on h.IdentificacionCliente equals p.NumeroDocumento
-                        where h.IdentificacionCliente == pacienteId &&
-                              h.Fecha >= DateOnly.FromDateTime(fechaInicio) &&
-                              h.Fecha <= DateOnly.FromDateTime(fechaFin)
-                        select new HorarioMedicoDTO
-                        {
-                            Id = h.Id,
-                            Fecha = h.Fecha,
-                            Hora = Convert.ToString(h.HoraID),
-                            Dia = Convert.ToString(h.DiaID),
-                            NumeroDocumento = h.NumeroDocumento,
-                            IdentificacionCliente = h.IdentificacionCliente,
-                            SalaId = h.SalaId,
-                            Estado = Convert.ToString(h.EstadoHorarioID),
-                            NombreMedico = $"{m.PrimerNombre} {m.PrimerApellido}",
-                            NombrePaciente = $"{p.PrimerNombre} {p.PrimerApellido}",
-                            Correo = p.CorreoElectronico
-                        };
-
-            return await query.ToListAsync();
-        }
-        catch (Exception ex)
-        {
-            throw new Exception($"Error al obtener las citas por paciente y rango de fechas: {ex.Message}");
-        }
     }
 }

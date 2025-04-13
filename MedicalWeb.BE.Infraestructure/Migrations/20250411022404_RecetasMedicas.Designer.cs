@@ -12,15 +12,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedicalWeb.BE.Infraestructure.Migrations
 {
     [DbContext(typeof(MedicalWebDbContext))]
-    [Migration("20250408232736_Reportes")]
-    partial class Reportes
+    [Migration("20250411022404_RecetasMedicas")]
+    partial class RecetasMedicas
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.10")
+                .HasAnnotation("ProductVersion", "9.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -2372,6 +2372,54 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                         });
                 });
 
+            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.MedicamentoRecetado", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int>("CantidadRecetada")
+                        .HasColumnType("int")
+                        .HasColumnName("CantidadRecetada");
+
+                    b.Property<string>("Concentracion")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("Concentracion");
+
+                    b.Property<string>("FormaFarmaceutica")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("FormaFarmaceutica");
+
+                    b.Property<string>("InstruccionesUso")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("InstruccionesUso");
+
+                    b.Property<string>("NombreMedicamento")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("NombreMedicamento");
+
+                    b.Property<int>("RecetaID")
+                        .HasColumnType("int")
+                        .HasColumnName("RecetaID");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("RecetaID");
+
+                    b.ToTable("MedicamentoRecetados", "dbo");
+                });
+
             modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.Medicion", b =>
                 {
                     b.Property<int>("Id")
@@ -2775,38 +2823,44 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                     b.HasAnnotation("SqlServer:UseSqlOutputClause", false);
                 });
 
-            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.Reporte", b =>
+            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.Receta", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ID");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int>("Estado")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("FechaCreacion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Mensaje")
+                    b.Property<string>("Diagnostico")
                         .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("Diagnostico");
 
-                    b.Property<string>("Motivo")
+                    b.Property<DateTime>("FechaHora")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("FechaHora");
+
+                    b.Property<string>("NumeroDocumentoMedico")
                         .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("NumeroDocumentoMedico");
 
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("int");
+                    b.Property<string>("NumeroDocumentoPaciente")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("NumeroDocumentoPaciente");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
-                    b.HasIndex("Estado");
+                    b.HasIndex("NumeroDocumentoMedico");
 
-                    b.ToTable("Reporte", "dbo");
+                    b.HasIndex("NumeroDocumentoPaciente");
+
+                    b.ToTable("Recetas", "dbo");
                 });
 
             modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.TipoDocumento", b =>
@@ -3030,27 +3084,6 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                         });
                 });
 
-            modelBuilder.Entity("MedicalWeb.BE.Transversales.EstadoReporte", b =>
-                {
-                    b.Property<int>("EstadoReporteID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EstadoReporteID"));
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("EstadoReporteID");
-
-                    b.HasIndex("Code")
-                        .IsUnique();
-
-                    b.ToTable("EstadoReporte", "dbo");
-                });
-
             modelBuilder.Entity("MedicalWeb.BE.Transversales.Generos", b =>
                 {
                     b.Property<int>("Id")
@@ -3255,6 +3288,17 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.MedicamentoRecetado", b =>
+                {
+                    b.HasOne("MedicalWeb.BE.Transversales.Entidades.Receta", "Receta")
+                        .WithMany()
+                        .HasForeignKey("RecetaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Receta");
+                });
+
             modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.Medicion", b =>
                 {
                     b.HasOne("MedicalWeb.BE.Transversales.Entidades.Pacientes", null)
@@ -3292,13 +3336,21 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.Reporte", b =>
+            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.Receta", b =>
                 {
-                    b.HasOne("MedicalWeb.BE.Transversales.EstadoReporte", null)
+                    b.HasOne("MedicalWeb.BE.Transversales.Entidades.Medico", "Medico")
                         .WithMany()
-                        .HasForeignKey("Estado")
+                        .HasForeignKey("NumeroDocumentoMedico")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("MedicalWeb.BE.Transversales.Entidades.Pacientes", null)
+                        .WithMany()
+                        .HasForeignKey("NumeroDocumentoPaciente")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Medico");
                 });
 
             modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.Valoraciones", b =>

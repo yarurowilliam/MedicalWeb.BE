@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 namespace MedicalWeb.BE.Transversales;
 
-public class Usuario 
+public class Usuario
 {
     [JsonIgnore]
     public int UsuarioID { get; set; } 

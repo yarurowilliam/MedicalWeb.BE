@@ -105,18 +105,4 @@ public class HorarioMedicoController : ControllerBase
         return Ok();
     }
 
-    [HttpGet("paciente/{pacienteId}/rango/{fechaInicio}/{fechaFin}")]
-    public async Task<ActionResult<IEnumerable<HorarioMedicoDTO>>> GetCitasByPacienteAndDateRange(string pacienteId, string fechaInicio, string fechaFin)
-    {
-        try
-        {
-            var citas = await _horarioMedicoBLL.GetCitasByPacienteAndDateRangeAsync(pacienteId, fechaInicio, fechaFin);
-            return Ok(citas);
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(new { message = ex.Message });
-        }
-    }
-
 }  
