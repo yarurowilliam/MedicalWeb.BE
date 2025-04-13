@@ -4,6 +4,7 @@ using MedicalWeb.BE.Transversales;
 using MedicalWeb.BE.Transversales.Encriptacion;
 using MedicalWeb.BE.Transversales.Entidades;
 using Microsoft.Extensions.Configuration;
+using Auth0.ManagementApi.Models;
 namespace MedicalWeb.BE.Servicio;
 
 public class UsuarioBLL : IUsuarioBLL
@@ -81,7 +82,7 @@ public class UsuarioBLL : IUsuarioBLL
             RolId = rolesCombinados
         };
 
-        return JwtConfiguration.GetToken(usuarioDTO, config);
+        return Transversales.Encriptacion.JwtConfiguration.GetToken(usuarioDTO, config);
     }
 
     public async Task<bool> ActualizarRolesUsuarioAsync(string identificacion, List<int> nuevosRoles)

@@ -11,5 +11,4 @@ public interface IHorarioMedicoDAL
     Task<HorarioMedico> UpdateHorarioMedicoAsync(HorarioMedico horarioMedico);
     Task UpdateSalaIdAsync(int id, string salaId);
     Task UpdateEstadoHorarioId (int id, int estadoHorarioId);
-    Task<IEnumerable<HorarioMedicoDTO>> GetCitasByPacienteAndDateRangeAsync(string pacienteId, DateTime fechaInicio, DateTime fechaFin);
 }

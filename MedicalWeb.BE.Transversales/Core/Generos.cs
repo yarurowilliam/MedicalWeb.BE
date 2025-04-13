@@ -4,7 +4,7 @@
     {
         public static readonly Generos Masculino = new(1, GenerosNames.Masculino);
         public static readonly Generos Femenino = new(2, GenerosNames.Femenino);
-        public static readonly Generos Otro = new(3, GenerosNames.Otro);
+        public static readonly Generos Otro = new(3, "OTRO");
         public static class GenerosNames
         {
             public const string Masculino = "MASCULINO";
@@ -22,8 +22,7 @@
         public static Generos[] GetAll()
             => new[] {
                 Masculino,
-                Femenino,
-                Otro
+                Femenino
             };
         public static Generos GetById(int id)
             => GetAll().First(x => x.Id == id);

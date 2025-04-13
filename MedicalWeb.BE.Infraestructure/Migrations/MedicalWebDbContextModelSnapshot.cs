@@ -2132,42 +2132,6 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                     b.ToTable("ChatMessage", "dbo");
                 });
 
-            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.DesactivacionMedico", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Estado")
-                        .IsRequired()
-                        .HasMaxLength(1)
-                        .HasColumnType("nvarchar(1)");
-
-                    b.Property<DateTime?>("FechaFin")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("FechaInicio")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Motivo")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<string>("NumeroDocumento")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NumeroDocumento");
-
-                    b.ToTable("DesactivacionMedico", (string)null);
-                });
-
             modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.Especialidad", b =>
                 {
                     b.Property<int>("Id")
@@ -2894,43 +2858,6 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                     b.HasIndex("NumeroDocumentoPaciente");
 
                     b.ToTable("Recetas", "dbo");
-            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.Reporte", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("Estado")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("FechaCreacion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Mensaje")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
-                    b.Property<string>("Motivo")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Estado");
-
-                    b.ToTable("Reporte", "dbo");
                 });
 
             modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.TipoDocumento", b =>
@@ -3154,27 +3081,6 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                         });
                 });
 
-            modelBuilder.Entity("MedicalWeb.BE.Transversales.EstadoReporte", b =>
-                {
-                    b.Property<int>("EstadoReporteID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EstadoReporteID"));
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("EstadoReporteID");
-
-                    b.HasIndex("Code")
-                        .IsUnique();
-
-                    b.ToTable("EstadoReporte", "dbo");
-                });
-
             modelBuilder.Entity("MedicalWeb.BE.Transversales.Generos", b =>
                 {
                     b.Property<int>("Id")
@@ -3333,15 +3239,6 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.DesactivacionMedico", b =>
-                {
-                    b.HasOne("MedicalWeb.BE.Transversales.Entidades.Medico", null)
-                        .WithMany()
-                        .HasForeignKey("NumeroDocumento")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.HistoriaClinica", b =>
                 {
                     b.HasOne("MedicalWeb.BE.Transversales.Entidades.Medico", "Medico")
@@ -3451,13 +3348,6 @@ namespace MedicalWeb.BE.Infraestructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Medico");
-            modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.Reporte", b =>
-                {
-                    b.HasOne("MedicalWeb.BE.Transversales.EstadoReporte", null)
-                        .WithMany()
-                        .HasForeignKey("Estado")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("MedicalWeb.BE.Transversales.Entidades.Valoraciones", b =>
