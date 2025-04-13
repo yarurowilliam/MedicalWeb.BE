@@ -41,6 +41,8 @@ public static class DbConstants
         public const string CancelacionCita = nameof(CancelacionCita);
         public const string ChatMessage = nameof(ChatMessage);
         public const string Generos = nameof(Generos);
+        public const string Recetas = nameof(Recetas);
+        public const string MedicamentoRecetados = nameof(MedicamentoRecetados);
         public const string EFMigrationsHistory = $"_{nameof(EFMigrationsHistory)}_";
     }
 
