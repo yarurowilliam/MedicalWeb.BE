@@ -38,6 +38,5 @@
         public string GrupoSanguineo { get; set; }
         public string NumeroDocumento { get; set; }
         public string TipoDocumento { get; set; }
-        public string Direccion { get; set; }
     }
 }

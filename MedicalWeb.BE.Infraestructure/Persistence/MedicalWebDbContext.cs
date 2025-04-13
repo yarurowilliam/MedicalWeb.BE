@@ -35,8 +35,6 @@ public class MedicalWebDbContext(DbContextOptions options) : DbContext(options)
     public DbSet <CancelacionCita> cancelacionCita { get; set; }
     public DbSet <ChatMessage> chatMessages { get; set; }
     public DbSet <Generos> generos { get; set; }
-    public DbSet <Receta> Recetas { get; set; }
-    public DbSet<MedicamentoRecetado> MedicamentoRecetados { get; set; }
 
     #endregion
 

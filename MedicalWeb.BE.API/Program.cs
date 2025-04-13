@@ -119,8 +119,6 @@ builder.Services.AddScoped<ICancelacionCitasDAL, CancelacionCitasDAL>();
 builder.Services.AddScoped<IChatStorageBLL, ChatStorageBLL>();
 builder.Services.AddScoped<IChatStorageDAL, ChatStorageDAL>();
 builder.Services.AddScoped<IFileStorageDAL, FileStorageDAL>();
-builder.Services.AddScoped<IMedicamentosRecetadosBLL, MedicamentosRecetadosBLL>();
-builder.Services.AddScoped<IMedicamentosRecetadosDAL, MedicamentosRecetadosDAL>();
 
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
