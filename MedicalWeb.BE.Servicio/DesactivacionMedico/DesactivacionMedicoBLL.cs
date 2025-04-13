@@ -58,7 +58,6 @@ namespace MedicalWeb.BE.BLL
                 throw new ArgumentException("La fecha de fin debe ser posterior a la fecha de inicio");
             }
 
-            // Crear la desactivación
             var result = await _desactivacionMedicoDAL.CreateDesactivacionAsync(desactivacion);
 
             // Desactivar el médico
