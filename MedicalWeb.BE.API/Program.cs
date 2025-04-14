@@ -128,6 +128,8 @@ builder.Services.AddScoped<IDesactivacionMedicoBLL, DesactivacionMedicoBLL>();
 builder.Services.AddScoped<IDesactivacionMedicoDAL, DesactivacionMedicoDAL>();
 builder.Services.AddScoped<IMedicamentosRecetadosBLL, MedicamentosRecetadosBLL>();
 builder.Services.AddScoped<IMedicamentosRecetadosDAL, MedicamentosRecetadosDAL>();
+builder.Services.AddScoped<IIncapacidadBLL, IncapacidadBLL>();
+builder.Services.AddScoped<IIncapacidadDAL, IncapacidadDAL>();
 
 
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
