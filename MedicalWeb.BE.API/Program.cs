@@ -200,6 +200,7 @@ app.MapHealthChecks("/health", new HealthCheckOptions
     }
 });
 
+
 app.MapControllers();
 
 // Migración de base de datos
