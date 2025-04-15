@@ -1,7 +1,6 @@
 ﻿using MedicalWeb.BE.Infraestructure.Persitence;
 using MedicalWeb.BE.Repositorio.Interfaces;
 using MedicalWeb.BE.Transversales.Entidades;
-using MedicalWeb.BE.Transversales.Entidades.MedicamentosRecetados;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,23 +10,28 @@ using System.Threading.Tasks;
 
 namespace MedicalWeb.BE.Repositorio;
 
-public class MedicamentosRecetadosDAL: IMedicamentosRecetadosDAL
+public class IncapacidadDAL: IIncapacidadDAL
 {
     private readonly MedicalWebDbContext _context;
 
-    public MedicamentosRecetadosDAL(MedicalWebDbContext context)
+    public IncapacidadDAL(MedicalWebDbContext context)
     {
         _context = context;
     }
 
     public async Task<MedicoPacienteDTO> ObtenerInfoMedicoYPacienteAsync(string documentoMedico, string documentoPaciente)
     {
-
         var medico = await _context.Medicos
             .FirstOrDefaultAsync(m => m.NumeroDocumento == documentoMedico);
 
         var paciente = await _context.Pacientes
             .FirstOrDefaultAsync(p => p.NumeroDocumento == documentoPaciente);
+
+        var especialidadMedico = await _context.MedicoEspecialidades
+            .Where(me => me.MedicoNumeroDocumento == documentoMedico)
+            .Select(me => _context.Especialidades
+                .FirstOrDefault(e => e.Id == me.EspecialidadId).Nombre)
+            .FirstOrDefaultAsync();
 
         if (medico == null || paciente == null)
         {
@@ -42,7 +46,9 @@ public class MedicamentosRecetadosDAL: IMedicamentosRecetadosDAL
                 SegundoNombre = medico.SegundoNombre,
                 Apellido = medico.PrimerApellido,
                 SegundoApellido = medico.SegundoApellido,
-                MatriculaProfesional = medico.MatriculaProfesional,
+                NumeroDocumento = medico.NumeroDocumento,
+                TipoDocumento = medico.TipoDocumento.ToString(),
+                Especialidad = especialidadMedico
             },
             Paciente = new PacienteInfoDTO
             {
@@ -51,8 +57,6 @@ public class MedicamentosRecetadosDAL: IMedicamentosRecetadosDAL
                 Apellido = paciente.PrimerApellido,
                 SegundoApellido = paciente.SegundoApellido,
                 Genero = paciente.Genero,
-                Telefono = paciente.Telefono,
-                Correo = paciente.CorreoElectronico,
                 NumeroDocumento = paciente.NumeroDocumento,
                 TipoDocumento = paciente.TipoDocumento.ToString(),
                 Direccion = paciente.Direccion
@@ -60,34 +64,23 @@ public class MedicamentosRecetadosDAL: IMedicamentosRecetadosDAL
         };
     }
 
-        public async Task InsertarRecetaConMedicamentosAsync(RecetaCompletaDTO recetaDTO)
+    public async Task InsertarIncapacidadAsync(IncapacidadDTO incapacidadDTO)
+    {
+        var incapacidad = new Incapacidad
         {
-            var receta = new Receta
-            {
-                NumeroDocumentoPaciente = recetaDTO.NumeroDocumentoPaciente,
-                NumeroDocumentoMedico = recetaDTO.NumeroDocumentoMedico,
-                FechaHora = recetaDTO.FechaHora,
-                Diagnostico = recetaDTO.Diagnostico
-            };
+            NumeroDocumentoPaciente = incapacidadDTO.NumeroDocumentoPaciente,
+            NumeroDocumentoMedico = incapacidadDTO.NumeroDocumentoMedico,
+            FechaGeneracion = incapacidadDTO.FechaGeneracion,
+            Diagnostico = incapacidadDTO.Diagnostico,
+            Origen = incapacidadDTO.Origen,
+            Clasificacion = incapacidadDTO.Clasificacion,
+            FechaInicio = incapacidadDTO.FechaInicio,
+            FechaFin = incapacidadDTO.FechaFin,
+            DuracionDias = incapacidadDTO.DuracionDias,
+            NumeroPrescripcionSustituida = incapacidadDTO.NumeroPrescripcionSustituida
+        };
 
-            await _context.Set<Receta>().AddAsync(receta);
-            await _context.SaveChangesAsync();
-
-            foreach (var med in recetaDTO.Medicamentos)
-            {
-                var medicamento = new MedicamentoRecetado
-                {
-                    RecetaID = receta.ID,
-                    NombreMedicamento = med.NombreMedicamento,
-                    Concentracion = med.Concentracion,
-                    FormaFarmaceutica = med.FormaFarmaceutica,
-                    CantidadRecetada = med.CantidadRecetada,
-                    InstruccionesUso = med.InstruccionesUso
-                };
-
-                await _context.Set<MedicamentoRecetado>().AddAsync(medicamento);
-            }
-
-            await _context.SaveChangesAsync();
-        }
+        await _context.Set<Incapacidad>().AddAsync(incapacidad);
+        await _context.SaveChangesAsync();
+    }
 }

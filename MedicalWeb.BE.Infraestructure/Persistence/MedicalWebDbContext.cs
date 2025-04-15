@@ -40,6 +40,7 @@ public class MedicalWebDbContext(DbContextOptions options) : DbContext(options)
     public DbSet<DesactivacionMedico> DesactivacionMedico { get; set; }
     public DbSet<Receta> Recetas { get; set; }
     public DbSet<MedicamentoRecetado> MedicamentoRecetados { get; set; }
+    public DbSet<Incapacidad> Incapacidades { get; set; }
     #endregion
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

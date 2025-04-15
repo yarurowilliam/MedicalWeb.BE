@@ -19,6 +19,7 @@
         public string MatriculaProfesional { get; set; }
         public string NumeroDocumento { get; set; }
         public string TipoDocumento { get; set; }
+        public string Especialidad { get; set; } 
     }
 
     public class PacienteInfoDTO

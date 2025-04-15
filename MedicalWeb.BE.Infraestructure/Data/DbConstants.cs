@@ -46,6 +46,7 @@ public static class DbConstants
         public const string DesactivacionMedico = nameof(DesactivacionMedico);
         public const string Recetas = nameof(Recetas);
         public const string MedicamentoRecetados = nameof(MedicamentoRecetados);
+        public const string Incapacidad = nameof(Incapacidad);
         public const string EFMigrationsHistory = $"_{nameof(EFMigrationsHistory)}_";
     }
 
