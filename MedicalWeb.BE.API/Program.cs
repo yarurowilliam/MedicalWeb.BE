@@ -21,7 +21,6 @@ using System.Text.Json;
 using MedicalWeb.BE.BLL;
 using MedicalWeb.BE.BLL.Interfaces;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Configuración de serialización JSON
