@@ -20,6 +20,9 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using System.Text.Json;
 using MedicalWeb.BE.BLL;
 using MedicalWeb.BE.BLL.Interfaces;
+using MedicalWeb.BE.Controllers;
+using MedicalWeb.BE.API.Controllers;
+using YourNamespace.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -54,15 +57,25 @@ builder.Services.AddStorage<StorageSettings>(
 );
 builder.Services.AddEmailClient(builder.Configuration.GetSection<AzureCommunicationService>().ConnectionString);
 
+// Register HttpClient factory
+builder.Services.AddHttpClient();
+
+// Configurar CORS para permitir streaming de video
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("CorsPolicy", builder =>
-        builder.AllowAnyOrigin()
-               .AllowAnyMethod()
-               .AllowAnyHeader());
+    options.AddPolicy("AllowVideoStreaming", builder =>
+    {
+        builder
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .WithExposedHeaders("Content-Length", "Content-Range", "Content-Disposition", "Accept-Ranges");
+    });
 });
 
+// Register the VideoStreamController
 builder.Services.AddControllers()
+    .AddApplicationPart(typeof(VideoStreamController).Assembly)
     .AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.Converters.Add(new JsonDateOnlyConverter());
@@ -96,6 +109,7 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
+
 
 // Inyección de dependencias
 builder.Services.AddScoped<IMedicoDAL, MedicoDAL>();
@@ -169,12 +183,63 @@ var app = builder.Build();
 // Redirección HTTPS
 app.UseHttpsRedirection();
 
-// Archivos estáticos
-app.UseStaticFiles();
+// Asegúrate de que esta configuración esté en tu Program.cs
+// Esto permite servir archivos estáticos desde la carpeta uploads
+
+// Configuración de archivos estáticos con CORS
+app.UseStaticFiles(new StaticFileOptions
+{
+    OnPrepareResponse = ctx =>
+    {
+        // Agregar encabezados CORS para archivos estáticos (incluyendo videos)
+        ctx.Context.Response.Headers.Append("Access-Control-Allow-Origin", "*");
+        ctx.Context.Response.Headers.Append("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS");
+        ctx.Context.Response.Headers.Append("Access-Control-Allow-Headers", "Content-Type, Accept, Range");
+        ctx.Context.Response.Headers.Append("Access-Control-Expose-Headers", "Content-Length, Content-Range, Content-Disposition, Accept-Ranges");
+
+        // Configuración específica para streaming de video
+        if (ctx.File.Name.EndsWith(".webm") || ctx.File.Name.EndsWith(".mp4"))
+        {
+            ctx.Context.Response.Headers.Append("Accept-Ranges", "bytes");
+
+            // Configurar caché para videos (deshabilitado para desarrollo)
+            ctx.Context.Response.Headers.Append("Cache-Control", "no-cache, no-store, must-revalidate");
+            ctx.Context.Response.Headers.Append("Pragma", "no-cache");
+            ctx.Context.Response.Headers.Append("Expires", "0");
+        }
+    }
+});
+
+// Agregar esta configuración para servir archivos desde la carpeta uploads
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "recordings")),
+    RequestPath = "/uploads/recordings",
+    OnPrepareResponse = ctx =>
+    {
+        // Agregar encabezados CORS para archivos en uploads/recordings
+        ctx.Context.Response.Headers.Append("Access-Control-Allow-Origin", "*");
+        ctx.Context.Response.Headers.Append("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS");
+        ctx.Context.Response.Headers.Append("Access-Control-Allow-Headers", "Content-Type, Accept, Range");
+        ctx.Context.Response.Headers.Append("Access-Control-Expose-Headers", "Content-Length, Content-Range, Content-Disposition, Accept-Ranges");
+
+        // Configuración específica para streaming de video
+        if (ctx.File.Name.EndsWith(".webm") || ctx.File.Name.EndsWith(".mp4"))
+        {
+            ctx.Context.Response.Headers.Append("Accept-Ranges", "bytes");
+            ctx.Context.Response.Headers.Append("Cache-Control", "no-cache, no-store, must-revalidate");
+            ctx.Context.Response.Headers.Append("Pragma", "no-cache");
+            ctx.Context.Response.Headers.Append("Expires", "0");
+        }
+    }
+});
 
 // Configuración de rutas y CORS
 app.UseRouting();
-app.UseCors("CorsPolicy");
+
+// Usar la política de CORS para video streaming
+app.UseCors("AllowVideoStreaming");
 
 // Autenticación y Autorización
 app.UseAuthentication();
@@ -204,7 +269,7 @@ app.MapHealthChecks("/health", new HealthCheckOptions
     }
 });
 
-
+// Asegurarse de que los controladores estén mapeados
 app.MapControllers();
 
 // Migración de base de datos

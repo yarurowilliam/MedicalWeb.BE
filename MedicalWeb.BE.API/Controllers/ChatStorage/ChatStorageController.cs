@@ -49,14 +49,29 @@ namespace MedicalWeb.BE.API.Controllers
         {
             var recordings = await _fileStorageDAL.GetFilesAsync($"recordings/{horarioMedicoId}", cancellationToken);
 
-            // Convertir las rutas de archivo a URLs accesibles
-            var baseUrl = $"{Request.Scheme}://{Request.Host}/uploads/";
+            // Asegurar que siempre usamos HTTPS para las URLs
+            var scheme = "https"; // Forzar HTTPS
+            var host = Request.Host.ToString();
+
+            // Si estamos en desarrollo local y usando localhost, mantener el esquema original
+            if (host.Contains("localhost") || host.Contains("127.0.0.1"))
+            {
+                scheme = Request.Scheme;
+            }
+
+            var baseUrl = $"{scheme}://{host}/uploads/";
+
             var recordingUrls = recordings
-                .Select(file => baseUrl + file.Replace("\\", "/")) 
+                .Select(file => baseUrl + file.Replace("\\", "/"))
                 .ToList();
+
+            // Agregar encabezados CORS específicos para videos
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, OPTIONS");
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Accept, Range");
+            Response.Headers.Add("Access-Control-Expose-Headers", "Content-Length, Content-Range, Content-Disposition");
 
             return Ok(recordingUrls);
         }
-
     }
 }
