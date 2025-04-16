@@ -59,7 +59,8 @@ public class IncapacidadDAL: IIncapacidadDAL
                 Genero = paciente.Genero,
                 NumeroDocumento = paciente.NumeroDocumento,
                 TipoDocumento = paciente.TipoDocumento.ToString(),
-                Direccion = paciente.Direccion
+                Direccion = paciente.Direccion,
+                Correo = paciente.CorreoElectronico
             }
         };
     }
