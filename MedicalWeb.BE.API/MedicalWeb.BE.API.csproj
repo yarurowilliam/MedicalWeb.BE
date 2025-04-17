@@ -1,29 +1,35 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>disable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>0ee3b649-1092-4a79-bd1b-1f8bd6de57a8</UserSecretsId>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>0ee3b649-1092-4a79-bd1b-1f8bd6de57a8</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS> 
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="MailKit" Version="4.10.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.3">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.3" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="8.1.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\MedicalWeb.BE.Infraestructure\MedicalWeb.BE.Infraestructure.csproj" />
-    <ProjectReference Include="..\MedicalWeb.BE.Repositorio.Interfaces\MedicalWeb.BE.Repositorio.Interfaces.csproj" />
-    <ProjectReference Include="..\MedicalWeb.BE.Repositorio\MedicalWeb.BE.Repositorio.csproj" />
-    <ProjectReference Include="..\MedicalWeb.BE.Servicio.Interfaces\MedicalWeb.BE.Servicio.Interfaces.csproj" />
-    <ProjectReference Include="..\MedicalWeb.BE.Servicio\MedicalWeb.BE.Servicio.csproj" />
-    <ProjectReference Include="..\MedicalWeb.BE.Transversales\MedicalWeb.BE.Transversales.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\MedicalWeb.BE.Infraestructure\MedicalWeb.BE.Infraestructure.csproj" />
+		<ProjectReference Include="..\MedicalWeb.BE.Repositorio.Interfaces\MedicalWeb.BE.Repositorio.Interfaces.csproj" />
+		<ProjectReference Include="..\MedicalWeb.BE.Repositorio\MedicalWeb.BE.Repositorio.csproj" />
+		<ProjectReference Include="..\MedicalWeb.BE.Servicio.Interfaces\MedicalWeb.BE.Servicio.Interfaces.csproj" />
+		<ProjectReference Include="..\MedicalWeb.BE.Servicio\MedicalWeb.BE.Servicio.csproj" />
+		<ProjectReference Include="..\MedicalWeb.BE.Transversales\MedicalWeb.BE.Transversales.csproj" />
+		<None Update="wwwroot\swagger\v1\swagger.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
 </Project>

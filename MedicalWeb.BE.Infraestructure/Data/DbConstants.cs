@@ -1,4 +1,5 @@
-﻿using System.Security;
+﻿using System.Net.Http.Headers;
+using System.Security;
 
 namespace MedicalWeb.BE.Infraestructure.Data;
 
@@ -25,11 +26,27 @@ public static class DbConstants
         public const string NotificationMethods = nameof(NotificationMethods);
         public const string Especialidades = nameof(Especialidades);
         public const string TipoDocumento = nameof(TipoDocumento);
-        public const string HorarioMedico = nameof(HorarioMedico);  
+        public const string HorarioMedico = nameof(HorarioMedico);
         public const string Dias = nameof(Dias);
         public const string HorasMedicas = nameof(HorasMedicas);
         public const string EstadoHorario = nameof(EstadoHorario);
         public const string MedicoEspecialidad = nameof(MedicoEspecialidad);
+        public const string Pacientes = nameof(Pacientes);
+        public const string Medicion = nameof(Medicion);
+        public const string HistoriaClinica = nameof(HistoriaClinica);
+        public const string Usuario = nameof(Usuario);
+        public const string Rol = nameof(Rol);
+        public const string UsuarioRoles = nameof(UsuarioRoles);
+        public const string Valoraciones = nameof(Valoraciones);
+        public const string CancelacionCita = nameof(CancelacionCita);
+        public const string ChatMessage = nameof(ChatMessage);
+        public const string Generos = nameof(Generos);
+        public const string Reporte = nameof(Reporte);
+        public const string EstadoReporte = nameof(EstadoReporte);
+        public const string DesactivacionMedico = nameof(DesactivacionMedico);
+        public const string Recetas = nameof(Recetas);
+        public const string MedicamentoRecetados = nameof(MedicamentoRecetados);
+        public const string Incapacidad = nameof(Incapacidad);
         public const string EFMigrationsHistory = $"_{nameof(EFMigrationsHistory)}_";
     }
 

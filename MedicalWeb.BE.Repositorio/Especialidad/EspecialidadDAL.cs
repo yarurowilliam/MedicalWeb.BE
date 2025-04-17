@@ -1,6 +1,7 @@
 ﻿using MedicalWeb.BE.Infraestructure.Persitence;
 using MedicalWeb.BE.Repositorio.Interfaces;
 using MedicalWeb.BE.Transversales.Entidades;
+using Microsoft.EntityFrameworkCore;
 
 namespace MedicalWeb.BE.Repositorio;
 
@@ -49,5 +50,16 @@ public class EspecialidadDAL : IEspecialidadDAL
         _context.Especialidades.Update(especialidad);
         await _context.SaveChangesAsync();
         return especialidad;
+    }
+    public async Task ActivarAsync(int id)
+    {
+        var especialidad = await _context.Especialidades
+            .FirstOrDefaultAsync(u => u.Id == id);
+
+        if (especialidad != null)
+        {
+            especialidad.Estado = "ACTIVO";
+            await _context.SaveChangesAsync();
+        }
     }
 }

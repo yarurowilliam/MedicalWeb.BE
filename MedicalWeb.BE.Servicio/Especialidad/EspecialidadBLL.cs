@@ -1,4 +1,5 @@
-﻿using MedicalWeb.BE.Repositorio.Interfaces;
+﻿using MedicalWeb.BE.Repositorio;
+using MedicalWeb.BE.Repositorio.Interfaces;
 using MedicalWeb.BE.Servicio.Interfaces;
 using MedicalWeb.BE.Transversales.Entidades;
 
@@ -36,5 +37,9 @@ public class EspecialidadBLL : IEspecialidadBLL
     public async Task<Especialidad> UpdateEspecialidadAsync(Especialidad especialidad)
     {
         return await _especialidadDAL.UpdateEspecialidadAsync(especialidad);
+    }
+    public async Task ActivarAsync(int id)
+    {
+        await _especialidadDAL.ActivarAsync(id);
     }
 }

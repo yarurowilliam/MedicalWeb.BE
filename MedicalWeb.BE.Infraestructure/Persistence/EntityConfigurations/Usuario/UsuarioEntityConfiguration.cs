@@ -2,6 +2,7 @@
 using MedicalWeb.BE.Transversales.Entidades;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
+using MedicalWeb.BE.Transversales;
 
 namespace MedicalWeb.BE.Infraestructure.Persitence.EntityConfigurations;
 
@@ -10,10 +11,15 @@ public class UsuarioEntityConfiguration : IEntityTypeConfiguration<Usuario>
     public void Configure(EntityTypeBuilder<Usuario> builder)
     {
         builder.ToTable(
-        DbConstants.Tables.Usuarios,
-        DbConstants.Schemas.Dbo);
+            DbConstants.Tables.Usuarios,
+            DbConstants.Schemas.Dbo);
 
-        builder.HasKey(e => e.Identificacion);
+        builder.HasKey(e => e.UsuarioID);
+
+        builder.Property(e => e.UsuarioID)
+            .HasColumnName("UsuarioID")
+            .ValueGeneratedOnAdd()  
+            .IsRequired();
 
         builder.Property(e => e.Identificacion)
             .HasColumnName("Identificacion")
@@ -29,5 +35,19 @@ public class UsuarioEntityConfiguration : IEntityTypeConfiguration<Usuario>
             .HasColumnName("Password")
             .HasMaxLength(50)
             .IsRequired();
+
+        builder.Property(e => e.Estado)
+            .HasColumnName("Estado")
+            .HasMaxLength(1)
+            .IsRequired();
+
+        builder.Property(e => e.RolId)
+            .HasColumnName("RolId")
+            .IsRequired();
+
+        builder.HasOne<Rol>()
+            .WithMany()
+            .HasForeignKey(e => e.RolId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

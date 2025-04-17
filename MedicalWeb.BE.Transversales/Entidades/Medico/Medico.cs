@@ -17,7 +17,7 @@ public class Medico
     public string Pais { get; set; }
     public string CodigoPostal { get; set; }
     public string Genero { get; set; }
-    public string EstadoCivil { get; set; }
+    public int EstadoCivil { get; set; }
     public string FechaNacimiento { get; set; }
     public string LugarNacimiento { get; set; }
     public string Nacionalidad { get; set; }
@@ -27,4 +27,5 @@ public class Medico
     public string FechaIngreso { get; set; }
     public string FechaSalida { get; set; }
     public string Estado { get; set; } 
+    public string ImagenUrl { get; set; }
 }

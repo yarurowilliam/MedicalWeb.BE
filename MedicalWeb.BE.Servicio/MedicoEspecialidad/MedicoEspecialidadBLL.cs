@@ -54,5 +54,18 @@ namespace MedicalWeb.BE.Servicio
         {
             return await _medicoEspecialidadDAL.GetMedicosEspecialidadesAsync();
         }
+
+        // Implementación del nuevo método para actualizar todas las especialidades de un médico
+        public async Task UpdateMedicoEspecialidadesAsync(string medicoNumeroDocumento, List<int> especialidadesIds)
+        {
+            await _medicoEspecialidadDAL.UpdateMedicoEspecialidadesAsync(medicoNumeroDocumento, especialidadesIds);
+        }
+
+        // Implementación del nuevo método para obtener las especialidades de un médico
+        public async Task<IEnumerable<MedicoEspecialidad>> GetEspecialidadesByMedicoAsync(string medicoNumeroDocumento)
+        {
+            return await _medicoEspecialidadDAL.GetEspecialidadesByMedicoAsync(medicoNumeroDocumento);
+        }
     }
 }
+

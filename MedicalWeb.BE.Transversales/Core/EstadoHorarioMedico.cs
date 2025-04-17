@@ -2,14 +2,17 @@
 {   
     public sealed class EstadoHorarioMedico
     {
-        public static readonly EstadoHorarioMedico Disponible = new(1, EstadoHorarioMedicos.Disponible);
-        public static readonly EstadoHorarioMedico NoDisponible = new(2, EstadoHorarioMedicos.Ocupado);
-        public static readonly EstadoHorarioMedico Ocupado = new(3, EstadoHorarioMedicos.NoDisponible);
+        public static readonly EstadoHorarioMedico Pendiente = new(1, EstadoHorarioMedicos.Pendiente);
+        public static readonly EstadoHorarioMedico Completada = new(2, EstadoHorarioMedicos.Completada);
+        public static readonly EstadoHorarioMedico Ocupado = new(3, EstadoHorarioMedicos.EnCurso);
+        public static readonly EstadoHorarioMedico Cancelada = new(4, EstadoHorarioMedicos.Cancelada);
+        
         public static class EstadoHorarioMedicos
         {
-            public const string Disponible = "DISPONIBLE";
-            public const string Ocupado = "OCUPADO";
-            public const string NoDisponible = "NO DISPONIBLE";
+            public const string Pendiente = "PENDIENTE";
+            public const string Completada = "COMPLETADA";
+            public const string EnCurso = "EN CURSO";
+            public const string Cancelada = "CANCELADA";
         }
 
         public int EstadoHorarioID { get; }
@@ -26,9 +29,10 @@
 
         public static EstadoHorarioMedico[] GetAll()
             => new[] {
-            Disponible,
+            Pendiente,
             Ocupado,
-            NoDisponible
+            Completada,
+            Cancelada
             };
 
         public static EstadoHorarioMedico GetById(int id)

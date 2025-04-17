@@ -27,7 +27,6 @@ public class HorarioMedicoEntityConfiguration : IEntityTypeConfiguration<Horario
            .HasForeignKey(x => x.DiaID) 
            .OnDelete(DeleteBehavior.Restrict);
 
-
         builder.Property(x => x.Fecha)
             .IsRequired();  
 
@@ -41,6 +40,9 @@ public class HorarioMedicoEntityConfiguration : IEntityTypeConfiguration<Horario
             .OnDelete(DeleteBehavior.Restrict);
 
         builder.Property(x => x.EstadoHorarioID)
+            .IsRequired();
+
+        builder.Property(x => x.SalaId)
             .IsRequired();
 
         builder
@@ -64,7 +66,7 @@ public class HorarioMedicoEntityConfiguration : IEntityTypeConfiguration<Horario
 
         //builder
         //    .HasOne<Usuario>() 
-        //    .WithMany()      
+        //    .WithMany()       
         //    .HasForeignKey(x => x.IdentificacionCliente)
         //    .OnDelete(DeleteBehavior.Restrict);
     }

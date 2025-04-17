@@ -3,14 +3,17 @@ using MedicalWeb.BE.Repositorio.Interfaces;
 using MedicalWeb.BE.Transversales;
 using MedicalWeb.BE.Transversales.Entidades;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 namespace MedicalWeb.BE.Repositorio;
 
 public class HorarioMedicoDAL : IHorarioMedicoDAL
 {
     private readonly MedicalWebDbContext _context;
+   
 
     public HorarioMedicoDAL(MedicalWebDbContext context)
     {
+        
         _context = context;
     }
 
@@ -83,23 +86,135 @@ public class HorarioMedicoDAL : IHorarioMedicoDAL
         return horarioMedico;
     }
 
-    public async Task<IEnumerable<HorarioMedico>> GetHorarioMedicoAsync()
+    public async Task<IEnumerable<HorarioMedicoDTO>> GetHorarioMedicoAsync()
     {
-        return await _context.HorarioMedico
-            .ToListAsync();
+        return await (from h in _context.HorarioMedico
+                      join m in _context.Medicos on h.NumeroDocumento equals m.NumeroDocumento
+                      join p in _context.Pacientes on h.IdentificacionCliente equals p.NumeroDocumento
+                      select new HorarioMedicoDTO
+                      {
+                          Id = h.Id,
+                          NumeroDocumento = m.NumeroDocumento,
+                          NombreMedico = $"{m.PrimerNombre} {m.SegundoNombre} {m.PrimerApellido}".Trim(),
+                          IdentificacionCliente = p.NumeroDocumento,
+                          NombrePaciente = $"{p.PrimerNombre} {p.SegundoNombre} {p.PrimerApellido}".Trim(),
+                          Dia = Dias.GetById(h.DiaID).Code,
+                          Hora = HorasMedicas.GetById(h.HoraID).Code,
+                          Estado = EstadoHorarioMedico.GetById(h.EstadoHorarioID).Code,
+                          Fecha = h.Fecha,
+                          SalaId = h.SalaId,
+                          Correo = p.CorreoElectronico
+                      }).ToListAsync();
     }
 
-    public async Task<IEnumerable<HorarioMedico>> GetHorarioMedicoIdentificacionAsync(int Identificacion)
+    public async Task<IEnumerable<HorarioMedicoDTO>> GetHorarioMedicoIdentificacionAsync(int identificacion)
     {
-        return await _context.HorarioMedico 
-            .Where(h => Convert.ToInt32(h.NumeroDocumento) == Identificacion)
-            .ToListAsync();
+        return await (from h in _context.HorarioMedico
+                      join m in _context.Medicos on h.NumeroDocumento equals m.NumeroDocumento
+                      join p in _context.Pacientes on h.IdentificacionCliente equals p.NumeroDocumento
+                      where h.NumeroDocumento == identificacion.ToString()
+                      select new HorarioMedicoDTO
+                      {
+                          Id = h.Id,
+                          NumeroDocumento = m.NumeroDocumento,
+                          NombreMedico = $"{m.PrimerNombre} {m.SegundoNombre} {m.PrimerApellido}".Trim(),
+                          IdentificacionCliente = p.NumeroDocumento,
+                          NombrePaciente = $"{p.PrimerNombre} {p.SegundoNombre} {p.PrimerApellido}".Trim(),
+                          Dia = Dias.GetById(h.DiaID).Code,
+                          Hora = HorasMedicas.GetById(h.HoraID).Code,
+                          Fecha = h.Fecha,
+                          Estado = EstadoHorarioMedico.GetById(h.EstadoHorarioID).Code,
+                          SalaId = h.SalaId,
+                          Correo = p.CorreoElectronico
+                      }).ToListAsync();
     }
 
-    public async Task<IEnumerable<HorarioMedico>> GetHorariosPorDiaYHoraAsync(string medicoId,int dia, int hora)
+    public async Task<IEnumerable<HorarioMedicoDTO>> GetHorarioMedicoIdentificacionPacienteAsync(int identificacion)
     {
-        return await _context.HorarioMedico
-            .Where(h => h.NumeroDocumento == medicoId && h.DiaID == dia && h.HoraID == hora)
-            .ToListAsync();
+        return await (from h in _context.HorarioMedico
+                      join m in _context.Medicos on h.NumeroDocumento equals m.NumeroDocumento
+                      join p in _context.Pacientes on h.IdentificacionCliente equals p.NumeroDocumento
+                      where h.IdentificacionCliente == identificacion.ToString() || h.Id == identificacion
+                      select new HorarioMedicoDTO
+                      {
+                          Id = h.Id,
+                          NumeroDocumento = m.NumeroDocumento,
+                          NombreMedico = $"{m.PrimerNombre} {m.SegundoNombre} {m.PrimerApellido}".Trim(),
+                          IdentificacionCliente = p.NumeroDocumento,
+                          NombrePaciente = $"{p.PrimerNombre} {p.SegundoNombre} {p.PrimerApellido}".Trim(),
+                          Dia = Dias.GetById(h.DiaID).Code,
+                          Hora = HorasMedicas.GetById(h.HoraID).Code,
+                          Estado = EstadoHorarioMedico.GetById(h.EstadoHorarioID).Code,
+                          Fecha = h.Fecha,
+                          SalaId = h.SalaId,
+                          Correo = p.CorreoElectronico
+                      }).ToListAsync();
+    }
+
+    public async Task UpdateSalaIdAsync(int id, string salaId)
+    {
+        var horario = await _context.HorarioMedico
+                                             .FirstOrDefaultAsync(e => e.Id == id);
+        if (horario == null)
+        {
+            throw new InvalidOperationException("El horario médico no existe.");
+        }
+
+        horario.SalaId = salaId;
+        _context.Entry(horario).Property(h => h.SalaId).IsModified = true;
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task UpdateEstadoHorarioId(int id, int EstadoHorarioId)
+    {
+        var horario = await _context.HorarioMedico
+            .FirstOrDefaultAsync(e => e.Id == id);
+        
+        if (horario == null)
+        {
+            throw new InvalidOperationException("El horario médico no existe.");
+        }
+
+        horario.EstadoHorarioID = EstadoHorarioId;
+        _context.Entry(horario).Property(h => h.EstadoHorarioID).IsModified = true;
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task<IEnumerable<HorarioMedicoDTO>> GetCitasByPacienteAndDateRangeAsync(string pacienteId, DateTime fechaInicio, DateTime fechaFin)
+    {
+        try
+        {
+            // Convertir las fechas al formato que se usa en la base de datos
+            string fechaInicioStr = fechaInicio.ToString("dd-MM-yyyy");
+            string fechaFinStr = fechaFin.ToString("dd-MM-yyyy");
+
+            // Consultar las citas del paciente en el rango de fechas
+            var query = from h in _context.HorarioMedico
+                        join m in _context.Medicos on h.NumeroDocumento equals m.NumeroDocumento
+                        join p in _context.Pacientes on h.IdentificacionCliente equals p.NumeroDocumento
+                        where h.IdentificacionCliente == pacienteId &&
+                              h.Fecha >= DateOnly.FromDateTime(fechaInicio) &&
+                              h.Fecha <= DateOnly.FromDateTime(fechaFin)
+                        select new HorarioMedicoDTO
+                        {
+                            Id = h.Id,
+                            Fecha = h.Fecha,
+                            Hora = Convert.ToString(h.HoraID),
+                            Dia = Convert.ToString(h.DiaID),
+                            NumeroDocumento = h.NumeroDocumento,
+                            IdentificacionCliente = h.IdentificacionCliente,
+                            SalaId = h.SalaId,
+                            Estado = Convert.ToString(h.EstadoHorarioID),
+                            NombreMedico = $"{m.PrimerNombre} {m.PrimerApellido}",
+                            NombrePaciente = $"{p.PrimerNombre} {p.PrimerApellido}",
+                            Correo = p.CorreoElectronico
+                        };
+
+            return await query.ToListAsync();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception($"Error al obtener las citas por paciente y rango de fechas: {ex.Message}");
+        }
     }
 }

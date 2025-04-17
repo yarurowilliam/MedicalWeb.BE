@@ -1,4 +1,5 @@
-﻿namespace MedicalWeb.BE.Transversales.Entidades;
+﻿using Microsoft.AspNetCore.Http;
+namespace MedicalWeb.BE.Transversales.Entidades;
 
 public class MedicoDTO
 {
@@ -27,4 +28,6 @@ public class MedicoDTO
     public string FechaIngreso { get; set; }
     public string FechaSalida { get; set; }
     public string Estado { get; set; }
+    public string? ImagenUrl { get; set; } 
+    public IFormFile? ImagenFile { get; set; } 
 }

@@ -7,6 +7,7 @@ using MedicalWeb.BE.Infraestructure.Persitence.SeedData;
 using MedicalWeb.BE.Transversales.Entidades;
 using MedicalWeb.BE.Transversales;
 
+
 namespace MedicalWeb.BE.Infraestructure.Persitence;
 
 public class MedicalWebDbContext(DbContextOptions options) : DbContext(options)
@@ -24,7 +25,22 @@ public class MedicalWebDbContext(DbContextOptions options) : DbContext(options)
     public DbSet<HorasMedicas> HorasMedicas { get; set; }
     public DbSet<EstadoHorarioMedico> EstadoHorarioMedicos { get; set; }
     public DbSet<MedicoEspecialidad> MedicoEspecialidades { get; set; }
-
+    public DbSet<Pacientes> Pacientes { get; set; }
+    public DbSet<Medicion> Medicion { get; set; }
+    public DbSet<HistoriaClinica> HistoriaClinica { get; set; }
+    public DbSet <Usuario> Usuario { get; set; }
+    public DbSet <Rol> Rol { get; set; }
+    public DbSet <UsuarioRoles> UsuarioRoles { get; set; }
+    public DbSet <Valoraciones> Valoraciones { get; set; }
+    public DbSet <CancelacionCita> cancelacionCita { get; set; }
+    public DbSet <ChatMessage> chatMessages { get; set; }
+    public DbSet <Generos> generos { get; set; }
+    public DbSet<Reporte> Reporte { get; set; }
+    public DbSet<EstadoReporte> EstadoReporte { get; set; }
+    public DbSet<DesactivacionMedico> DesactivacionMedico { get; set; }
+    public DbSet<Receta> Recetas { get; set; }
+    public DbSet<MedicamentoRecetado> MedicamentoRecetados { get; set; }
+    public DbSet<Incapacidad> Incapacidades { get; set; }
     #endregion
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
@@ -42,6 +58,10 @@ public class MedicalWebDbContext(DbContextOptions options) : DbContext(options)
             .Seed();
 
         HasSequences(modelBuilder);
+
+        // Configurar tablas con triggers
+        modelBuilder.Entity<Pacientes>()
+            .ToTable("Pacientes", t => t.HasTrigger("trg_AfterUpdatePacientes"));
 
         base.OnModelCreating(modelBuilder);
     }
