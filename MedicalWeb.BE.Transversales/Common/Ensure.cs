@@ -1,6 +1,8 @@
 ﻿using MedicalWeb.BE.Transversales.Core.Exceptions;
 using System.Diagnostics.CodeAnalysis;
 
+#nullable enable
+
 public static class Ensure
 {
     public static void That(bool condition, string message = "")

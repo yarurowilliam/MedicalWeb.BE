@@ -8,7 +8,7 @@ using MedicalWeb.BE.Infraestructure.Persitence;
 using MedicalWeb.BE.Infrastructure.Data;
 
 namespace Microsoft.Extensions.DependencyInjection;
-
+#nullable enable
 public static class IServiceCollectionExtension
 {
     public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration configuration)

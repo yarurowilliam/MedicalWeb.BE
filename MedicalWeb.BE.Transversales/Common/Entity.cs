@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace MedicalWeb.BE.Transversales.Common;
 
+#nullable enable
 public abstract class Entity
 {
     public Guid Id { get; set; }

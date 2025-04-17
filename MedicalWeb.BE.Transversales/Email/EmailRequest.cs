@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 namespace MedicalWeb.BE.Transversales;
 
+#nullable enable
 public class EmailRequest
 {
     public string To { get; set; } = default!;
