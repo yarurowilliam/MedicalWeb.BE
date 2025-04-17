@@ -1,0 +1,362 @@
+<!DOCTYPE html><html lang="en"><head>
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="utf-8">
+  <title>MedicalWebFE</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="assets/Imagenes/Icono/300ppi.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+<!-- Agregar en el head de tu index.html -->
+<link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet">
+<script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+<link rel="stylesheet" href="styles.css"><style ng-app-id="ng">
+
+[_ngcontent-ng-c3667283148]:root {
+  --primary: #957754;
+  --primary-light: rgba(149, 119, 84, 0.1);
+  --primary-dark: #7a6245;
+  --secondary: #4a6d7c;
+  --secondary-light: #d1e8e2;
+  --accent: #e8c07d;
+  --text: #333333;
+  --text-light: #666666;
+  --background: #f8f9fa;
+  --white: #ffffff;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --transition: all 0.3s ease;
+}
+.error-container[_ngcontent-ng-c3667283148] {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background-color: var(--background);
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234a6d7c' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  position: relative;
+  overflow: hidden;
+}
+.error-content[_ngcontent-ng-c3667283148] {
+  max-width: 800px;
+  width: 100%;
+  background-color: var(--white);
+  border-radius: var(--radius);
+  padding: 60px 40px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.error-icon[_ngcontent-ng-c3667283148] {
+  margin-bottom: 30px;
+}
+.heartbeat-container[_ngcontent-ng-c3667283148] {
+  position: relative;
+  height: 80px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.heartbeat-line[_ngcontent-ng-c3667283148] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: _ngcontent-ng-c3667283148_pulse 2s infinite;
+}
+.heartbeat-flatline[_ngcontent-ng-c3667283148] {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #dc3545;
+  transform: translateY(-50%);
+  opacity: 0;
+  animation: _ngcontent-ng-c3667283148_flatline 4s 1s forwards;
+}
+@keyframes _ngcontent-ng-c3667283148_pulse {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+@keyframes _ngcontent-ng-c3667283148_flatline {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.error-code[_ngcontent-ng-c3667283148] {
+  font-size: 8rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 0;
+  line-height: 1;
+  text-shadow: 2px 2px 0 var(--primary-light);
+  position: relative;
+  display: inline-block;
+}
+.error-code[_ngcontent-ng-c3667283148]::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background-color: var(--accent);
+  border-radius: 2px;
+}
+.error-title[_ngcontent-ng-c3667283148] {
+  font-size: 2.5rem;
+  color: var(--text);
+  margin: 20px 0;
+  font-weight: 700;
+}
+.error-message[_ngcontent-ng-c3667283148] {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.error-actions[_ngcontent-ng-c3667283148] {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.btn-primary[_ngcontent-ng-c3667283148], 
+.btn-outline[_ngcontent-ng-c3667283148] {
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 2px solid;
+}
+.btn-primary[_ngcontent-ng-c3667283148] {
+  background-color: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+.btn-primary[_ngcontent-ng-c3667283148]:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.btn-outline[_ngcontent-ng-c3667283148] {
+  background-color: transparent;
+  color: var(--secondary);
+  border-color: var(--secondary);
+}
+.btn-outline[_ngcontent-ng-c3667283148]:hover {
+  background-color: var(--secondary);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.popular-pages[_ngcontent-ng-c3667283148] {
+  margin-top: 50px;
+}
+.popular-pages[_ngcontent-ng-c3667283148]   h3[_ngcontent-ng-c3667283148] {
+  font-size: 1.5rem;
+  color: var(--text);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.pages-grid[_ngcontent-ng-c3667283148] {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.page-card[_ngcontent-ng-c3667283148] {
+  background-color: var(--white);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.page-card[_ngcontent-ng-c3667283148]:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  background-color: var(--primary-light);
+}
+.page-icon[_ngcontent-ng-c3667283148] {
+  width: 50px;
+  height: 50px;
+  background-color: var(--secondary-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+.page-card[_ngcontent-ng-c3667283148]:hover   .page-icon[_ngcontent-ng-c3667283148] {
+  background-color: var(--accent);
+  transform: rotateY(180deg);
+}
+.page-icon[_ngcontent-ng-c3667283148]   i[_ngcontent-ng-c3667283148] {
+  font-size: 20px;
+  color: var(--secondary);
+}
+.medical-illustration[_ngcontent-ng-c3667283148] {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 200px;
+  height: 200px;
+  opacity: 0.1;
+  pointer-events: none;
+}
+.stethoscope[_ngcontent-ng-c3667283148] {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+.stethoscope-head[_ngcontent-ng-c3667283148] {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.stethoscope-tube[_ngcontent-ng-c3667283148] {
+  width: 100px;
+  height: 8px;
+  background-color: var(--primary);
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  border-radius: 4px;
+}
+.stethoscope-bell[_ngcontent-ng-c3667283148] {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  position: absolute;
+  top: 50px;
+  left: 110px;
+}
+.pills[_ngcontent-ng-c3667283148] {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+.pill[_ngcontent-ng-c3667283148] {
+  position: absolute;
+  border-radius: 20px;
+}
+.pill-1[_ngcontent-ng-c3667283148] {
+  width: 40px;
+  height: 20px;
+  background-color: var(--accent);
+  transform: rotate(30deg);
+  top: 0;
+  left: 0;
+}
+.pill-2[_ngcontent-ng-c3667283148] {
+  width: 30px;
+  height: 15px;
+  background-color: var(--secondary);
+  transform: rotate(-15deg);
+  top: 25px;
+  left: 20px;
+}
+.pill-3[_ngcontent-ng-c3667283148] {
+  width: 35px;
+  height: 18px;
+  background-color: var(--primary);
+  transform: rotate(60deg);
+  top: 40px;
+  left: -10px;
+}
+@media (max-width: 768px) {
+  .error-content[_ngcontent-ng-c3667283148] {
+    padding: 40px 20px;
+  }
+  .error-code[_ngcontent-ng-c3667283148] {
+    font-size: 6rem;
+  }
+  .error-title[_ngcontent-ng-c3667283148] {
+    font-size: 2rem;
+  }
+  .error-message[_ngcontent-ng-c3667283148] {
+    font-size: 1.1rem;
+  }
+  .error-actions[_ngcontent-ng-c3667283148] {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .btn-primary[_ngcontent-ng-c3667283148], 
+   .btn-outline[_ngcontent-ng-c3667283148] {
+    width: 100%;
+    justify-content: center;
+  }
+  .pages-grid[_ngcontent-ng-c3667283148] {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .medical-illustration[_ngcontent-ng-c3667283148] {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .error-code[_ngcontent-ng-c3667283148] {
+    font-size: 5rem;
+  }
+  .error-title[_ngcontent-ng-c3667283148] {
+    font-size: 1.8rem;
+  }
+  .error-message[_ngcontent-ng-c3667283148] {
+    font-size: 1rem;
+  }
+  .pages-grid[_ngcontent-ng-c3667283148] {
+    grid-template-columns: 1fr;
+  }
+}
+/*# sourceMappingURL=not-found.component.css.map */</style></head>
+<body>
+  <app-root _nghost-ng-c2177695944="" ng-version="18.2.12" ng-server-context="ssr"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><router-outlet _ngcontent-ng-c2177695944=""></router-outlet><app-not-found _nghost-ng-c3667283148=""><div _ngcontent-ng-c3667283148="" class="error-container"><div _ngcontent-ng-c3667283148="" class="error-content"><div _ngcontent-ng-c3667283148="" class="error-icon"><div _ngcontent-ng-c3667283148="" class="heartbeat-container"><div _ngcontent-ng-c3667283148="" class="heartbeat-line"><svg _ngcontent-ng-c3667283148="" viewBox="0 0 600 100" preserveAspectRatio="none"><path _ngcontent-ng-c3667283148="" d="M0,50 L100,50 L150,20 L200,80 L250,0 L300,100 L350,50 L400,50 L450,20 L500,80 L550,50 L600,50" fill="none" stroke="#957754" stroke-width="3"></path></svg></div><div _ngcontent-ng-c3667283148="" class="heartbeat-flatline"></div></div></div><h1 _ngcontent-ng-c3667283148="" class="error-code">404</h1><h2 _ngcontent-ng-c3667283148="" class="error-title">Página no encontrada</h2><p _ngcontent-ng-c3667283148="" class="error-message"> Lo sentimos, la página que estás buscando parece haberse perdido en nuestro sistema. </p><div _ngcontent-ng-c3667283148="" class="error-actions"><button _ngcontent-ng-c3667283148="" class="btn-primary"><i _ngcontent-ng-c3667283148="" class="fas fa-home"></i> Volver al inicio </button><button _ngcontent-ng-c3667283148="" class="btn-outline"><i _ngcontent-ng-c3667283148="" class="fas fa-headset"></i> Contactar soporte </button></div><div _ngcontent-ng-c3667283148="" class="medical-illustration"><div _ngcontent-ng-c3667283148="" class="stethoscope"><div _ngcontent-ng-c3667283148="" class="stethoscope-head"></div><div _ngcontent-ng-c3667283148="" class="stethoscope-tube"></div><div _ngcontent-ng-c3667283148="" class="stethoscope-bell"></div></div><div _ngcontent-ng-c3667283148="" class="pills"><div _ngcontent-ng-c3667283148="" class="pill pill-1"></div><div _ngcontent-ng-c3667283148="" class="pill pill-2"></div><div _ngcontent-ng-c3667283148="" class="pill pill-3"></div></div></div></div></div></app-not-found><!--container--></app-root>
+<script src="polyfills.js" type="module"></script><script src="main.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body></html>
