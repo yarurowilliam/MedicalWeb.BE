@@ -1,4 +1,6 @@
-﻿using MedicalWeb.BE.Infraestructure.Persitence;
+﻿using MedicalWeb.BE.Infraestructure.Options;
+using MedicalWeb.BE.Infraestructure.Persitence;
+using MedicalWeb.BE.Infraestructure.Services;
 using MedicalWeb.BE.Repositorio.Interfaces;
 using MedicalWeb.BE.Transversales;
 using MedicalWeb.BE.Transversales.Encriptacion;
@@ -8,7 +10,9 @@ namespace MedicalWeb.BE.Repositorio;
 
 public class PacientesDAL : IPacientesDAL
 {
-    private readonly MedicalWebDbContext _context;
+    private readonly MedicalWebDbContext _context; 
+    private readonly IEmailService _emailService;
+
 
     public PacientesDAL(MedicalWebDbContext context)
     {
@@ -66,44 +70,61 @@ public class PacientesDAL : IPacientesDAL
             Medicamentos = pacientesDto.Medicamentos,
             EnfermedadesCronicas = pacientesDto.EnfermedadesCronicas,
             AntecedentesFamiliares = pacientesDto.AntecedentesFamiliares,
-            FechaRegistro = pacientesDto.FechaRegistro,
+            FechaRegistro = DateTime.UtcNow,
             Estado = pacientesDto.Estado
         };
 
         await _context.Pacientes.AddAsync(paciente);
 
-        string nombreUsuario;
-        if (string.IsNullOrEmpty(pacientesDto.SegundoNombre))
+        // Validar si el usuario ya existe
+        var usuarioExistente = await _context.Usuarios
+            .FirstOrDefaultAsync(u => u.Identificacion == pacientesDto.NumeroDocumento);
+
+        if (usuarioExistente == null)
         {
-            nombreUsuario = $"{pacientesDto.PrimerNombre.Substring(0, 2).ToLower()}{pacientesDto.PrimerApellido.ToLower()}";
+            // Generar nombre de usuario
+            string nombreUsuario;
+            if (string.IsNullOrEmpty(pacientesDto.SegundoNombre))
+            {
+                nombreUsuario = $"{pacientesDto.PrimerNombre.Substring(0, 2).ToLower()}{pacientesDto.PrimerApellido.ToLower()}";
+            }
+            else
+            {
+                nombreUsuario = $"{pacientesDto.PrimerNombre[0]}{pacientesDto.SegundoNombre[0]}{pacientesDto.PrimerApellido}".ToUpper();
+            }
+
+            int contador = 1;
+            string nombreUsuarioOriginal = nombreUsuario;
+            while (await _context.Usuarios.AnyAsync(u => u.NombreUsuario == nombreUsuario))
+            {
+                nombreUsuario = $"{nombreUsuarioOriginal}{contador}";
+                contador++;
+            }
+
+            // Contraseña temporal
+            
+            var contrasena = pacientesDto.NumeroDocumento + "CEMEDICAR";
+
+
+            var usuario = new Usuario
+            {
+                Identificacion = pacientesDto.NumeroDocumento,
+                NombreUsuario = pacientesDto.NumeroDocumento,
+                Password = Encrypt.EncriptarContrasena(contrasena),
+                RolId = 3,
+                Estado = 'A'
+            };
+
+            await _context.Set<Usuario>().AddAsync(usuario);
+            await _context.SaveChangesAsync();
         }
         else
         {
-            nombreUsuario = $"{pacientesDto.PrimerNombre[0]}{pacientesDto.SegundoNombre[0]}{pacientesDto.PrimerApellido}".ToUpper();
+            await _context.SaveChangesAsync();
         }
 
-        int contador = 1;
-        string nombreUsuarioOriginal = nombreUsuario;
-        while (await _context.Usuarios.AnyAsync(u => u.NombreUsuario == nombreUsuario))
-        {
-            nombreUsuario = $"{nombreUsuarioOriginal}{contador}";
-            contador++;
-        }
-
-        //var usuario = new Usuario
-        //{
-        //    Identificacion = pacientesDto.NumeroDocumento,
-        //    NombreUsuario = nombreUsuario,
-        //    Password = Encrypt.EncriptarContrasena("Medical2024"),
-        //    RolId = 3,
-        //};
-
-        //await _context.Set<Usuario>().AddAsync(usuario);
-            
-        await _context.SaveChangesAsync();
         return pacientesDto;
     }
-
 
     public async Task<Pacientes> UpdateAsync(Pacientes pacientesDto)
     {

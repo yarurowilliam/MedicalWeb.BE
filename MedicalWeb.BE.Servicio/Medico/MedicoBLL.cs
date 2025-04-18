@@ -41,35 +41,44 @@ public class MedicoBLL : IMedicoBLL
 
     public static MedicoDTO MapToDTO(Medico medico)
     {
-        return new MedicoDTO
+        try
         {
-            TipoDocumento = Transversales.TipoDocumento.GetById(medico.TipoDocumento).Name,
-            NumeroDocumento = medico.NumeroDocumento,
-            PrimerNombre = medico.PrimerNombre,
-            SegundoNombre = medico.SegundoNombre,
-            PrimerApellido = medico.PrimerApellido,
-            SegundoApellido = medico.SegundoApellido,
-            CorreoElectronico = medico.CorreoElectronico,
-            Telefono = medico.Telefono,
-            Celular = medico.Celular,
-            Direccion = medico.Direccion,
-            Ciudad = medico.Ciudad,
-            Departamento = medico.Departamento,
-            Pais = medico.Pais,
-            CodigoPostal = medico.CodigoPostal,
-            Genero = medico.Genero,
-            EstadoCivil = Convert.ToString(medico.EstadoCivil),
-            FechaNacimiento = medico.FechaNacimiento,
-            LugarNacimiento = medico.LugarNacimiento,
-            Nacionalidad = medico.Nacionalidad,
-            MatriculaProfesional = medico.MatriculaProfesional,
-            Universidad = medico.Universidad,
-            AnioGraduacion = medico.AnioGraduacion,
-            FechaIngreso = medico.FechaIngreso,
-            FechaSalida = medico.FechaSalida,
-            Estado = medico.Estado,
-            ImagenUrl = medico.ImagenUrl
-        };
+            return new MedicoDTO
+            {
+                TipoDocumento = Transversales.TipoDocumento.GetById(medico.TipoDocumento).Name,
+                NumeroDocumento = medico.NumeroDocumento,
+                PrimerNombre = medico.PrimerNombre,
+                SegundoNombre = medico.SegundoNombre,
+                PrimerApellido = medico.PrimerApellido,
+                SegundoApellido = medico.SegundoApellido,
+                CorreoElectronico = medico.CorreoElectronico,
+                Telefono = medico.Telefono,
+                Celular = medico.Celular,
+                Direccion = medico.Direccion,
+                Ciudad = medico.Ciudad,
+                Departamento = medico.Departamento,
+                Pais = medico.Pais,
+                CodigoPostal = medico.CodigoPostal,
+                Genero = medico.Genero,
+                EstadoCivil = Convert.ToString(medico.EstadoCivil),
+                FechaNacimiento = medico.FechaNacimiento,
+                LugarNacimiento = medico.LugarNacimiento,
+                Nacionalidad = medico.Nacionalidad,
+                MatriculaProfesional = medico.MatriculaProfesional,
+                Universidad = medico.Universidad,
+                AnioGraduacion = medico.AnioGraduacion,
+                FechaIngreso = medico.FechaIngreso,
+                FechaSalida = medico.FechaSalida,
+                Estado = medico.Estado,
+                ImagenUrl = medico.ImagenUrl
+            };
+        }
+        catch (Exception ex)
+        {
+
+            throw ex;
+        }
+       
     }
 
     public static IEnumerable<MedicoDTO> MapToDTO(IEnumerable<Medico> medicos)

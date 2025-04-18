@@ -110,6 +110,12 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
+builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
+
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+builder.Services.AddScoped<IEmailService, EmailService>();
+
 
 // Inyección de dependencias
 builder.Services.AddScoped<IMedicoDAL, MedicoDAL>();
@@ -145,11 +151,6 @@ builder.Services.AddScoped<IIncapacidadBLL, IncapacidadBLL>();
 builder.Services.AddScoped<IIncapacidadDAL, IncapacidadDAL>();
 
 
-builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
-builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
-
-builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
-builder.Services.AddScoped<IEmailService, EmailService>();
 
 // Configuración de JWT
 var jwtSettings = builder.Configuration.GetSection("Jwt");
@@ -183,10 +184,6 @@ var app = builder.Build();
 // Redirección HTTPS
 app.UseHttpsRedirection();
 
-// Asegúrate de que esta configuración esté en tu Program.cs
-// Esto permite servir archivos estáticos desde la carpeta uploads
-
-// Configuración de archivos estáticos con CORS
 app.UseStaticFiles(new StaticFileOptions
 {
     OnPrepareResponse = ctx =>

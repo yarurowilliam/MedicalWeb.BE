@@ -20,4 +20,9 @@ public class EmailService(EmailClient emailClient, string recipientEmail, string
 
         await emailClient.SendAsync(WaitUntil.Started, emailMessage, cancellationToken);
     }
+
+    public Task SendEmailCredencialesAsync(IEmailInfo emailInfo, CancellationToken cancellationToken)
+    {
+        throw new NotImplementedException();
+    }
 }
